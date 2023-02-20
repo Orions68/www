@@ -10,9 +10,10 @@ function screen()
     }
 }
 
-function view(view)
+function view(views)
 {
-    let height = height;
+    let height = window.innerHeight;
 
-    view.style.height = height;
+    views.style.height = height + "px";
+    console.log("El tamaño vertical de la pantalla es: " + height);
 }
