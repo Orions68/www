@@ -2,6 +2,8 @@
 include "includes/conn.php";
 $title = "Primera Base de Datos";
 include "includes/header.php";
+include "includes/nav-pc.html";
+include "includes/nav-mob.html";
 ?>
 <section class="container-fluid pt-3">
     <div class="row">
@@ -16,12 +18,12 @@ include "includes/header.php";
                     <br><br><br><br>
                     <h1>Agregar Usuarios</h1>
                     <br>
-                    <form action="signup.php" method="post">
+                    <form action="signup.php" method="post" onsubmit="return verify()">
                         <label><input type="text" name="username" required> Nombre</label>
                         <br><br>
                         <label><input type="text" name="surname" required> Apelidos</label>
                         <br><br>
-                        <label><input type="text" name="dni" required> D.N.I.</label>
+                        <label><input id="dni" type="text" name="dni" required> D.N.I.</label>
                         <br><br>
                         <label><input type="text" name="phone" required> Teléfono</label>
                         <br><br>

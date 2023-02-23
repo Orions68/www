@@ -22,7 +22,7 @@ include "includes/header.php";
                         $sql = "INSERT INTO users VALUES(:id, :name, :surname, :dni, :phone, :email);";
                         $stmt = $conn->prepare($sql);
                         $stmt->execute(array(':id' => null, ':name' => $name, ':surname' => $surname, ':dni' => $dni, ':phone' => $phone, ':email' => $email));
-                        echo "<script>if (!alert('Usuario " . $name . " Agregado Correctamente.')) window.open('index.php', '_self');</scritp>";
+                        echo "<script>if (!alert('Usuario " . $name . " Agregado Correctamente.')) window.open('index.php', '_self');</script>";
                     }
                     ?>
                 </div>

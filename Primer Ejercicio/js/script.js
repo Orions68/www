@@ -19,3 +19,24 @@ function view(views, heightView)
         views.style.height = height + "px";
     }
 }
+
+function verify()
+{
+    let dnielement = document.getElementById("dni");
+    let dni = dnielement.value;
+
+    numero = dni.substr(0, dni.length - 1);
+    leter = dni.substr(dni.length - 1, 1);
+    numero = numero % 23;
+    leters = 'TRWAGMYFPDXBNJZSQVHLCKET';
+    let dnileter = leters.substring(numero, numero + 1);
+    if (dnileter != leter.toUpperCase())
+    {
+        alert("No, la letra no es correcta.");
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
