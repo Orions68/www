@@ -11,8 +11,27 @@ include "includes/nav-mob.html";
             <div class="col-md-10">
                 <div id="view1">
                     <br><br><br><br>
-                    <h1>Hola Mundo!</h1>
+                    <h1>Ver Lista de Usuarios</h1>
                     <br>
+                    <table>
+                        <th>Nombre</th><th>Apellidos</th><th>DNI</th><th>Teléfono</th><th>E-mail</th>
+                        <?php
+                        $sql = "SELECT * FROM users";
+                        $stmt = $conn->prepare($sql);
+                        $stmt->execute();
+                        if ($stmt->rowCount() > 0)
+                        {
+                            while ($row = $stmt->fetch(PDO::FETCH_OBJ))
+                            {
+                                echo "<tr><td>$row->name</td>
+                                <td>$row->surname</td>
+                                <td>$row->dni</td>
+                                <td>$row->phone</td>
+                                <td>$row->email</td></tr>";
+                            }
+                        }
+                        ?>
+                    </table>
                 </div>
                 <div id="view2">
                     <br><br><br><br>
