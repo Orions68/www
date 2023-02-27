@@ -1,0 +1,13 @@
+label, input, select, option, p
+{
+    font-size: 1.25rem;
+}
+
+table
+{
+    border-collapse: unset;
+    border: 1px solid red;
+}
+tr, th, td{
+    border: 1px solid blue;
+}
