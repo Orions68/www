@@ -14,9 +14,9 @@ include "includes/nav-mob.html";
                     <h1>Ver Lista de Usuarios</h1>
                     <br>
                     <table>
-                        <th>Nombre</th><th>Apellidos</th><th>DNI</th><th>Teléfono</th><th>E-mail</th>
+                        <th>Nombre</th><th>Primer Apellido</th><th>Segundo Apellido</th><th>DNI</th><th>Teléfono</th><th>E-mail</th>
                         <?php
-                        $sql = "SELECT * FROM users";
+                        $sql = "SELECT * FROM user";
                         $stmt = $conn->prepare($sql);
                         $stmt->execute();
                         if ($stmt->rowCount() > 0)
@@ -25,6 +25,7 @@ include "includes/nav-mob.html";
                             {
                                 echo "<tr><td>$row->name</td>
                                 <td>$row->surname</td>
+                                <td>$row->surname2</td>
                                 <td>$row->dni</td>
                                 <td>$row->phone</td>
                                 <td>$row->email</td></tr>";
@@ -40,7 +41,9 @@ include "includes/nav-mob.html";
                     <form action="signup.php" method="post" onsubmit="return verify()">
                         <label><input type="text" name="username" required> Nombre</label>
                         <br><br>
-                        <label><input type="text" name="surname" required> Apelidos</label>
+                        <label><input type="text" name="surname" required> Primer Apelido</label>
+                        <br><br>
+                        <label><input type="text" name="surname2"> Segundo Apelido</label>
                         <br><br>
                         <label><input id="dni" type="text" name="dni" required> D.N.I.</label>
                         <br><br>
