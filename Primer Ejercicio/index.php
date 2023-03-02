@@ -2,6 +2,7 @@
 include "includes/conn.php";
 $title = "Primera Base de Datos";
 include "includes/header.php";
+include "includes/modal-index.html";
 include "includes/nav-pc.html";
 include "includes/nav-mob.html";
 ?>
