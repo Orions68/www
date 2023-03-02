@@ -22,64 +22,84 @@ function pdfDown(number) // Función para guardar la factura como PDF. Recibe el
     doc.save(); // Lo descarga en la carpeta Descargas con un nombre generico.
 }
 
-function prices(cont, howmany) // Función usada para agregar campos para facturar. Recibe la cantidad de artículos a agregar al formulario.
+function prices() // Función usada para agregar campos para facturar. Recibe la cantidad de artículos a agregar al formulario.
 {
-    let container = ""; // Declaro la variable container, vacia.
-    if (cont == "R") // Si se llamó a la función desde el selector de cantidad de replacements
-    {
-        container = document.getElementById("rep_prices"); // Obtiene en la variable container la ID del div rep_prices
-    }
-    else // Si no se llamo desde el selector de cantidad de materiales.
-    {
-        container = document.getElementById("mat_prices"); // Obtiene en la variable container la ID del div mat_prices
-    }
-    container.innerHTML = ""; // Limpia el contenido del contenedor.
+    let pat_cont = document.getElementById("patient");
+    let doc_cont = document.getElementById("doc");
+    let qtty_cont = document.getElementById("qtty");
+    let qtty2_cont = document.getElementById("qtty2");
+    let form = document.createElement("form");
+    form.action = "";
+    form.method = "post";
 
-    for (i = 0; i < howmany; i++) // Hago un bucle a la cantidad de artículos a agregar.
+    const qtty2 = document.createElement("input"); // Crea un elemento HTML input.
+
+
+    if (qtty2_cont != null)
     {
-        const input = document.createElement("input"); // Crea un elemento HTML input.
-        const label = document.createElement("label"); // Crea un elemento HTML label.
-        const br = document.createElement("br"); // Crea un elemento HTML br.
-        const br2 = document.createElement("br");
-        
-        const input2 = document.createElement("input"); // Crea un segundo elemento HTML input.
-        const label2 = document.createElement("label"); // Crea un segundo elemento HTML label.
-        const br3 = document.createElement("br");
-        const br4 = document.createElement("br");
+        if (qtty_cont.value > 0)
+        {
+            let rep = [];
+            let qtty_rep = [];
+            let name = [];
+
+            for (i = 0; i < qtty_cont.value; i++)
+            {
+                rep[i] = document.getElementById("rep" + i);
+                name[i] = rep[i].options[rep[i].selectedIndex].text;
+                qtty_rep[i] = document.getElementById("qtty_rep" + i);
+                const rep_id = document.createElement("input"); // Crea un elemento HTML input.
+                const rep_name = document.createElement("input"); // Crea un elemento HTML input.
+                const rep_qtty = document.createElement("input"); // Crea un elemento HTML input.
+
+                rep_id.type = "hidden";
+                rep_id.name = "rep_id" + i; // Al primero Input le pone el nombre patitne.
+                rep_id.value = rep[i].value;
+                form.appendChild(rep_id);
+
+                rep_name.type = "hidden";
+                rep_name.name = "rep_name" + i; // Al primero Input le pone el nombre patitne.
+                rep_name.value = name[i];
+                form.appendChild(rep_name);
+                
+                rep_qtty.type = "hidden";
+                rep_qtty.name = "rep_qtty" + i; // Al primero Input le pone el nombre patitne.
+                rep_qtty.value = qtty_rep[i].value;
+                form.appendChild(rep_qtty);
+
+            }
+        }
+        qtty2.value = qtty2_cont.value;
+    }
+    else
+    {
+        qtty2.value = -1;
+    }
+    qtty2.type = "hidden";
+    qtty2.name = "qtty2"; // Al cuarto Input le pone el nombre qtty2.
+    form.appendChild(qtty2);
+
+    const patient = document.createElement("input"); // Crea un elemento HTML input.
+    const doc = document.createElement("input"); // Crea un elemento HTML input.
+    const qtty = document.createElement("input"); // Crea un elemento HTML input.
+
+    patient.type = "hidden";
+    patient.name = "patient"; // Al primero Input le pone el nombre patient.
+    patient.value = pat_cont.value + "," + pat_cont.options[pat_cont.selectedIndex].text;
+    form.appendChild(patient);
     
-        input.name = "material" + i; // Al primero Input le pone el nombre material + el índice del bucle.
-        input.type = "text"; // Lo hago de tipo text.
-        if (cont == "R")
-        {
-            label.innerHTML = " Nombre del Insumo"; // A la primera label le asigno un texto.
-        }
-        else
-        {
-            label.innerHTML = " Nombre del Desechable"; // A la primera label le asigno un texto.
-        }
+    doc.type = "hidden";
+    doc.name = "doc"; // Al segundo Input le pone el nombre doc.
+    doc.value = doc_cont.value + "," + doc_cont.options[doc_cont.selectedIndex].text;
+    form.appendChild(doc);
 
-        input2.name = "price" + i; // El segundo input es para el precio, lle asigno el nombre price + el índice del bucle.
-        input2.type = "number"; // Lo hago de tipo number.
-        input2.step = .1; // Le asigno un step de .1.
-        if (cont == "R")
-        {
-            label2.innerHTML = " Precio del Insumo"; // Al label2 le asigno un texto.
-        }
-        else
-        {
-            label2.innerHTML = " Precio del Desechable"; // Al label2 le asigno un texto.
-        }
+    qtty.type = "hidden";
+    qtty.name = "qtty"; // Al tercero Input le pone el nombre qtty.
+    qtty.value = qtty_cont.value;
+    form.appendChild(qtty);
 
-        container.appendChild(input); // Agrego el input al contenedor.
-        container.appendChild(label); // Agrego la label al contenedor.
-        container.appendChild(br); // Agrego los br.
-        container.appendChild(br2);
-
-        container.appendChild(input2); // Hago lo nmismo con el input2, su label y sus br.
-        container.appendChild(label2);
-        container.appendChild(br3);
-        container.appendChild(br4);
-    }
+    document.body.appendChild(form);
+    form.submit();
 }
 
 function screen() // Establece el tamaño de las vistas en la pantalla.
@@ -252,13 +272,14 @@ function sendDate(id, patient) // Esta función es llamada cuando se selecciona 
 {
     let doc = document.getElementById("doc"); // Obtengo la ID del selector del profesional.
     let date = document.getElementById("date"); // Obtengo la ID del input type date.
+    
     if (doc.value != "") // Si se seleccionó un Profesional.
     {
         let form = document.createElement("form"); // Creo un formulario.
         let input = document.createElement("input"); // Asigno a la variable input la creación de un input.
         let input1 = document.createElement("input"); // Asigno a la variable input1 la creación de un input.
         let input2 = document.createElement("input"); // Asigno a la variable input2 la creación de un input.
-        let input3 = document.createElement("input"); // Asigno a la variable input3 la creación de un input.
+        // let input3 = document.createElement("input"); // Asigno a la variable input3 la creación de un input.
         let input4 = document.createElement("input"); // Asigno a la variable input3 la creación de un input.
 
         const array = doc.value.split(",");
@@ -281,19 +302,19 @@ function sendDate(id, patient) // Esta función es llamada cuando se selecciona 
         input2.value = date.value; // Al input hidden le asigno el valor de la variable de javascript username, declarada en el script client.php.
         form.appendChild(input2); // Lo agrego al formulario.
 
-        if (id != "")
-        {
-            input3.type = "hidden";
-            input3.name = "id";
-            input3.value = id; // Asigno al inpout el valor del nombre del paciente.
-            form.appendChild(input3); // Lo agrego al formulario.
-        }
+        // if (id != "")
+        // {
+        //     input3.type = "hidden";
+        //     input3.name = "id";
+        //     input3.value = id; // Asigno al inpout el valor del nombre del paciente.
+        //     form.appendChild(input3); // Lo agrego al formulario.
+        // }
 
         if (patient != "")
         {
             input4.type = "hidden";
             input4.name = "patient";
-            input4.value = patient; // Asigno al inpout el valor del nombre del paciente.
+            input4.value = id + "," + patient; // Asigno al inpout el valor del nombre del paciente.
             form.appendChild(input4); // Lo agrego al formulario.
         }
 
@@ -310,26 +331,11 @@ function sendDate(id, patient) // Esta función es llamada cuando se selecciona 
 
 function verify()
 {
-    let dnielement = document.getElementById("dni");
-    let dni = dnielement.value;
-
-    // numero = dni.substr(0, dni.length - 1);
-    // leter = dni.substr(dni.length - 1, 1);
-    // numero = numero % 23;
-    // leters = 'TRWAGMYFPDXBNJZSQVHLCKET';
-    // let dnileter = leters.substring(numero, numero + 1);
-    // if (dnileter != leter.toUpperCase())
-    // {
-    //     alert("No, la letra no es correcta.");
-    //     return false;
-    // }
-    // else
-    // {
-    //     return true;
-    // }
-
-    var numero, letr, letra;
+    let doc = document.getElementById("dni");
+    var numero, letra, letras;
     var expresion_regular_dni = /^[XYZ]?\d{1,9}[A-Z]$/;
+
+    dni = doc.value;
 
     if(expresion_regular_dni.test(dni) === true)
     {
@@ -337,13 +343,13 @@ function verify()
         numero = numero.replace('X', 0);
         numero = numero.replace('Y', 1);
         numero = numero.replace('Z', 2);
-        letr = dni.substr(dni.length - 1, 1);
+        letra = dni.substr(dni.length - 1, 1);
         numero = numero % 23;
-        letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
-        letra = letra.substring(numero, numero + 1);
-        if (letra != letr.toUpperCase())
+        letras = 'TRWAGMYFPDXBNJZSQVHLCKET';
+        letras = letras.substring(numero, numero + 1);
+        if (letras != letra.toUpperCase())
         {
-            toast(2, 'El D.N.I. o N.I.E. es Incorrecto', 'Verifica que los Números y la Letra o Letras Estén Bien.');
+            toast (2, "Error el D.N.I. o el N.I.E. es Incorrecto", "El Número no Corresponde con la Letra<br>Verifica los Datos e Insertalo Correctamente.");
             return false;
         }
         else
@@ -353,7 +359,7 @@ function verify()
     }
     else
     {
-        toast(2, 'El D.N.I. o N.I.E. es Incorrecto', 'Verifica que los Números y la Letra o Letras Estén Bien.');
+        toast (2, "Error el D.N.I. o el N.I.E. es Incorrecto", "El Número no Corresponde con la Letra<br>Verifica los Datos e Insertalo Correctamente.");
         return false;
     }
 }

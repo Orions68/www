@@ -24,19 +24,32 @@ function verify()
 {
     let dnielement = document.getElementById("dni");
     let dni = dnielement.value;
+    var numero, letra, letras;
+    var expresion_regular_dni = /^[XYZ]?\d{1,9}[A-Z]$/;
 
-    numero = dni.substr(0, dni.length - 1);
-    leter = dni.substr(dni.length - 1, 1);
-    numero = numero % 23;
-    leters = 'TRWAGMYFPDXBNJZSQVHLCKET';
-    let dnileter = leters.substring(numero, numero + 1);
-    if (dnileter != leter.toUpperCase())
+    if(expresion_regular_dni.test(dni) === true)
     {
-        alert("No, la letra no es correcta.");
-        return false;
+        numero = dni.substr(0, dni.length - 1);
+        numero = numero.replace('X', 0);
+        numero = numero.replace('Y', 1);
+        numero = numero.replace('Z', 2);
+        letra = dni.substr(dni.length - 1, 1);
+        numero = numero % 23;
+        letras = 'TRWAGMYFPDXBNJZSQVHLCKET';
+        letras = letras.substring(numero, numero + 1);
+        if (letras != letra.toUpperCase())
+        {
+            toast(2, 'El D.N.I. o N.I.E. es Incorrecto', 'Verifica que los Números y la Letra o Letras Estén Bien.');
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
     else
     {
-        return true;
+        toast(2, 'El D.N.I. o N.I.E. es Incorrecto', 'Verifica que los Números y la Letra o Letras Estén Bien.');
+        return false;
     }
 }
