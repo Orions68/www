@@ -8,6 +8,8 @@ table
     border-collapse: unset;
     border: 1px solid red;
 }
-tr, th, td{
+tr, th, td
+{
+    font-size: 1.25rem;
     border: 1px solid blue;
 }

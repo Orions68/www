@@ -37,6 +37,8 @@ include "includes/nav-mob.html";
                 </div>
                 <div id="view2">
                     <br><br><br><br>
+                    <div class="row">
+                    <div class="col-md-6">
                     <h1>Agregar Usuarios</h1>
                     <br>
                     <form action="signup.php" method="post" onsubmit="return verify()">
@@ -54,6 +56,73 @@ include "includes/nav-mob.html";
                         <br><br>
                         <input class="btn btn-primary btn-lg" type="submit" value="Registro a este Usuario">
                     </form>
+                    </div>
+                    <div class="col-md-6">
+                    <h1>Entrada de Usuario</h1>
+                        <form action="login.php" method="post">
+                            <label><input type="text" name="email"> E-mail</label>
+                            <br><br>
+                            <label><input type="text" name="dni"> D.N.I.</label>
+                            <br><br>
+                            <input type="submit" value="A Mi Perfil">
+                        </form>
+                    </div>
+                    </div>
+                </div>
+                <div id="view3">
+                    <br><br><br><br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1>Modificador de Datos de Usuario</h1>
+                            <br>
+                            <h3>Seleciona el Usuario a Modificar</h3>
+                            <br>
+                            <form action="modify.php" method="post">
+                                <label><select name="id">
+                                <option value="">Selecciona un Usuario</option>
+                                <?php
+                                $sql = "SELECT id, name FROM user;";
+                                $stmt = $conn->prepare($sql);
+                                $stmt->execute();
+                                if ($stmt->rowCount() > 0)
+                                {
+                                    while ($row = $stmt->fetch(PDO::FETCH_OBJ))
+                                    {
+                                        echo '<option value="' . $row->id . '">' . $row->name . '</option>';
+                                    }
+                                }
+                                ?>
+                                </select> Selecciona un Usuario para Modificar sus Datos</label>
+                                <br><br>
+                                <input class="btn btn-primary btn-lg" type="submit" value="Modifica los Datos de Este Usaurio">
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <h1>Borrar un Usuario</h1>
+                            <br>
+                            <h3>Seleciona el Usuario a Eliminar</h3>
+                            <br>
+                            <form action="delete.php" method="post">
+                                <label><select name="id">
+                                <option value="">Selecciona un Usuario</option>
+                                <?php
+                                $sql = "SELECT id, name FROM user;";
+                                $stmt = $conn->prepare($sql);
+                                $stmt->execute();
+                                if ($stmt->rowCount() > 0)
+                                {
+                                    while ($row = $stmt->fetch(PDO::FETCH_OBJ))
+                                    {
+                                        echo '<option value="' . $row->id . '">' . $row->name . '</option>';
+                                    }
+                                }
+                                ?>
+                                </select> Selecciona un Usuario para Eliminar sus Datos</label>
+                                <br><br>
+                                <input class="btn btn-danger btn-lg" type="submit" value="Elimina los Datos de Este Usaurio">
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         <div class="col-md-1"></div>

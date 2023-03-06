@@ -1,22 +1,18 @@
-<nav id="mobile" class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-mdb-toggle="collapse"
-            data-mdb-target="#navbarToggleExternalContent2"
-            aria-controls="navbarToggleExternalContent1"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-        >
-            <i class="fas fa-bars text-dark"></i>
-        </button>
-        <a class="navbar-brand" href="#">Navbar</a>
+<!-- Menú para pantalla de Teléfono -->
+<nav class="navbar fixed-top bg-white" id="mobile">
+    <div class="col-md-6"> <!-- Columnas con el menú de navegación. -->
+        <div class="nav nav-tabs" id="nav-tab" role="tablist" ></div>
+            <select class="form-select" id="change" onchange="goThere()">
+                <option value="">Selecciona Tu Opcion</option>
+                <option value="index">Inicio</option>
+                <option value="registro">Registro/Entrada</option>
+                <option value="mod/del">Modificar/Eliminar Usuario</option>
+                <option value="contact">Contacto</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-3 nav-tabs">
     </div>
 </nav>
-<div class="collapse" id="navbarToggleExternalContent2">
-    <ul class="bg-light shadow-3 py-2 px-3">
-        <li class="btn btn-link btn-block m-0 p-2 text-start text-dark">Inicio</li>
-        <li class="btn btn-link btn-block m-0 p-2 text-start text-dark">Registro</li>
-    </ul>
-</div>

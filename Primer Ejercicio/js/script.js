@@ -2,11 +2,16 @@ function screen()
 {
     let view1 = document.getElementById("view1");
     let view2 = document.getElementById("view2");
+    let view3 = document.getElementById("view3");
 
     view(view1);
     if (view2 != null)
     {
         view(view2);
+        if (view3 != null)
+        {
+            view(view3);
+        }
     }
 }
 
@@ -102,16 +107,13 @@ function goThere() // Cuando cambia el selector del menú para Móvil.
     var change = document.getElementById("change").value; // Change obtiene el valor en el selector.
     switch(change) // Hago un switch al valor recibido.
     {
-        case "contact":
-            window.open("contact.php", "_blank");
-        break;
-        case "view2":
-            window.open("index.php#view2", "_self");
-        break;
-        case "view3":
-            window.open("index.php#view3", "_self");
-        break;
-        default :
+        case "index":
             window.open("index.php#view1", "_self");
+        break;
+        case "registro":
+            window.open("index.php#view2", "_self");
+            break;
+        default :
+            window.open("index.php#view3", "_self");
     }
 }
