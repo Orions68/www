@@ -19,6 +19,10 @@ include "includes/modal-index.html";
                         $name = $_POST["username"];
                         $surname = $_POST["surname"];
                         $surname2 = $_POST["surname2"];
+                        if ($surname2 == "")
+                        {
+                            $surname2 = null;
+                        }
                         $dni = $_POST["dni"];
                         $phone = $_POST["phone"];
                         $email = $_POST["email"];
