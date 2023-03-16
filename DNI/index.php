@@ -28,8 +28,6 @@ include "nav-mob.html";
                     <?php
                     if (isset($_POST["dni"]))
                     {
-                        echo '<script>const element = document.getElementById("view2");
-                        element.scrollIntoView();</script>';
                         $dni = $_POST["dni"];
                         $number = $dni;
 
@@ -37,6 +35,8 @@ include "nav-mob.html";
                         $letras = 'TRWAGMYFPDXBNJZSQVHLCKET';
                         $letra = substr($letras, $dni, 1);
                         echo "<h1>La letra del D.N.I. $number es: $letra</h1>";
+                        echo '<script>const element = document.getElementById("view2");
+                        element.scrollIntoView();</script>';
                     }
                     else
                     {

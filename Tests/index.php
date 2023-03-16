@@ -17,6 +17,14 @@ include "includes/nav-mob.html";
                         <?php
                         if (isset($_POST["username"]))
                         {
+                            if (!isset($_SESSION["form"]))
+                            {
+                                $_SESSION["form"] = 1;
+                            }
+                            else
+                            {
+                                $_SESSION["form"]++;
+                            }
                             $number = $_POST["field"];
                             $name = $_POST["username"];
                             echo '<label><input id="user" type="text" name="username" value="' . $name . '">
@@ -25,7 +33,7 @@ include "includes/nav-mob.html";
                         else
                         {
                             ?>
-                            <label><input id="user" type="text" name="username" required>
+                            <label><input id="user" type="text" name="username" required> Nombre</label>
                             <?php
                         }
                         ?>
