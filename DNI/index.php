@@ -34,13 +34,13 @@ include "nav-mob.html";
                         $dni = $dni % 23;
                         $letras = 'TRWAGMYFPDXBNJZSQVHLCKET';
                         $letra = substr($letras, $dni, 1);
-                        echo "<h1>La letra del D.N.I. $number es: $letra</h1>";
-                        echo '<script>const element = document.getElementById("view2");
-                        element.scrollIntoView();</script>';
+                        echo "<h1>Al D.N.I. Nº: $number, Le Corresponde la Letra: $letra</h1>
+                        <script>const element = document.getElementById('view2')
+                        element.scrollIntoView();</script>";
                     }
                     else
                     {
-
+                        echo "<h3>Esperando Datos.</h3>";
                     }
                     ?>
                 </div>

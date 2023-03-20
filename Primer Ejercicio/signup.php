@@ -25,16 +25,26 @@ include "includes/modal-index.html";
                         }
                         $dni = $_POST["dni"];
                         $phone = $_POST["phone"];
+                        $phone2 = $_POST["phone2"];
+                        $phone3 = $_POST["phone3"];
+                        if ($phone2 == "")
+                        {
+                            $phone2 = NULL;
+                        }
+                        if ($phone3 == "")
+                        {
+                            $phone3 = NULL;
+                        }
                         $email = $_POST["email"];
 
-                        $sql = "SELECT dni, phone, email FROM user";
+                        $sql = "SELECT dni, email FROM user";
                         $stmt = $conn->prepare($sql);
                         $stmt->execute();
                         if ($stmt->rowCount() > 0)
                         {
                             while ($row = $stmt->fetch(PDO::FETCH_OBJ))
                             {
-                                if ($row->dni == $dni || $row->phone == $phone || $row->email == $email)
+                                if ($row->dni == $dni || $row->email == $email)
                                 {
                                     $already = true;
                                 }
@@ -42,9 +52,17 @@ include "includes/modal-index.html";
                         }
                         if (!$already)
                         {
-                            $sql = "INSERT INTO user VALUES(:id, :name, :surname, :surname2, :dni, :phone, :email);";
+                            $sql = "INSERT INTO user VALUES(:id, :name, :surname, :surname2, :dni, :email);";
                             $stmt = $conn->prepare($sql);
-                            $stmt->execute(array(':id' => null, ':name' => $name, ':surname' => $surname, ':surname2' => $surname2, ':dni' => $dni, ':phone' => $phone, ':email' => $email));
+                            $stmt->execute(array(':id' => null, ':name' => $name, ':surname' => $surname, ':surname2' => $surname2, ':dni' => $dni, ':email' => $email));
+                            $sql = "SELECT id FROM user ORDER BY id DESC LIMIT 1;";
+                            $stmt = $conn->prepare($sql);
+                            $stmt->execute();
+                            $row = $stmt->fetch(PDO::FETCH_OBJ);
+                            $id = $row->id;
+                            $sql = "INSERT INTO phone VALUES(:id, :id_user, :phone1, :phone2, :phone3);";
+                            $stmt = $conn->prepare($sql);
+                            $stmt->execute(array(':id' => null, ':id_user' => $id, ':phone1' => $phone, ':phone2' => $phone2, ':phone3' => $phone3));
                             echo "<script>toast(0, 'El Usuario " . $name . " Agregado Correctamente.', 'Se ha Agregado el Usuario a la Base de Datos');</script>";
                         }
                         else

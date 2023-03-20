@@ -15,7 +15,7 @@ include "includes/nav-mob.html";
                     <h1>Ver Lista de Usuarios</h1>
                     <br>
                     <table>
-                        <th>Nombre</th><th>Primer Apellido</th><th>Segundo Apellido</th><th>DNI</th><th>Teléfono</th><th>E-mail</th>
+                        <th>Nombre</th><th>Primer Apellido</th><th>Segundo Apellido</th><th>DNI</th><th>Teléfono</th><th>Teléfono2</th><th>Teléfono3</th><th>E-mail</th>
                         <?php
                         $sql = "SELECT * FROM user";
                         $stmt = $conn->prepare($sql);
@@ -24,12 +24,53 @@ include "includes/nav-mob.html";
                         {
                             while ($row = $stmt->fetch(PDO::FETCH_OBJ))
                             {
+                                $id = $row->id;
+                                $sql = "SELECT number FROM phone WHERE user_id=$id;";
+                                $stmt2 = $conn->prepare($sql);
+                                $stmt2->execute();
+                                if ($stmt2->rowCount() > 0)
+                                {
+                                    $i = 0;
+                                    while ($phone = $stmt2->fetch(PDO::FETCH_OBJ))
+                                    {
+                                        $number[$i] = $phone->number;
+                                        $i++;
+                                    }
+                                }
+                                else
+                                {
+                                    $number = [];
+                                }
                                 echo "<tr><td>$row->name</td>
                                 <td>$row->surname</td>
                                 <td>$row->surname2</td>
-                                <td>$row->dni</td>
-                                <td>$row->phone</td>
-                                <td>$row->email</td></tr>";
+                                <td>$row->dni</td>";
+                                if (count($number) > 0)
+                                {
+                                    for ($i = 0; $i < count($number); $i++)
+                                    {
+                                        echo "<td>" . $number[$i] . "</td>";
+                                    }
+                                    if ($i < 3)
+                                    {
+                                        switch ($i)
+                                        {
+                                            case 1:
+                                                echo "<td></td>";
+                                                echo "<td></td>";
+                                                break;
+                                            default :
+                                                echo "<td></td>";
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    echo "<td></td>";
+                                    echo "<td></td>";
+                                    echo "<td></td>";
+                                }
+                                echo "<td>$row->email</td></tr>";
                             }
                         }
                         ?>
@@ -51,6 +92,10 @@ include "includes/nav-mob.html";
                         <label><input id="dni" type="text" name="dni" required> D.N.I.</label>
                         <br><br>
                         <label><input type="text" name="phone" required> Teléfono</label>
+                        <br><br>
+                        <label><input type="text" name="phone2"> Teléfono-1</label>
+                        <br><br>
+                        <label><input type="text" name="phone3"> Teléfono-2</label>
                         <br><br>
                         <label><input type="text" name="email" required> E-mail</label>
                         <br><br>
