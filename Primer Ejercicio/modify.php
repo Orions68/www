@@ -1,5 +1,6 @@
 <?php
 include "includes/conn.php";
+include "includes/phone.php";
 $title = "Modificando Datos de Usuario";
 include "includes/header.php";
 include "includes/nav-pc.html";
@@ -19,7 +20,7 @@ if (isset($_POST["username"]))
     $phone = $_POST["phone"];
     $email = $_POST["email"];
 
-    $sql = "SELECT phone, email FROM user WHERE dni='$dni'";
+    $sql = "SELECT email FROM user WHERE dni='$dni'";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_OBJ);
@@ -65,6 +66,19 @@ if (isset($_POST["username"]))
                         $stmt->execute();
                         if ($stmt->rowCount() > 0)
                         {
+                            $sql = "SELECT * FROM phone WHERE user_id=$id;";
+                            $stmt2 = $conn->prepare($sql);
+                            $stmt2->execute();
+                            $number = [];
+                            if ($stmt2->rowCount() > 0)
+                            {
+                                $i = 0;
+                                while ($row2 = $stmt2->fetch(PDO::FETCH_OBJ))
+                                {
+                                    $number[$i] = $row2->phone;
+                                    $i++;
+                                }
+                            }
                             $row = $stmt->fetch(PDO::FETCH_OBJ);
                             echo '<form action="modify.php" method="post">
                             <label><input type="text" name="username" value="' . $row->name . '" required> Nombre</label>
@@ -74,9 +88,19 @@ if (isset($_POST["username"]))
                             <label><input type="text" name="surname2" value="' . $row->surname2 . '"> Segundo Apellido</label>
                             <br><br>
                             <label><input type="text" name="dni" value="' . $row->dni . '" readonly> D.N.I.</label>
-                            <br><br>
-                            <label><input type="text" name="phone" value="' . $row->phone . '" required> Teléfono</label>
-                            <br><br>
+                            <br><br>';
+                            if (count($number) > 0)
+                            {
+                                for ($i = 0; $i < count($number); $i++)
+                                {
+                                    echo '<label><input type="text" name="phone" value="' . $row->phone . '" required> Teléfono</label>';
+                                }
+                            }
+                            else
+                            {
+                                $number = [];
+                            }
+                            echo '<br><br>
                             <label><input type="text" name="email" value="' . $row->email . '" required> E-mail</label>
                             <br><br>
                             <input type="submit" value="Modifico Estos Datos">

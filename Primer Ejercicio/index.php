@@ -1,5 +1,6 @@
 <?php
 include "includes/conn.php";
+include "includes/phone.php";
 $title = "Primera Base de Datos";
 include "includes/header.php";
 include "includes/modal-index.html";
@@ -45,31 +46,7 @@ include "includes/nav-mob.html";
                                 <td>$row->surname</td>
                                 <td>$row->surname2</td>
                                 <td>$row->dni</td>";
-                                if (count($number) > 0)
-                                {
-                                    for ($i = 0; $i < count($number); $i++)
-                                    {
-                                        echo "<td>" . $number[$i] . "</td>";
-                                    }
-                                    if ($i < 3)
-                                    {
-                                        switch ($i)
-                                        {
-                                            case 1:
-                                                echo "<td></td>";
-                                                echo "<td></td>";
-                                                break;
-                                            default :
-                                                echo "<td></td>";
-                                        }
-                                    }
-                                }
-                                else
-                                {
-                                    echo "<td></td>";
-                                    echo "<td></td>";
-                                    echo "<td></td>";
-                                }
+                                telephone($number);
                                 echo "<td>$row->email</td></tr>";
                             }
                         }
@@ -109,7 +86,7 @@ include "includes/nav-mob.html";
                             <br><br>
                             <label><input type="text" name="dni"> D.N.I.</label>
                             <br><br>
-                            <input type="submit" value="A Mi Perfil">
+                            <input type="submit" value="A Mi Perfil" class="btn btn-success btn-lg">
                         </form>
                     </div>
                     </div>
