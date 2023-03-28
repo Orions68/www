@@ -18,35 +18,36 @@ include "includes/nav-mob.html";
                     <table>
                         <th>Nombre</th><th>Primer Apellido</th><th>Segundo Apellido</th><th>DNI</th><th>Teléfono</th><th>Teléfono2</th><th>Teléfono3</th><th>E-mail</th>
                         <?php
-                        $sql = "SELECT * FROM user";
+                        $sql = "SELECT * FROM user"; // Selecciono todos los Usuarios.
                         $stmt = $conn->prepare($sql);
                         $stmt->execute();
-                        if ($stmt->rowCount() > 0)
+                        if ($stmt->rowCount() > 0) // Si hay resultados
                         {
-                            while ($row = $stmt->fetch(PDO::FETCH_OBJ))
+                            while ($row = $stmt->fetch(PDO::FETCH_OBJ)) // Mientras encuentre resultados los asigno a la variable $row.
                             {
-                                $id = $row->id;
-                                $sql = "SELECT number FROM phone WHERE user_id=$id;";
+                                $id = $row->id; // Asigo a $id la ID del usuario
+                                $sql = "SELECT number FROM phone WHERE user_id=$id;"; // Selecciono los números de teléfono de la tabla phone con la ID de cada usuario.
                                 $stmt2 = $conn->prepare($sql);
                                 $stmt2->execute();
-                                if ($stmt2->rowCount() > 0)
+                                if ($stmt2->rowCount() > 0) // Si tiene teléfofonos
                                 {
                                     $i = 0;
-                                    while ($phone = $stmt2->fetch(PDO::FETCH_OBJ))
+                                    $number = [];
+                                    while ($phone = $stmt2->fetch(PDO::FETCH_OBJ)) // Mientras haya resultados los asigno a la variable $phone.
                                     {
-                                        $number[$i] = $phone->number;
-                                        $i++;
+                                        $number[$i] = $phone->number; // Pongo todos los numero de telefono en el array $number en el índice $i.
+                                        $i++; // Incremento el índice $i.
                                     }
                                 }
                                 else
                                 {
-                                    $number = [];
+                                    $number = []; // Si no hay resultados el array $number está vacio.
                                 }
                                 echo "<tr><td>$row->name</td>
                                 <td>$row->surname</td>
                                 <td>$row->surname2</td>
                                 <td>$row->dni</td>";
-                                telephone($number);
+                                telephone($number); // Llamo a la función telephone y le paso el array con los números, la función está en el archivo incluido phone.php.
                                 echo "<td>$row->email</td></tr>";
                             }
                         }
@@ -103,14 +104,14 @@ include "includes/nav-mob.html";
                                 <label><select name="id">
                                 <option value="">Selecciona un Usuario</option>
                                 <?php
-                                $sql = "SELECT id, name FROM user;";
+                                $sql = "SELECT id, name FROM user;"; // Selecciono ID y nombre de los usuarios.
                                 $stmt = $conn->prepare($sql);
                                 $stmt->execute();
-                                if ($stmt->rowCount() > 0)
+                                if ($stmt->rowCount() > 0) // Si hay resultados.
                                 {
-                                    while ($row = $stmt->fetch(PDO::FETCH_OBJ))
+                                    while ($row = $stmt->fetch(PDO::FETCH_OBJ)) // Mientras haya resultados asigno a la variable $row los resultados.
                                     {
-                                        echo '<option value="' . $row->id . '">' . $row->name . '</option>';
+                                        echo '<option value="' . $row->id . '">' . $row->name . '</option>'; // Pongo los datos en un selector HTML, a la vista el nombre del usuario, en el value del option la ID.
                                     }
                                 }
                                 ?>
@@ -128,7 +129,7 @@ include "includes/nav-mob.html";
                                 <label><select name="id">
                                 <option value="">Selecciona un Usuario</option>
                                 <?php
-                                $sql = "SELECT id, name FROM user;";
+                                $sql = "SELECT id, name FROM user;"; // Lo mismo que arriba para modificar datos, en este caso para borrar un usuario.
                                 $stmt = $conn->prepare($sql);
                                 $stmt->execute();
                                 if ($stmt->rowCount() > 0)
