@@ -9,45 +9,96 @@ include "includes/modal-index.html";
 
 if (isset($_POST["username"]))
 {
+    $number = [];
     $name = $_POST["username"];
     $surname = $_POST["surname"];
     $surname2 = $_POST["surname2"];
-    if ($surname == "")
+    if ($surname2 == "")
     {
-        $surname = null;
+        $surname2 = null;
     }
     $dni = $_POST["dni"];
-    $phone = $_POST["phone"];
-    $email = $_POST["email"];
-
-    $sql = "SELECT email FROM user WHERE dni='$dni'";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $row = $stmt->fetch(PDO::FETCH_OBJ);
-    if ($row->phone == $phone)
+    if (isset($_POST["phone0"]) && $_POST["phone0"] != "")
     {
-        if ($row->email == $email)
+        $number[0] = $_POST["phone0"];
+        if (isset($_POST["phone1"]) && $_POST["phone1"] != "")
         {
-            $sql = "UPDATE user SET name='$name', surname='$surname', surname2='$surname2' WHERE dni='$dni';";
-            $stmt = $conn->prepare($sql);
+            $number[1] = $_POST["phone1"];
+            if (isset($_POST["phone2"]) && $_POST["phone2"] != "")
+            {
+                $number[2] = $_POST["phone2"];
+            }
+            else
+            {
+                $number[2] = NULL;
+            }
         }
         else
         {
-            $sql = "UPDATE user SET name='$name', surname='$surname', surname2='$surname2', email='$email' WHERE dni='$dni';";
+            $number[1] = NULL;
         }
     }
     else
     {
-        if ($row->email == $email)
+        $number[0] = NULL;
+    }
+    $email = $_POST["email"];
+
+    $sql = "SELECT id, email FROM user WHERE dni='$dni'";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $row = $stmt->fetch(PDO::FETCH_OBJ);
+    $id = $row->id;
+    if ($row->email == $email)
+    {
+        if ($surname2 == null)
         {
-            $sql = "UPDATE user SET name='$name', surname = '$surname', surname2='$surname2', phone='$phone' WHERE dni='$dni';";
+            $sql = "UPDATE user SET name='$name', surname = '$surname', surname2=NULL WHERE id=$id;";
         }
         else
         {
-            $sql = "UPDATE user SET name='$name', surname='$surname', surname2='$surname2', phone='$phone', email='$email' WHERE dni='$dni';";
+            $sql = "UPDATE user SET name='$name', surname = '$surname', surname2='$surname2' WHERE id=$id;";
         }
     }
+    else
+    {
+        if ($surname2 == null)
+        {
+            $sql = "UPDATE user SET name='$name', surname = '$surname', surname2=NULL, email='$email' WHERE id=$id;";
+        }
+        else
+        {
+            $sql = "UPDATE user SET name='$name', surname='$surname', surname2='$surname2', email='$email' WHERE id=$id;";
+        }
+    }
+    $stmt = $conn->prepare($sql);
     $stmt->execute();
+    $sql = "SELECT number FROM phone WHERE user_id=$id;";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0)
+    {
+        $i = 0;
+        while ($row = $stmt->fetch(PDO::FETCH_OBJ))
+        {
+            if ($number[$i] != $row->number)
+            {
+                $sql = "UPDATE phone SET number='$number[$i]' WHERE user_id=$id AND number='$row->number';";
+                $stmt2 = $conn->prepare($sql);
+                $stmt2->execute();
+            }
+            $i++;
+        }
+    }
+    else
+    {
+        for ($i = 0; $i < count($number); $i++)
+        {
+            $sql = "INSERT INTO phone VALUES (:user_id, :number);";
+            $stmt2 = $conn->prepare($sql);
+            $stmt2->execute(array(':user_id' => $id, ':number' => $number[$i]));
+        }
+    }
     echo "<script>toast(0, 'Actualizado', 'El Usuario " . $name . " se ha Actualizado Correctamente')</script>";
 }
 ?>
@@ -75,7 +126,7 @@ if (isset($_POST["username"]))
                                 $i = 0;
                                 while ($row2 = $stmt2->fetch(PDO::FETCH_OBJ))
                                 {
-                                    $number[$i] = $row2->phone;
+                                    $number[$i] = $row2->number;
                                     $i++;
                                 }
                             }
@@ -93,12 +144,26 @@ if (isset($_POST["username"]))
                             {
                                 for ($i = 0; $i < count($number); $i++)
                                 {
-                                    echo '<label><input type="text" name="phone" value="' . $row->phone . '" required> Teléfono</label>';
+                                    echo '<label><input type="text" name="phone' . $i . '" value="' . $number[$i] . '"> Teléfono</label><br><br>';
+                                }
+                                if ($i < 3)
+                                {
+                                    switch ($i)
+                                    {
+                                        case 1:
+                                            echo '<label><input type="text" name="phone1" value=""> Teléfono</label><br><br>';
+                                            echo '<label><input type="text" name="phone2" value=""> Teléfono</label><br><br>';
+                                            break;
+                                        default :
+                                            echo '<label><input type="text" name="phone2" value=""> Teléfono</label><br><br>';
+                                    }
                                 }
                             }
                             else
                             {
-                                $number = [];
+                                echo '<label><input type="text" name="phone0" value=""> Teléfono</label><br><br>';
+                                echo '<label><input type="text" name="phone1" value=""> Teléfono</label><br><br>';
+                                echo '<label><input type="text" name="phone2" value=""> Teléfono</label><br><br>';
                             }
                             echo '<br><br>
                             <label><input type="text" name="email" value="' . $row->email . '" required> E-mail</label>
