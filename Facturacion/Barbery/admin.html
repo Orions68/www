@@ -67,7 +67,7 @@
 				<div id="view2">
 					<br><br><br><br><br>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                         <h2>Ver Totales y Facturas</h2>
                         <br>
                         <h4>Selecciona el Trimestre y el Año para Descargar un Informe de las Facturas del Trimestre que Necesites y Haz Click en Ver Informe.</h4>
@@ -82,7 +82,7 @@
                                 </select> Selecciona el Trimestre a consultar
                             </label>
                             <br><br>
-                            <label><input type="number" id="year" name="year" min="2023" max="3000" step="1"> Selecciona el Año</label>
+                            <label><input type="number" id="year" name="year" min="2022" max="3000" step="1"> Selecciona el Año</label>
                             <br><br>
                             <input type="submit" value="Ver Informe" class="btn btn-info">
                             </form>
@@ -92,23 +92,29 @@
                                 let year = d.getFullYear();
                                 date.value = year;
                             </script>
-                            <br>
-                            <br>
+                            <br><br>
                             <div>
-                                <button onclick="window.open('showtotal.php', '_blank')" class="btn btn-primary btn-lg">Mostrar el Total de las Ventas del Año</button>&nbsp;&nbsp;
-                                <button onclick="window.open('db-backup.php', '_blank')" class="btn btn-secondary btn-lg">Copia de Respaldo de la Base de Datos</button>
+                                <button onclick="window.open('showtotal.php', '_blank')" class="btn btn-primary btn-lg">Mostrar el Total de las Ventas del Año</button>
                             </div>
                         </div>
+                        <div class="col-md-1"></div>
                         <div class="col-md-6">
-                            <h2>Ver Facturas por Fecha</h2>
                             <br>
-                            <h4>Selecciona una fecha</h4>
-                            <br>
-                            <form action="showinvoices.php" method="post" target="_blank">
-                                <label><input type="date" name="date"> Selecciona la Fecha</label>
-                                <br><br>
-                                <input class="btn btn-info btn-lg" type="submit" value="Muestrame las Facturas de esa Fecha">
-                            </form>
+							<h2>Ver Facturas por Día de Facturación</h2>
+							<br>
+							<h4>Selecciona la Fecha a Consultar</h4>
+							<br>
+							<form action="showinvoices.php" method="post" target="_blank">
+								<label><input type="date" name="date"></label>
+									<br><br>
+									<input type="submit" value="Busca esa fecha" class="btn btn-info btn-lg">
+							</form>
+							<br><br><br><br>
+                                <button class="btn btn-success btn-lg" onclick="window.open('invoice.php', '_blank')">Muestra la Última Factura</button>
+							<br><br>
+							<div>
+								<button onclick="window.open('db-backup.php', '_blank')" class="btn btn-secondary" style="height: 64px;">Copia de Respaldo de la Base de Datos</button>
+							</div>
                         </div>
                     </div>
 				</div>

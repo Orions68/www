@@ -8,6 +8,12 @@ if (isset($_POST["username"])) // Si se reciben los datos por POST.
 {
     $already = false; // Uso esta variable para comprobar que no se repita ni el E-mail ni el Teléfono.
     $name = htmlspecialchars($_POST["username"]);
+    $surname = htmlspecialchars($_POST["surname"]);
+    $surname2 = htmlspecialchars($_POST["surname2"]);
+    if ($surname2 = "")
+    {
+        $surname2 = null;
+    }
     $address = htmlspecialchars($_POST["address"]);
     $phone = htmlspecialchars($_POST["phone"]);
     $email = htmlspecialchars($_POST["email"]);
@@ -18,20 +24,23 @@ if (isset($_POST["username"])) // Si se reciben los datos por POST.
     $hash = password_hash($pass, PASSWORD_DEFAULT);
     $stmt = $conn->prepare("SELECT phone, email FROM client"); // Busco los E-mail y Teléfonos
     $stmt->execute();
-    while($row = $stmt->fetch(PDO::FETCH_OBJ))
+    if ($stmt->rowCount() > 0)
     {
-        if ($phone == $row->phone || $email == $row->email) // Si está cuaquiera de los tres.
+        while($row = $stmt->fetch(PDO::FETCH_OBJ))
         {
-            $already = true; // Pongo $already a true.
-            break; // Salgo de la busqueda.
+            if ($phone == $row->phone || $email == $row->email) // Si está cuaquiera de los tres.
+            {
+                $already = true; // Pongo $already a true.
+                break; // Salgo de la busqueda.
+            }
         }
     }
 
     if (!$already) // Si no están en la base de datos ni E-mail ni Teléfono.
     {
-        $stmt = $conn->prepare("INSERT INTO client VALUES (:id, :name, :address, :phone, :email, :pass, :bday, :date, :time);");
+        $stmt = $conn->prepare("INSERT INTO client VALUES (:id, :name, :surname, :surname2, :address, :phone, :email, :pass, :bday, :date, :time);");
 
-        $stmt->execute(array(':id' => null, ':name' => $name, ':address' => $address, ':phone' => $phone, ':email' => $email, ':pass' => $hash, ':bday' => $bday, ':date' => $date, ':time' => $time));
+        $stmt->execute(array(':id' => null, ':name' => $name, ':surname' => $surname, ':surname2' => $surname2, ':address' => $address, ':phone' => $phone, ':email' => $email, ':pass' => $hash, ':bday' => $bday, ':date' => $date, ':time' => $time));
 
         $conn = null;
         echo "<script>toast(0, 'Cliente Agregado', 'Te damos la Bienvenida $name, Gracias por Registarte como Cliente en la Peluquería de Javier Borneo.');</script>";

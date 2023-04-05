@@ -33,22 +33,22 @@ else
                     <div id="slide" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="img/corte.jpg" class="d-block w-100" alt="botox" width="960px" height="600px">
+                                <img src="img/corte.jpg" class="d-block w-100" alt="Corte" width="960px" height="600px">
                             </div>
                             <div class="carousel-item">
-                                <img src="img/reflex.jpg" class="d-block w-100" alt="facial" width="960px" height="600px">
+                                <img src="img/reflex.jpg" class="d-block w-100" alt="Reflejos" width="960px" height="600px">
                             </div>
                             <div class="carousel-item">
-                                <img src="img/fix.jpg" class="d-block w-100" alt="depilacion" width="960px" height="600px">
+                                <img src="img/fix.jpg" class="d-block w-100" alt="Arreglo de Barba" width="960px" height="600px">
                             </div>
                             <div class="carousel-item">
-                                <img src="img/brush.jpg" class="d-block w-100" alt="axilas" width="960px" height="600px">
+                                <img src="img/brush.jpg" class="d-block w-100" alt="Peinado" width="960px" height="600px">
                             </div>
                             <div class="carousel-item">
-                                <img src="img/shave.jpg" class="d-block w-100" alt="lips" width="960px" height="600px">
+                                <img src="img/shave.jpg" class="d-block w-100" alt="Afeitado" width="960px" height="600px">
                             </div>
                             <div class="carousel-item">
-                                <img src="img/dye.jpg" class="d-block w-100" alt="pubis" width="960px" height="600px">
+                                <img src="img/dye.jpg" class="d-block w-100" alt="Color" width="960px" height="600px">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#slide" data-bs-slide="prev">
@@ -131,7 +131,11 @@ else
                             <h3>Registro de Clientes</h3>
                             <br>
                             <form action="register.php" method="post" onsubmit="return verify()">
-                                <label><input type="text" name="username" required> Nombre Completo</label>
+                                <label><input type="text" name="username" required> Nombre</label>
+                                <br><br>
+                                <label><input type="text" name="surname" required> Apellido 1</label>
+                                <br><br>
+                                <label><input type="text" name="surname2"> Apellido 2</label>
                                 <br><br>
                                 <label><input type="text" name="address" required> Dirección</label>
                                 <br><br>

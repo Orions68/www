@@ -16,81 +16,81 @@ function getClient($conn, $id)
     }
 }
 
-function getService($conn, $services, $where)
-{
-    global $service, $price;
-    for ($i = 0; $i < count($services); $i++)
-	{
-		for ($j = 0; $j < count($services[$i]); $j++)
-		{
-			$sql = "SELECT service, price FROM service WHERE id='" . $services[$i][$j] . "';";
-			$stmt = $conn->prepare($sql);
-			$stmt->execute();
-			$row_service = $stmt->fetch(PDO::FETCH_OBJ);
-			if ($where == "html")
-			{
-				$service[$i][$j] = $row_service->service . "<br>";
-				$price[$i][$j] = $row_service->price . " $<br>";
-			}
-			else
-			{
-				$service[$i][$j] = $row_service->service . "\n";
-				$price[$i][$j] = $row_service->price . " $\n";
-			}
-		}
-	}
-}
-
 // function getService($conn, $services, $where)
 // {
 //     global $service, $price;
-//     if (count($services) == count($services, COUNT_RECURSIVE)) 
-//     {
-//         for ($i = 0; $i < count($services); $i++)
-//         {
-//             $sql = "SELECT service, price FROM service WHERE id='$services[$i]'";
-//             $stmt = $conn->prepare($sql);
-//             $stmt->execute();
-//             if ($stmt->rowCount() > 0)
-//             {
-//                 $row_service = $stmt->fetch(PDO::FETCH_OBJ);
-//                 if ($where == "html")
-//                 {
-//                     $service[0][$i] = $row_service->service . "<br>";
-//                     $price[0][$i] = $row_service->price . " $<br>";
-//                 }
-//                 else
-//                 {
-//                     $service[0][$i] = $row_service->service . "\n";
-//                     $price[0][$i] = $row_service->price . " $\n";
-//                 }
-//             }
-//         }
-//     }
-//     else
-//     {
-//         for ($i = 0; $i < count($services); $i++)
-//         {
-//             for ($j = 0; $j < count($services[$i]); $j++)
-//             {
-//                 $sql = "SELECT service, price FROM service WHERE id='" . $services[$i][$j] . "';";
-//                 $stmt = $conn->prepare($sql);
-//                 $stmt->execute();
-//                 $row_service = $stmt->fetch(PDO::FETCH_OBJ);
-//                 if ($where == "html")
-//                 {
-//                     $service[$i][$j] = $row_service->service . "<br>";
-//                     $price[$i][$j] = $row_service->price . " $<br>";
-//                 }
-//                 else
-//                 {
-//                     $service[$i][$j] = $row_service->service . "\n";
-//                     $price[$i][$j] = $row_service->price . " $\n";
-//                 }
-//             }
-//         }
-//     }
+//     for ($i = 0; $i < count($services); $i++)
+// 	{
+// 		for ($j = 0; $j < count($services[$i]); $j++)
+// 		{
+// 			$sql = "SELECT service, price FROM service WHERE id='" . $services[$i][$j] . "';";
+// 			$stmt = $conn->prepare($sql);
+// 			$stmt->execute();
+// 			$row_service = $stmt->fetch(PDO::FETCH_OBJ);
+// 			if ($where == "html")
+// 			{
+// 				$service[$i][$j] = $row_service->service . "<br>";
+// 				$price[$i][$j] = $row_service->price . " $<br>";
+// 			}
+// 			else
+// 			{
+// 				$service[$i][$j] = $row_service->service . "\n";
+// 				$price[$i][$j] = $row_service->price . " $\n";
+// 			}
+// 		}
+// 	}
 // }
+
+function getService($conn, $services, $where)
+{
+    global $service, $price;
+    if (count($services) == count($services, COUNT_RECURSIVE)) 
+    {
+        for ($i = 0; $i < count($services); $i++)
+        {
+            $sql = "SELECT service, price FROM service WHERE id='$services[$i]'";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+            if ($stmt->rowCount() > 0)
+            {
+                $row_service = $stmt->fetch(PDO::FETCH_OBJ);
+                if ($where == "html")
+                {
+                    $service[0][$i] = $row_service->service . "<br>";
+                    $price[0][$i] = $row_service->price . " $<br>";
+                }
+                else
+                {
+                    $service[0][$i] = $row_service->service . "\n";
+                    $price[0][$i] = $row_service->price . " $\n";
+                }
+            }
+        }
+    }
+    else
+    {
+        for ($i = 0; $i < count($services); $i++)
+        {
+            for ($j = 0; $j < count($services[$i]); $j++)
+            {
+                $sql = "SELECT service, price FROM service WHERE id='" . $services[$i][$j] . "';";
+                $stmt = $conn->prepare($sql);
+                $stmt->execute();
+                $row_service = $stmt->fetch(PDO::FETCH_OBJ);
+                if ($where == "html")
+                {
+                    $service[$i][$j] = $row_service->service . "<br>";
+                    $price[$i][$j] = $row_service->price . " $<br>";
+                }
+                else
+                {
+                    $service[$i][$j] = $row_service->service . "\n";
+                    $price[$i][$j] = $row_service->price . " $\n";
+                }
+            }
+        }
+    }
+}
 
 function recursive($index, $service, $qtt, $id, $i, $j) // Recibe el $index, la cantidad de servicios encontrados en todas las facturas, el array $service, la cantidad de cada servicio $qtt, el array con las ID de las facturas $id, $i es el indice de la factura actual ya que esta función se llama en un bucle y $j que siempre es 0.
 {
