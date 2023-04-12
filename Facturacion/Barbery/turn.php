@@ -9,7 +9,7 @@ $id = $_POST['id'];
 $date = $_POST['date'];
 $time = $_POST['time'];
 
-$stmt = $conn->prepare("SELECT name FROM client WHERE id='$id'");
+$stmt = $conn->prepare("SELECT name FROM client WHERE id=$id");
 $stmt->execute();
 if ($stmt->rowCount() > 0)
 {
