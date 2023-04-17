@@ -11,7 +11,7 @@ include "includes/modal-index.html";
                     <br><br><br><br>
                     <div class="row">
                         <div class="col-md-7">
-                        <br><br><br>
+                        <br><br>
                             <h2>Te Damos la Bienvenida a la WEB de la Peluquería de Javier Borneo</h2>
                             <br>
                             <h3>Registro de Clientes</h3>
@@ -59,6 +59,7 @@ include "includes/modal-index.html";
             </div>
         <div class="col-md-1"></div>
     </div>
+    <br><br>
 </section>
 <?php
 include "includes/footer.html";

@@ -40,11 +40,6 @@ if ($ok)
     $sql = "INSERT INTO user VALUES(:id, :name, :surname, :surname2, :phone, :email, :pass, :bday, :hash, :path, :active)";
     $stmt = $conn->prepare($sql);
     $stmt->execute(array(':id' => NULL, ':name' => $user, ':surname' => $surname1, ':surname2' => $surname2, ':phone' => $phone, ':email' => $email, ':pass' => $encrypted, ':bday' => $bday, ':hash' => $hash, ':path' => $path, ':active' => false));
-    // $sql = "SELECT id FROM user ORDER BY id DESC LIMIT 1;";
-    // $stmt = $conn->prepare($sql);
-    // $stmt->execute();
-    // $row = $stmt->fetch(PDO::FETCH_OBJ);
-    // $id = $row->id;
     $id = $conn->lastInsertId(); // Asigno a la variable $id la última id guardada en la tabla.
 
     $subject = "Por Favor Contactame en Esta Dirección";
