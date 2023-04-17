@@ -13,7 +13,7 @@ include "includes/modal-index.html";
                         <div class="col-md-7">
                             <h2>Te Damos la Bienvenida a la WEB</h2>
                             <br>
-                            <h3>Registro de Clientes</h3>
+                            <h3>Registro de Usuarios</h3>
                             <br>
                             <form action="register.php" method="post" enctype="multipart/form-data" onsubmit="return verify()">
                                 <label><input type="text" name="username" required> Nombre</label>
@@ -41,7 +41,7 @@ include "includes/modal-index.html";
                         </div>
                         <div class="col-md-5">
                             <br><br><br>
-                            <h3>Entrada de Clientes para Solicitar un Turno</h3>
+                            <h3>Entrada de Usuario</h3>
                             <br>
                             <form action="login.php" method="post">
                                 <label><input type="email" name="email" required> E-mail</label>
