@@ -11,8 +11,7 @@ include "includes/modal-index.html";
                     <br><br><br><br>
                     <div class="row">
                         <div class="col-md-7">
-                        <br><br>
-                            <h2>Te Damos la Bienvenida a la WEB de la Peluquería de Javier Borneo</h2>
+                            <h2>Te Damos la Bienvenida a la WEB</h2>
                             <br>
                             <h3>Registro de Clientes</h3>
                             <br>
@@ -41,7 +40,7 @@ include "includes/modal-index.html";
                             </form>
                         </div>
                         <div class="col-md-5">
-                            <br><br><br><br><br><br><br>
+                            <br><br><br>
                             <h3>Entrada de Clientes para Solicitar un Turno</h3>
                             <br>
                             <form action="login.php" method="post">
