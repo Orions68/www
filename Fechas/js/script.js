@@ -21,12 +21,6 @@ function verify()
             }
             break;
         case "30":
-            if (month == 4 || month == 6 || month == 9 || month == 11)
-            {
-                ok = true;
-            }
-            else
-            {
                 if (month == 2)
                 {
                     result.innerHTML = "Has puesto 30 días pero el mes de Febrero solo tiene 29 días en años bisiestos o 28 días, tienes que cambiar algún número.";
@@ -36,7 +30,6 @@ function verify()
                 {
                     ok = true;
                 }
-            }
             break;
         case "29":
             if (month == 2 && year % 4 == 0)
