@@ -1,6 +1,6 @@
 function verify()
 {
-    let array = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    let array = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]; // Array de los Meses.
     let result = document.getElementById("result");
     var day = document.getElementById("day").value;
     var month = document.getElementById("month").value;
@@ -10,7 +10,7 @@ function verify()
     switch (day)
     {
         case "31":
-            if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
+            if (month != 2 && month != 4 && month != 6 && month != 9 && month != 11)
             {
                 ok = true;
             }
@@ -32,15 +32,15 @@ function verify()
                 }
             break;
         case "29":
-            if (month == 2 && year % 4 == 0)
+            if (month == 2 && year % 4 == 0 && year != 1900)
             {
                 ok = true;
             }
             else
             {
-                if (month == 2 && year % 4 != 0)
+                if (month == 2)
                 {
-                    result.innerHTML = "Este Año no es bisiesto, Febrero solo tiene 28 días.";
+                    result.innerHTML = "Este Año no es bisiesto, Febrero solo tiene 28 días, Cambia algún valor.";
                     return false;
                 }
                 else
