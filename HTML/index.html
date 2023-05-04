@@ -1,0 +1,295 @@
+<!DOCTYPE HTML>
+	<html>
+		<head>
+			<title>Actividad 1 - HTML Curso IFCD0211</title>
+			<meta name="description" content="Tienda de Informática">
+			<meta name="author" content="César Matelat">
+			<meta name="generator" content="Notepad++">
+			<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+            <!-- La etiqueta <base> se usa para especificar donde se abriran los enlaces de la página. Está comentad ya que si lo dejamos todos los enlaces en la página van a la dirección que pone en <base>
+            <base href="https://www.w3schools.com/" target="_blank"> -->
+		</head>
+		
+		<header>
+			<img src="img/logo.jpg" alt="Logo de la Empresa">
+			<h1>Tienda de Informática</h1>
+		
+                <!-- Etiqueta span se usa para poner en linea algunas otras etiquetas, por ejemplo dentro de un <p></p> o un <h1></h1> otro texto en la misma línea. -->
+			<nav>
+				<span><a href="#body">Inicio</a>&nbsp;&nbsp;<a href="#section2">Productos Destacados</a>&nbsp;&nbsp;<a href="#section3">Categorías de Productos</a>&nbsp;&nbsp;<a href="#section4">Contacto</a></span>
+			</nav>
+		</header>
+		
+		<body id="body">
+			<section id="section1">
+				<h1>Bienvenido a La Tienda de Informática Más Completa del Mundo</h1>
+				<br><br>
+                ​<img src="img/pc.png" alt="Workplace" usemap="#workmap" width="400" height="379">
+                <!-- La etiqueta map se usa para demarcar areas en una imagen, las areas de delimitan con la etiqueta area pasandole las coordenadas de los pixeles que se quieren delimitar y el tipo de forma, rect es un cuadrado o rectangulo, circle, un a circunferencia y posee el atributo href que lleva a una página o a un ID de la misma página. -->
+                <map name="workmap">
+                <area shape="rect" coords="34,44,270,350" alt="Computer" href="#laptop">
+                <area shape="rect" coords="290,172,333,250" alt="Phone" href="#phone">
+                <area shape="circle" coords="337,300,44" alt="Cup of coffee" href="#coffee">
+                </map>
+                <br><br>
+                <!-- <b> Para poner en negrita un texto con <b></b> -->
+                <b><p>Este Texto es un párrafo en Negrita con b</p></b>
+                <br><br>
+                <p>Este Texto un párrafo Normal</p>
+                <br><br>
+                <!-- <strong> Lo mismo que <b> pone en negrita un texto con <strong></strong> -->
+                <strong><p>Este Texto un párrafo en Negrita con strong</p></strong>
+				<h3>Mientras Esperas que Carguemos Todos los Productos de Nuestra Base de Datos Mira esta Pelicula</h3>
+				<br><br>
+				<video controls autoplay loop width="800">
+					<source src="video/water.mp4" type="video/mp4">
+                    Este Vídeo Puede no ser Compatible con tu Navegador.
+				</video>
+			</section>
+			<br><br>
+            <p id="coffee"> Este es el Café</p>
+            <br><br>
+			<section id="section2">
+			<a href="#body">Volver Arriba</a>
+				<h1>Productos Destacados</h1>
+				<br>
+					<ul type="circle">
+						<li><a href="#pc_des">Ordenador Gamer = 2000€</a></li>
+						<li><a href="#nb_des">Portátil Cuantico = 2500€</a></li>
+						<li><a href="#mon_des">Monitor de Plasma Extraterrestre = 3000€</a></li>
+					</ul>
+					<br><br>
+				<article id="pc_des">
+					<h3>Te Gusta Jugar - El ordenador más potente de la Historia - Quantic Omega</h3>
+					<img src="img/quantum.png" alt="Ordenador Gamer" width="800">
+					<br>
+					<button>Haz Click para Agregar al Carro</button>
+				</article>
+				<br><br>
+				<article id="nb_des">
+					<h3>Necesitas Portabilidad - El Portátil más potente de la Historia - También es Cuantico</h3>
+					<img src="img/notebook.webp" alt="Ordenador Gamer" width="800">
+					<br>
+					<button>Haz Click para Agregar al Carro</button>
+				</article>
+				<br><br>
+				<article id="mon_des">
+					<h3>Pantalla Para tu Ordenador Gaming - Aunque no Parezca es un Pepinazo</h3>
+					<img src="img/monitor.jpg" alt="Ordenador Gamer" width="800">
+					<br>
+					<button>Haz Click para Agregar al Carro</button>
+				</article>
+			</section>
+			<br><br>
+            <p id="phone">Este es el Teléfono</p>
+                <br><br>
+			<section id="section3">
+			<a href="#body">Volver Arriba</a>
+				<h1>Productos por Categoría</h1>
+				<br><br>
+				<ul type="square">
+					<li><a href="#ssd">Discos de Estado Solido</a></li>
+					<li><a href="#pc">Ordenadores</a></li>
+					<li><a href="#graph">Tarjetas Gráficas</a></li>
+				</ul>
+				<br><br>
+				<article id="ssd">
+					<h3>Visita la sección de Discos SSD</h3>
+					<img src="img/ssd.webp" alt="Ordenador Gamer" width="800">
+					<br>
+					<button>Haz Click para Visitar la Sección</button>
+				</article>
+				<br><br>
+				<article id="pc">
+					<h3>Visita la sección de Ordenadores</h3>
+					<img src="img/pc.jpg" alt="Ordenador Gamer" width="800">
+					<br>
+					<button>Haz Click para Visitar la Sección</button>
+				</article>
+				<br><br>
+				<article id="graph">
+					<h3>Visita la sección de Tarjetas Gráficas</h3>
+					<img src="img/graphic.webp" alt="Ordenador Gamer" width="800">
+					<br>
+					<button>Haz Click para Visitar la Sección</button>
+				</article>
+				<br><br>
+			</section>
+			<br><br>
+            <!-- Div es un contenedor, con estilos se pueden poner horizontalmente varios cosecutivos separados por pixeles o porcentajes de pantalla -->
+            <div style="display: inline-block;">
+                <h1>Este es el contenido del Primer div</h1>
+            </div>
+            <div style="display: inline-block; width: 10%;"></div>
+            <div style="display: inline-block;">
+                <h1>Este es el contenido del Segundo div</h1>
+            </div>
+            <br><br>
+            <!-- <blockquote></blockquote> tambien abreviado <q></q> pone un texto de otro origen con una sangría para poder distinguirlo. -->
+            <blockquote cite="http://www.worldwildlife.org/who/index.html">
+                For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
+            </blockquote>
+            <section id="section4">
+			<a href="#body">Volver Arriba</a>
+				<h1>Contacto</h1>
+				<br><br>
+				<form>
+                    <table border="1px">
+
+                        <tr><th>Nombre</th><td><input type="text" name="username"></td></tr>
+
+                        <tr><th>Apellido 1</th><td><input type="text" name="surname"></td></tr>
+
+                        <tr><th>Apellido 2</th><td><input type="text" name="surname2"></td></tr>
+
+                        <tr><th>Telefono</th><td><input type="text" name="phone"></td></tr>
+
+                        <tr><th>E-mail</th><td><input type="email" name="email"></td></tr>
+
+                        <tr><th>Mensaje:</th>
+
+                        <td><textarea name="message" rows="6" cols="64"></textarea></td></tr>
+
+                        <tr><th>Envía el Formulario</th><td><input type="submit" value="Envío"></td></tr>
+
+                    </table>
+
+                </form>
+
+                <br><br>
+
+                <!-- <hr> Se usa para poner un a línea horizontal en la página. -->
+                <hr>
+
+                <!-- <fieldset> se usa junto con <legend></legend> para rodear un formulario con una línea y ponerle un título. -->
+                <fieldset>
+                    <legend>Formulario de Registro</legend>
+                    <form>
+                        <label><input type="text" name="username"> Nombre</label>
+                        <br><br>
+                        <label><input type="text" name="surname"> Apellido 1</label>
+                        <br><br>
+                        <label></th><td><input type="text" name="surname2"> Apellido 2</label>
+                        <br><br>
+                        <label><input type="text" name="phone"> Teléfono</label>
+                        <br><br>
+                        <label><input type="email" name="email"> E-mail</label>
+                        <br><br>
+                        <label><textarea name="message" rows="6" cols="64"></textarea> Mensaje</label>
+                        <br><br>
+                        <label><input type="submit" value="Me Registro"> Envía el Formulario</label>
+                    </form>
+                </fieldset>
+
+                <br><br>
+                <br><br>
+                <!-- El elemento <cite></cite> cambia el tipo de fuente para mostrar una cita dentro de un texto. -->
+            <h5>El Martín Fierro<cite> de José Hernández</cite> es el libro de cabecera de los Argentinos.</h5>
+            <br><br>
+
+            <!-- <del></del> es para tachar un texto y <ins></ins> para subrayar un texto. -->
+            A mi me <del>gusta</del> <ins>Amo</ins> la Playa.
+            <br><br>
+ 
+
+            <!-- <details></details> junto con <summary></summary> muestra una especie de menú desplegable. -->
+            <h2><details>
+                <summary>Pulsa la Flecha para más Detalles</summary>
+                <h3 style="margin-left: 50px;">Acá se ven más detalles.</h3>
+                <h3 style="margin-left: 50px;">Segundos Detalles.</h3>
+                <h3 style="margin-left: 50px;">Terceros Detalles.</h3>
+                <h3 style="margin-left: 50px; color: brown;">Pusa de Nuevo para Contraer.</h3>
+            </details></h2>
+            <br><br>
+
+            <!-- <meter></meter> muestra una barra de progreso. -->
+            <h3>Indice de satisfacción con el curso de Sistemas de Gestión de la Información:
+            <meter min="0" max="100" low="40" high="100" value="100"></meter></h3>
+            <br><br>
+
+            <!-- <dialog></dialog> Muestra un diálogo superpuesto a la página, el elemewnto <q></q> 'pone texto en tre comillas y <cite></cite> ya usado antes.' -->
+            <div>  
+                <dialog id="dialog" style="width:60%; background-color:black; color: white; border:5px solid red;">  
+                <p><q>To be, or not to be, that is the question.</q> - <cite>Hamlet, William Shakespeare</cite></p>
+                <label><input id="ok" type="checkbox"> Quiero Ser</label><br>
+                <button onclick="close_ok()">Ser</button><button onclick="closeit()" style="float: right;">Cierra sin Ser</button>
+                </dialog>  
+                <button onclick="showit()" style="width: 320px; height: 240px;">Muestra el Diálogo</button>  
+            </div>  
+                <script type="text/JavaScript">
+                    var dialog = document.getElementById('dialog');
+                    var ok = document.getElementById('ok');
+
+                    function showit()
+                    {
+                        dialog.show();
+                    }
+
+                    function closeit()
+                    {
+                        if (ok.checked)
+                        {
+                            alert ("Haz Aceptado Ser, Si no Quieres Ser por Favor Deselecciona la Casilla Quiero Ser.");
+                        }
+                        else
+                        {
+                            ok.checked = false;
+                            dialog.close();
+                        }
+                    }
+
+                    function close_ok()
+                    {
+                        if (!ok.checked)
+                        {
+                            alert ("No Haz Aceptado Ser, Si no Quieres Ser por Favor presiona el botón Cierra sin Ser.");
+                        }
+                        else
+                        {
+                            ok.checked = false;
+                            dialog.close();
+                        }
+                    }
+                </script> 
+
+            <br><br>
+
+            <!-- La etiqueta <select></select> junto con option se usa para seleccionar un valor de una lista y con la etiqueta <optgroup></optgrounp> se pueden separar las opciones según otras condiciones. -->
+            <label for="showtimes">
+            <select id="showtimes" name="showtimes"><option value="">Selecciona una Película</option><optgroup label="1PM"></optgroup><option value="titanic">Twister</option><option value="nd">Napoleon Dynamite</option><option value="wab">What About Bob?</option><optgroup label="2PM"></optgroup><option value="bkrw">Be Kind Rewind</option><option value="stf">Stranger Than Fiction</option></select> Horario de las Películas</label>
+            <br><br>
+            
+            <!-- <acronym></acronim> Se usa para mostrar un texto explicativo muestra un dato relevante de la palabra que está dentro del elemento, que aparecerá subrayada -->
+            The microblogging site <acronym title="Founded in 2006"> Twitter</acronym> has recently struggled with downtimes.
+            <br><br>
+
+            <!-- <abbr></abbr> se usa para poner siglas abreviadas y al poner el puntero encima muestra a que corresponde la abreviación que la lee del atributo title del elemento. -->
+            <abbr title="Organización Mundial de la Salud">La OMS</abbr> Ha avanzado tanto que ya no queda nadie sano.
+
+            <br><br>
+            <h3>El evento será a las <time>20:00</time></h3>
+            <br><br>
+            <h3>El evento será el día <time datetime="2023-05-31">31 de Mayo</time></h3>
+            <br><br>
+
+                <h4>Otras Vías de Contacto</h4>
+
+                <a href="https://wa.me/664774821?text=Por Favor contactame por: Whatsapp Mi nombre es: " target="_blank"><img src="img/wha.png" alt="Whatsapp" width="64"></a>
+
+                <br><br>
+
+                <a href="mailto:cesarmatelat@gmail.com"><img src="img/mail.png" alt="E-mail" width="64"></a>
+
+                <br><br><br>
+                <p id="laptop">Este es el Portátil</p>
+                <br><br>
+
+            <marquee behavior="alternate" direction="left" width="1280px">Antes de Irte Presiona Play Para Escuchar la Música<audio controls><source src="audio/pink.mp3">Your browser does not support the audio tag.</audio></marquee>
+			</section>
+			<br><br>
+			<footer>
+			<p>©® and TM César Matelat 2023<a href="https://wa.me/664774821" target="_blank">WhatsApp Me</a></p>
+			<small>La Página es Propiedad de la Tienda de Informática</small>
+			</footer>
+		</body>
+	</html>

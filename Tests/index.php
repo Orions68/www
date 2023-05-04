@@ -44,7 +44,8 @@ include "includes/nav-mob.html";
                 </div>
                 <div id="view2">
                     <br><br><br><br>
-                    <h1></h1>
+                    <h1>Prueba de Archivo</h1>
+                    <button onclick="load();">Carga el Archivo</button>
                     <br>
                 </div>
             </div>
