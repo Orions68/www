@@ -134,10 +134,12 @@ background-color: lightseagreen;
 top: 100px;
 left: 100px;
 z-index: 1;
+text-align: center;
 }
 
 .azul {
 background-color: skyblue;
 top: 200px;
 left: 200px;
+text-align: right;
 }

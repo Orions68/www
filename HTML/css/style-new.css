@@ -1,0 +1,78 @@
+#color1
+{
+    color: blue;
+}
+
+#color2
+{
+    color: red;
+}
+
+#color3
+{
+    color: yellow;
+}
+
+#color5
+{
+    color: green;
+}
+
+#color6
+{
+    color: red;
+}
+
+.center
+{
+    font-size: 5rem;
+    margin: auto;
+    width: 25%;
+}
+
+#contenido-principal h2
+{
+    font-size: 4rem;
+    color: chocolate;
+    font-family: cursive;
+}
+
+#contenido-secundario .titulo
+{
+    font-size: 4rem;
+    color: aqua;
+}
+
+input[type="text"].rojo
+{
+    border: 3px solid red;
+    color: red;
+}
+
+input[type="text"].azul
+{
+    border: 3px solid blue;
+    color: blue;
+}
+
+.big
+{
+    font-size: 1.5rem;
+}
+
+.fine
+{
+    font-size: 2rem;
+    width: 350px;
+}
+
+.lista > li
+{
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.lista2 + li
+{
+    font-size: 5rem;
+}

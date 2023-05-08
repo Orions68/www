@@ -177,6 +177,13 @@ marquee
     100% {border-color: red;}
 }
 
+.center
+{
+    margin: auto;
+    width: 25%;
+    font-size: 1.5rem;
+}
+
 .ring {
     width: 200px;
     height: 200px;
