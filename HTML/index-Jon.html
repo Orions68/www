@@ -1,0 +1,378 @@
+<!-- Esto es un comentario en HTML -->
+<!DOCTYPE HTML>
+<!-- Etiqueta para indicar el formato HTML del documento -->
+<html>
+	<head>
+		<!-- Cabecera de la página -->
+		<title>HTML - CURSO IFCD0211</title>
+		<!-- Título de la página  y para los buscadores. Aparece en la pestaña del navegador -->
+		<meta name="description" content="Aquí ponemos la descripción de la página web">
+		<meta name="author" content="Alumno curso de informática">
+		<meta name="generator" content="Notepad++">
+		<!-- Codificación UTF-8: evitar problemas con vocales acentuadas, el carácter ñ, ¿, ¡, ....-->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/style-Jon.css">
+	</head>
+	<body>
+		<!-- La etiqueta header representa un grupo de ayudas introductorias o de navegación. Puede contener algunos elementos de encabezado, así como también un logo, un formulario de búsqueda, un nombre de autor y otros componentes -->
+		<header>
+			<h1>Página de iniciación al HTML </h1>
+			<!-- La etiqueta nav representa una sección de una página cuyo propósito es proporcionar enlaces de navegación, ya sea dentro del documento actual o a otros documentos -->
+			<nav class="menu">
+				<ul>
+					<li><a href="#images">Archivos de imágenes</a></li>
+					<li><a href="#audio">Archivos de audio</a></li> 
+					<li><a href="#audio">Archivos de vídeo</a></li> 
+					<li><a href="#formulario_alta">Formulario de alta</a></li> 
+				</ul>
+			</nav>				
+		</header>
+		  <br><br><br><br>
+		  			<div id="sc1" class="sc">
+			<div class="caja roja">HOLA</div>
+			</div>
+			<div id="sc2" class="sc">
+			<div class="caja verde">HOLA</div>
+			</div>
+			<div id="sc3" class="sc">
+			<div class="caja azul">HOLA</div>
+			</div>
+		  <br><br><br><br>
+
+		<!-- La etiqueta marquee sirve para conseguir texto en movimiento, pero tiene desventajas usarla -->
+		<marquee direction="down" width="250" height="200" behavior="alternate" style="border:solid">
+			<marquee behavior="alternate">
+			Éste es un texto de marquesina
+			</marquee>
+		</marquee>
+			
+		<!-- Cuerpo de la página -->
+		<h1>Etiqueta de título h1</h1>
+		<h2>Etiqueta de título h2</h2>
+		<h3>Etiqueta de título h3</h3>
+		<h4>Etiqueta de título h4</h4>
+		<h5>Etiqueta de título h5</h5>
+		<h6>Etiqueta de título h6</h6>
+		<p>Etiqueta que contiene un párrafo</p>
+		<p>
+			<!-- Se pueden poner etiquetas de títulos dentro de otra etiqueta <p> -->
+			<h1>Etiqueta de título h1 dentro de un párrafo</h1>
+			<h2>Etiqueta de título h2 dentro de un párrafo</h2>
+			<h3>Etiqueta de título h3 dentro de un párrafo</h3>
+			<h4>Etiqueta de título h4 dentro de un párrafo</h4>
+			<h5>Etiqueta de título h5 dentro de un párrafo</h5>
+			<h6>Etiqueta de título h6 dentro de un párrafo</h6>
+		</p>
+		<p id="introduccion">Aquí va el contenido del <del>párrafo introductorio</del> en nuestra  primera actividad de <strong>HTML</strong>
+		</p>
+		<p id="contenido">En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor</p>
+		
+		<!-- Enlaces -->
+		<!-- Por defecto si no indicamos el valor del atributo target, se abre el enlace en la misma pestaña-->
+		<a href="http://eldia.es" title="Aquí va el título del enlace">Acceder a las noticias de Canarias</a>
+		<br><br><br> <!-- 3 saltos de línea -->
+		
+		<!-- Indicando el valor del atributo target="_blank" se abre el enlace en otra pestaña -->
+		<a href="http://elpais.com" target="_blank" title="Aquí va el título del enlace">Acceder a las noticias de España</a>
+		<br><br><br><!-- 3 saltos de línea -->
+		
+		<!-- Indicando el valor del atributo target="_self" se abre en la misma pestaña -->
+		<a href="http://elmundo.com" target="_self" title="Aquí va el título del enlace">Acceder a las noticias de España</a>
+		<br><br><br>
+			<!-- Vamos a utilizar listas -->
+			<!-- La etiqueta <ul></ul> se utiliza para listas no numeradas -->
+			<h1>Listas no numeradas</h1>
+			<ul>
+				<li>Enero</li>
+				<li>Febrero</li>
+				<li>Marzo</li>
+				<li>Abril</li>
+				<li>Mayo</li>
+				<li>Junio</li>
+				<li>Julio</li>
+				<li>Agosto</li>
+				<li>Septiembre</li>
+				<li>Octubre</li>
+				<li>Noviembre</li>
+				<li>Diciembre</li>
+			</ul>
+			<!-- La etiqueta <ol></ol> se utiliza para listas  numeradas -->
+			<h1>Listas numeradas</h1>
+			<ol>
+				<li>Enero</li>
+				<li>Febrero</li>
+				<li>Marzo</li>
+				<li>Abril</li>
+				<li>Mayo</li>
+				<li>Junio</li>
+				<li>Julio</li>
+				<li>Agosto</li>
+				<li>Septiembre</li>
+				<li>Octubre</li>
+				<li>Noviembre</li>
+				<li>Diciembre</li>
+			</ol>
+			<h1>Listas ordenadas con letras minúsculas</h1>
+			<ol type="a">
+				<li>Enero</li>
+				<li>Febrero</li>
+				<li>Marzo</li>
+				<li>Abril</li>
+				<li>Mayo</li>
+				<li>Junio</li>
+				<li>Julio</li>
+				<li>Agosto</li>
+				<li>Septiembre</li>
+				<li>Octubre</li>
+				<li>Noviembre</li>
+				<li>Diciembre</li>
+			</ol>
+			<h1>Listas ordenadas con letras mayúsculas</h1>
+			<ol type="A">
+				<li>Enero</li>
+				<li>Febrero</li>
+				<li>Marzo</li>
+				<li>Abril</li>
+				<li>Mayo</li>
+				<li>Junio</li>
+				<li>Julio</li>
+				<li>Agosto</li>
+				<li>Septiembre</li>
+				<li>Octubre</li>
+				<li>Noviembre</li>
+				<li>Diciembre</li>
+			</ol>
+			<h1>Listas ordenadas con números romanos en minúsculas</h1>
+			<ol type="i">
+				<li>Enero</li>
+				<li>Febrero</li>
+				<li>Marzo</li>
+				<li>Abril</li>
+				<li>Mayo</li>
+				<li>Junio</li>
+				<li>Julio</li>
+				<li>Agosto</li>
+				<li>Septiembre</li>
+				<li>Octubre</li>
+				<li>Noviembre</li>
+				<li>Diciembre</li>
+			</ol>
+			<h1>Listas ordenadas con números romanos en minúsculas</h1>
+			<ol type="I">
+				<li>Enero</li>
+				<li>Febrero</li>
+				<li>Marzo</li>
+				<li>Abril</li>
+				<li>Mayo</li>
+				<li>Junio</li>
+				<li>Julio</li>
+				<li>Agosto</li>
+				<li>Septiembre</li>
+				<li>Octubre</li>
+				<li>Noviembre</li>
+				<li>Diciembre</li>
+			</ol>
+			<!-- La etiqueta <dl></dl> se utiliza para listas de definición -->
+			<h1>Listas de definición</h1>
+			<dl>
+				<dt>Enero:</dt>
+				<dd>Éste es el primer mes del año</dd>
+				<dt>Febrero:</dt>
+				<dd>Éste es el segundo mes del año</dd>
+				<dt>Marzo:</dt>
+				<dd>Éste es el tercer mes del año</dd>
+				<dt>Abril:</dt>
+				<dd>Éste es el cuarto mes del año</dd>
+				<dt>Mayo:</dt>
+				<dd>Éste es el quinto mes del año</dd>
+				<dt>Junio:</dt>
+				<dd>Éste es el sexto mes del año</dd>
+				<dt>Julio:</dt>
+				<dd>Éste es el séptimo mes del año</dd>
+				<dt>Agosto:</dt>
+				<dd>Éste es el octavo mes del año</dd>
+				<dt>Septiembre:</dt>
+				<dd>Éste es el noveno mes del año</dd>
+				<dt>Octubre:</dt>
+				<dd>Éste es el décimo mes del año</dd>
+				<dt>Noviembre:</dt>
+				<dd>Éste es el penúltimo mes del año</dd>
+				<dt>Diciembre:</dt>
+				<dd>Éste es el último mes del año</dd>
+			</dl>		
+			
+			<!-- La etiqueta <table></table> es de las que más cambios tiene en HTML5, porque se han eliminado muchos atributos y "no es recomendable usarla" -->
+			<br><br><!-- 2 saltos de línea -->
+			<h1>Tabla con el menú de la semana</h1>
+			<table border="2">
+				<tr>
+					<th/>
+					<th>Lunes</th>
+					<th>Martes</th>
+					<th>Miércoles</th>
+					<th>Jueves</th>
+					<th>Viernes</th>
+					<th>Sábado</th>
+					<th>Domingo</th>
+				</tr>
+				<tr>
+					<th>Desayuno</th>
+					<td>Zumo de naranja</td>
+					<td>Café con leche</td>
+					<td>2 tostadas</td>
+					<td>Batido de fresa</td>
+					<td>Sándwich mixto</td>
+					<td>10 fresas</td>
+					<td>300 gramos de melón</td>
+				</tr>
+				<tr>
+					<th>Almuerzo</th>
+					<td>1 pechuga de pollo</td>
+					<td>Pescado blanco</td>
+					<td>Carne roja</td>
+					<td>Ensalada mixta</td>
+					<td>1 chuletón</td>
+					<td>Crema de verdura</td>
+					<td>Pescado azul</td>
+				</tr>
+				<tr>
+					<th>Cena</th>
+					<td>2 manzanas</td>
+					<td>2 peras</td>
+					<td>1 naranja</td>
+					<td>200 gramos de melón</td>
+					<td>2 melocotones</td>
+					<td>10 fresas</td>
+					<td>300 gramos de sandía</td>
+				</tr>
+			</table>
+			<br><br><!-- saltos de línea -->
+			
+			<!-- Clase del 26 de Abril 2023 -->
+			
+			<h1>Listas con < ul > con type="disc" que es que viene por defecto</h1>
+			<ul type="disc">
+				<li >Enero</li>
+				<li>Febrero</li>
+				<li>Marzo</li>
+				<li>Abril</li>
+				<li>Mayo</li>
+				<li>Junio</li>
+				<li>Julio</li>
+				<li>Agosto</li>
+				<li>Septiembre</li>
+				<li>Octubre</li>
+				<li>Noviembre</li>
+				<li>Diciembre</li>
+			</ul>
+			
+			<h1>Listas con < ul > con type="circle"</h1>
+			<ul type="circle">
+				<li >Enero</li>
+				<li>Febrero</li>
+				<li>Marzo</li>
+				<li>Abril</li>
+				<li>Mayo</li>
+				<li>Junio</li>
+				<li>Julio</li>
+				<li>Agosto</li>
+				<li>Septiembre</li>
+				<li>Octubre</li>
+				<li>Noviembre</li>
+				<li>Diciembre</li>
+			</ul>
+			
+			
+			<h2>Formulario de alta</h2>
+			<!-- La etiqueta section sirve para determinar qué contenido corresponde a qué parte de un esquema -->
+			<section id="formulario_alta">
+			<!-- La etiqueta form sirve para representar una sección de un documento que contiene controles interactivos que permiten a un usuario enviar información a un servidor web. -->
+				<form>
+						<label for="nombre">Nombre:</label>
+						<input type="text" id="nombre" name="nombre"><br><br><br>
+						<label for="apellido1">Primer apellido:</label>
+						<input type="text" id="apellido1" name="apellido1"><br><br><br>
+						<label for="apellido2">Segundo apellido:</label>
+						<input type="text" id="apellido2" name="apellido2"><br><br><br>
+						<label for="email">Correo electrónico:</label>
+						<input type="email" id="correo" name="correo"><br><br><br>
+						<input type="submit" value="Enviar">
+				</form>
+			</section>
+			
+			<section id="images">
+				
+				<h1>MC Hammer</h1>
+				<img src="images/mchammer2.jpg" width="500" title="Foto de MC Hammer" alt="Aquí se debería observar a MC Hammer en sus mejores momentos">
+				
+				<!-- alt sirve para mostrar un mensaje en caso de no poder cargar la foto indicada -->
+				<h1>MC Hammer</h1>
+				<img class="imagen1" src="images/mchammer.jpg" width="500" title="Foto de MC Hammer" alt="Aquí se debería observar a MC Hammer en sus mejores momentos">
+				
+				<h1>Bryan Adams</h1>
+				<img class="imagen2" src="images/BryanAdams.jpg" width="500"  title="Foto de Bryan Adams" alt="Aquí se observa a Bryan Adams en sus mejores momentos">		
+				
+				<h1>Bruce Springsteen</h1>
+				<img class="imagen3" src="images/Bruce.jpg" width="500"  title="Foto de Bruce Springsteen" alt="Aquí se observa a Bruce Springsteen en sus mejores momentos">	
+				
+				<h1>Michael Jackson</h1>
+				<img class="imagen4" src="images/Michael.jpg" width="500"  title="Foto de Michael Jackson" alt="Aquí se observa a Bruce Springsteen en sus mejores momentos">	
+			</section>
+				
+		
+			<section id="audio">
+				<!-- La etiqueta audio sirve para reproducir audios. autoplay se habilitar en el navegador para que funcione y loop hace que se repita el audio al terminar. -->
+				<h2>Canción de MC Hammer</h2>
+				<audio controls="controls" autoplay loop>
+					<source src="audio/MCHammer.mp3" >
+					 Ha ocurrido un error.
+				</audio>
+				
+				<br><br><br>
+				<!-- Al colocar muted el audio está silenciado por defecto -->
+				<h2>Canción de Bryan Adams</h2>
+				<audio controls="controls" muted>
+					<source src="audio/bryanadams.mp3" >
+					 Ha ocurrido un error.
+				</audio>	
+				
+				</section>
+				
+				<section id="video">
+				<h2>Vídeo con sonido:</h2>
+				<video width="640" height="480" controls loop>
+					<source src="videos/video1.mp4" type="video/mp4" />					
+					El navegador que está usando no soporta el formato de vídeo de ese archivo.
+				</video>
+				<hr>						
+			</section>
+			
+				
+			<!-- Estilos aplicado en la misma etiqueta -->
+			
+            <!-- Div es un contenedor, con estilos se pueden poner horizontalmente varios cosecutivos separados por pixeles o porcentajes de pantalla -->
+            <div style="display: inline-block;">
+                <h1>Este es el contenido del Primer div</h1>
+            </div>
+            <div style="display: inline-block; width: 10%;"></div>
+            <div style="display: inline-block;">
+                <h1>Este es el contenido del Segundo div</h1>
+            </div>
+            <br><br>
+
+			<div class="borde-animado">
+			  <p>Este párrafo tiene un borde animado</p>
+			</div>
+			
+			
+			
+
+				
+			<!-- La etiqueta footer representa un pie de página para el contenido de sección más cercano o el elemento raíz de sección -->
+			<footer>
+				<p>Página creada en el curso IFCD0211 - Edición 2023</p>
+			</footer>
+					
+		</body>
+		
+</html>

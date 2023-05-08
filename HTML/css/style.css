@@ -69,7 +69,7 @@ marquee
 {
     font-size: 24px;
     text-shadow: 2px 2px #888888;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 .nodot
@@ -99,22 +99,199 @@ marquee
 
 .img1
 {
-    transform: scale(.01);
-    transition: transform .5s ease-in-out;
+    transform: scale(.05);
+    transition: transform 3s ease-in-out;
+    border: 5px solid blue;
 }
 
 .img1:hover
 {
     transform: scale(1);
+    border: 1px solid red;
 }
 
 .img2
 {
     transform: scale(1);
-    transition: transform .5s ease-in-out;
+    transition: transform 3s ease-in-out;
 }
 
 .img2:hover
 {
-    transform: scale(.1);
+    transform: scale(.05);
+    border: 5px solid black;
+    position: relative;
+    animation: border 5s infinite;
+}
+
+.dot1
+{
+    height: 50px;
+    width: 50px;
+    background-color: #f00;
+    border-radius: 50%;
+    display: inline-block;
+    border: 5px solid black;
+    position: relative;
+    animation: border 5s infinite;
+}
+
+.dot2
+{
+    height: 50px;
+    width: 50px;
+    background-color: #0f0;
+    border-radius: 50%;
+    display: inline-block;
+    border: 5px solid black;
+    position: relative;
+    animation: border 5s infinite;
+}
+
+.dot3
+{
+    height: 50px;
+    width: 50px;
+    background-color: #00f;
+    border-radius: 50%;
+    display: inline-block;
+    border: 5px solid black;
+    position: relative;
+    animation: border 5s infinite;
+}
+
+.borde-animado
+{
+    border: 5px solid black;
+    position: relative;
+    animation: border 5s infinite; /* border es el nombre del objeto de @keyframes */
+}
+
+@keyframes border
+{
+    0% {border-color: red;}
+    20% {border-color: blue;}
+    40% {border-color: yellow;}
+    60% {border-color: green;}
+    80% {border-color: violet;}
+    100% {border-color: red;}
+}
+
+.ring {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: fixed;
+    border-style: solid;
+    border-width: 10px;
+}
+/* define the blue ring css style */
+.blue-r {
+    border-color: #0180C3;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+/* define the yellow ring basic css style */
+.yellow {
+    border-color: #FEB131;
+    left: 125px;
+    top: 120px;
+}
+/* define the first part of the yellow ring css style */
+.yellow1 {
+    /* above the blue ring */
+    z-index: 1;
+    /* clip circle */
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+/* define the second part of the yellow ring css style */
+.yellow2 {
+    /* under the blue ring */
+    z-index: -1;
+    clip-path: polygon(0 0, 100% 100%, 100% 0);
+}
+/* define the black ring basic css style */
+.black {
+    border-color: black;
+    left: 250px;
+    top: 0px;
+}
+/* define the first part of the black ring css style */
+.black1 {
+    z-index: -2;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+/* define the second part of the black ring css style */
+.black2 {
+    z-index: 0;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+/* define the green ring basic css style */
+.green {
+    border-color: #059341;
+    left: 375px;
+    top: 120px;
+}
+/* define the first part of the green ring css style */
+.green1 {
+    z-index: 1;
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+/* define the second part of the green ring css style */
+.green2 {
+    z-index: -1;
+    clip-path: polygon(0 0, 100% 100%, 100% 0);
+}
+/* define the red ring basic css style */
+.red-r {
+    border-color: #FF0000;
+    left: 500px;
+    top: 0px;
+}
+/* define the first part of the red ring css style */
+.red1 {
+    z-index: -2;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+/* define the second part of the red ring css style */
+.red2 {
+    z-index: 0;
+    clip-path: polygon(100% 100%, 100% 0, 0 100%);
+}
+
+.container
+{
+    position: relative;
+}
+
+.black-box
+{
+    position: relative;
+    z-index: 1;
+    border: 2px solid black;
+    height: 100px;
+    margin: 30px;
+}
+
+.gray-box
+{
+    position: absolute;
+    z-index: 3; /* gray box will be above both green and black box */
+    background: lightgray;
+    height: 60px;  
+    width: 70%;
+    left: 50px;
+    top: 50px;
+}
+
+.green-box
+{
+    position: absolute;
+    z-index: 2; /* green box will be above black box */
+    background: lightgreen;
+    width: 35%;
+    left: 270px;
+    top: -15px;
+    height: 100px;
 }
