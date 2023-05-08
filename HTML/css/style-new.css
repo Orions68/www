@@ -69,10 +69,37 @@ input[type="text"].azul
 .lista > li
 {
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 2rem;
+    color: green;
 }
 
-.lista2 + li
+.lista2 + li + li
 {
-    font-size: 5rem;
+    font-size: 3rem;
+    color: red;
+}
+
+.lista > li + li + li + li + li
+{
+    font-size: 4rem;
+    color: blue;
+}
+
+.enlace[title="importante"]
+{
+    color: red;
+    font-weight: bold;
+    font-size: 32pt;
+}
+
+.enlace[title="noimportante"]
+{
+    color: blue;
+    font-weight: lighter;
+    font-size: 24pt;
+}
+
+.enlace
+{
+    text-decoration: none;
 }
