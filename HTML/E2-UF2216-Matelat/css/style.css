@@ -1,0 +1,100 @@
+/* Estilo para centrar el h1 del título de la página. */
+.center
+{
+    text-align: center;
+}
+
+/* Esta clase quita la decoración a los enlaces y pone en texto en color rosybrown */
+.light
+{
+    text-decoration: none;
+    color: rosybrown;
+}
+
+/* Esta clase pone los div con las imáenes y los textos en línea. */
+.inline
+{
+    display: inline-block;
+}
+
+/* atletismo es la ID de la primera sección, tiene todo lo pedido en el ejercicio. */
+#atletismo
+{
+    margin-left: 30px;
+    background-color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: white;
+}
+
+/* La clase cicly1 es de la imagen 1 de las secciones 2 y 3, on Hover hace el efecto blur, desenfoque. */
+ .cilcy1 {
+    transform: scale(1);
+    transition: transform 1s ease-in-out;
+ }
+ 
+ .cicly1:hover {
+    filter: blur(5px);	
+ }
+
+ /* La clase cicly2 es de la imagen 2 de las secciones 2 y 3 on hover hace el efecto agrandar, agranda un 20%. */
+.cilcy2 {
+    transform: scale(1);
+    transition: transform 1s ease-in-out;
+ }
+ 
+ .cicly2:hover {
+    transform: scale(1.2);
+ }
+
+ /* La ID saltoalto es la ID de la cuarta sección, contiene lo pedido en el ejercicio. */
+ #saltoalto
+ {
+    background-color: lightgray;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+ }
+
+ /* La ID levantamientopesas es la ID de la quinta sección, contiene lo pedido en el ejercicio. */
+ #levantamientopesas
+ {
+    border: solid 4px black;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    background-image: url("../img/pesas.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 210px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 10px;
+    text-decoration:line-through;
+    color: white;
+
+ }
+
+ /* Pone al elemento h1 un borde punteado de 4 pixeles color azul. */
+ h1
+ {
+    border: dotted 4px blue;
+ }
+
+ /* La clase deportes pone las fuentes de todos los elementos que tengas esa clase a cursiva. */
+ .deportes
+ {
+    font-style: italic;
+ }
+
+ /* La clase footer está en el h1 que está dentro del footer, quita el borde que había puesto anteriormente al h1 */
+ .footer
+ {
+    border: unset;
+ }
+
+ /* La clase border pone un borde a la marquesina que contiene el footer. */
+ .border
+ {
+    border: 1px solid pink;
+ }
