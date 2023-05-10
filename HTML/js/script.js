@@ -8,12 +8,27 @@ function calcula()
 
 function squareRoot(n)
 {
-    let avg = (a, b) => (a + b) / 2, c = 1, b;
-
-    for(let i = 0; i < 32; i++)
+    n = parseFloat(n);
+    if (n > 0)
     {
-        b = n / c;
-        c = avg(b, c);
+        let avg = (a, b) => (a + b) / 2, c = 1, b;
+
+        for(let i = 0; i < 64; i++)
+        {
+            b = n / c;
+            c = avg(b, c);
+        }
+        return c;
     }
-    return c;
+    else
+    {
+        if (n == 0)
+        {
+            return n;
+        }
+        else
+        {
+            return "No existe la Raiz Cuadrada de un Número Negativo.";
+        }
+    }
 }
