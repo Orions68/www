@@ -1,0 +1,15 @@
+*
+{
+    padding: 2%;
+    font-size: 1.3rem;
+}
+
+img
+{
+    vertical-align: middle;
+}
+
+#rotate
+{
+    transform: rotate(180deg);
+}
