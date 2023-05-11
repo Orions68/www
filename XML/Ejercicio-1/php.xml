@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libro xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ISBN>5555</ISBN>
+    <title>Otro Título</title>
+    <author>Otro Autor</author>
+    <editorial>Otra Editorial</editorial>
+    <date>1970-1-1</date>
+</libro>

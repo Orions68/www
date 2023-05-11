@@ -10,3 +10,7 @@
         <day></day>
     </date>
 </libro>
+
+<!-- Este comando importa desde la consola de MySQL el archivo XML a la base de datos library en la tabla libro. -->
+
+<!-- load xml infile "C:/Server/www/XML/Ejercicio-2/libro-sql-2.xml" into table library.libro rows identified by '<libro>'; -->

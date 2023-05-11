@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="library">
+	<table name="libro">
+		<column name="ISBN">555555</column>
+		<column name="title">La Higuera</column>
+		<column name="author">Juana de Hibarbouru</column>
+		<column name="editorial">Planeta</column>
+		<column name="date">1947-11-12</column>
+	</table>
+</database>

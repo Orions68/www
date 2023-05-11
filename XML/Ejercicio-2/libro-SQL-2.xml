@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libros>
+	<libro>
+		<ISBN>123456</ISBN>
+		<title>El Pricipito</title>
+		<author>Antoine de Saint Exupery</author>
+		<editorial>Planeta</editorial>
+		<date>1943-4-6</date>
+	</libro>
+	<libro>
+		<ISBN>654321</ISBN>
+		<title>20000 Leguas de Viaje Submarino</title>
+		<author>Jules Berne</author>
+		<editorial>Planeta</editorial>
+		<date>1869-3-20</date>
+	</libro>
+	<libro>
+		<ISBN>234567</ISBN>
+		<title>El Reicito</title>
+		<author>Antoine de Devil Insupery</author>
+		<editorial>Planeta</editorial>
+		<date>1944-4-9</date>
+	</libro>
+	<libro>
+		<ISBN>345678</ISBN>
+		<title>La Vuelta al Mundo en 80 Días</title>
+		<author>Jules Berne</author>
+		<editorial>Planeta</editorial>
+		<date>1872-7-15</date>
+	</libro>
+	<libro>
+		<ISBN>456789</ISBN>
+		<title>La Vuelta al Ruedo</title>
+		<author>EL Baquero</author>
+		<editorial>Planeta</editorial>
+		<date>1950-1-10</date>
+	</libro>
+	<libro>
+		<ISBN>567890</ISBN>
+		<title>EL Capitán Nemo</title>
+		<author>Jules Berne</author>
+		<editorial>Planeta</editorial>
+		<date>1875-2-28</date>
+	</libro>
+	<libro>
+		<ISBN>678901</ISBN>
+		<title>Heroes</title>
+		<author>Diego Armando Maradona</author>
+		<editorial>Planeta</editorial>
+		<date>1986-6-20</date>
+	</libro>
+	<libro>
+		<ISBN>789012</ISBN>
+		<title>España Campeona del Mundo</title>
+		<author>Emilio Butragueño</author>
+		<editorial>Planeta</editorial>
+		<date>2010-7-11</date>
+	</libro>
+	<libro>
+		<ISBN>890123</ISBN>
+		<title>Brasil el Pentacampeón</title>
+		<author>Edson Arantes do Nacimento</author>
+		<editorial>Planeta</editorial>
+		<date>1970-6-21</date>
+	</libro>
+	<libro>
+		<ISBN>901234</ISBN>
+		<title>La Higuera</title>
+		<author>Juana de Hibarbouru</author>
+		<editorial>Planeta</editorial>
+		<date>1947-11-12</date>
+	</libro>
+</libros>
+
+<!-- Este comando importa desde la consola de MySQL el archivo XML a la base de datos library en la tabla libro. -->
+
+<!-- load xml infile "C:/Server/www/XML/Ejercicio-2/libro-sql-2.xml" into table library.libro rows identified by '<libro>'; -->
