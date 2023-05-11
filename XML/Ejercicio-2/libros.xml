@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libro xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ISBN>123456</ISBN>
+    <title>El Pricipito</title>
+    <author>Antoine de Saint Exupery</author>
+    <editorial>Planeta</editorial>
+    <date>
+        <year>1943</year>
+        <month>Abril</month>
+        <day>6</day>
+    </date>
+    <ISBN>654321</ISBN>
+    <title>20000 Leguas de Viaje Submarino</title>
+    <author>Jules Berne</author>
+    <editorial>Planeta</editorial>
+    <date>
+        <year>1869</year>
+        <month>Marzo</month>
+        <day>20</day>
+    </date>
+    <ISBN>234567</ISBN>
+    <title>El Reicito</title>
+    <author>Antoine de Devil Insupery</author>
+    <editorial>Planeta</editorial>
+    <date>
+        <year>1944</year>
+        <month>Abril</month>
+        <day>9</day>
+    </date>
+    <ISBN>345678</ISBN>
+    <title>La Vuelta al Mundo en 80 Días</title>
+    <author>Jules Berne</author>
+    <editorial>Planeta</editorial>
+    <date>
+        <year>1872</year>
+        <month>Julio</month>
+        <day>15</day>
+    </date>
+    <ISBN>456789</ISBN>
+    <title>La Vuelta al Ruedo</title>
+    <author>EL Baquero</author>
+    <editorial>Planeta</editorial>
+    <date>
+        <year>1950</year>
+        <month>Enero</month>
+        <day>10</day>
+    </date>
+    <ISBN>567890</ISBN>
+    <title>EL Capitán Nemo</title>
+    <author>Jules Berne</author>
+    <editorial>Planeta</editorial>
+    <date>
+        <year>1875</year>
+        <month>Febrero</month>
+        <day>28</day>
+    </date>
+    <ISBN>678901</ISBN>
+    <title>Heroes</title>
+    <author>Diego Armando Maradona</author>
+    <editorial>Planeta</editorial>
+    <date>
+        <year>1986</year>
+        <month>Junio</month>
+        <day>20</day>
+    </date>
+    <ISBN>789012</ISBN>
+    <title>España Campeona del Mundo</title>
+    <author>Emilio Butragueño</author>
+    <editorial>Planeta</editorial>
+    <date>
+        <year>2010</year>
+        <month>Julio</month>
+        <day>11</day>
+    </date>
+    <ISBN>890123</ISBN>
+    <title>Brasil el Pentacampeón</title>
+    <author>Edson Arantes do Nacimento</author>
+    <editorial>Planeta</editorial>
+    <date>
+        <year>1970</year>
+        <month>Junio</month>
+        <day>21</day>
+    </date>
+    <ISBN>901234</ISBN>
+    <title>La Higuera</title>
+    <author>Juana de Hibarbouru</author>
+    <editorial>Planeta</editorial>
+    <date>
+        <year>1947</year>
+        <month>Noviembre</month>
+        <day>12</day>
+    </date>
+</libro>

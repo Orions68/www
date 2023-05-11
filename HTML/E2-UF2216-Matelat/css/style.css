@@ -28,7 +28,7 @@
 }
 
 /* La clase cicly1 es de la imagen 1 de las secciones 2 y 3, on Hover hace el efecto blur, desenfoque. */
- .cilcy1 {
+ .cicly1 {
     transform: scale(1);
     transition: transform 1s ease-in-out;
  }
@@ -38,7 +38,7 @@
  }
 
  /* La clase cicly2 es de la imagen 2 de las secciones 2 y 3 on hover hace el efecto agrandar, agranda un 20%. */
-.cilcy2 {
+.cicly2 {
     transform: scale(1);
     transition: transform 1s ease-in-out;
  }

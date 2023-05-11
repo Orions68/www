@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="César Osvaldo Matlelat Borneo D.N.I. 42268151Q">
+    <meta name="description" content="UF2216: Repositorio de Contenidos">
+    <link rel="stylesheet" href="css/style.css">
+    <title>La Isla Canaria</title>
+</head>
+<body id="body">
+    <header>
+        <!-- Menú Horizontal. -->
+        <nav>
+            <a href="#view1">Introducción</a>&nbsp;&nbsp;
+            <a href="#view2">Los Menceyatos</a>&nbsp;&nbsp;
+            <a href="#view3">Ciudades de Tenerife</a>&nbsp;&nbsp;
+            <a href="#view4">Lugares de Tenerife</a>&nbsp;&nbsp;
+            <a href="#view5">Contacto</a>
+        </nav>
+    </header>
+    <hr>
+    <h1 class="center">El Mejor lugar de <span style="text-decoration: line-through;">Europa</span> del Mundo para Vivir</h1>
+    <h1 class="center biggest"><span id="color1">T </span><span id="color2">E </span><span id="color3">N </span><span id="color4">E </span><span id="color1">R </span><span>I </span><span id="color3">F </span><span id="color2">E</span></h1>
+    <br><br>
+    <section id="view1">
+        <h2>Vídeo de Introducción</h2>
+        <br>
+        <!-- En lugar de el elemento vídeo usé un iframe a un vídeo de Tenerife. -->
+        <iframe width="800" height="600" src="https://www.youtube.com/embed/1YOdqcC2-q8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </section>
+    <section id="view2">
+        <h2>Un Poco de Historia</h2>
+        <br>
+        <h1>
+            Los 9 Menceyatos de Tenerife
+            <img src="img/tenerife.jpg" alt="Los 9 Menceyatos" width="800">
+        </h1>
+        <br>
+        <!-- Los enlaces abren en una pestaña distinta, el que va a otra pestaña y el que se abre en la misma pestaña es otra página del examen, tiene un enlace para abrir nuevamente esta página. -->
+        <a class="big" href="https://es.m.wikipedia.org/wiki/Archivo:Menceyatos_de_Tenerife.jpg" target="_blank">Viaja a Conocer la Historia</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="big" href="tenerife.html">Quienes era los Menceyes</a>
+    </section>
+    <section id="view3">
+        <h2>Aquí tienes una Lista de Ciudades para Visitar</h2>
+        <br>
+        <h3>Ciudades</h3>
+        <br>
+        <!-- Lista Desordenada -->
+        <ul>
+            <li>Santa Cruz de Tenerife</li>
+            <li>San Cristóbal de la Laguna</li>
+            <li>Puerto de la Cruz</li>
+            <li>La Orotava</li>
+        </ul>
+    </section>
+    <section id="view4">
+        <h2>Y Estos son los Lugares de Interés</h2>
+        <br>
+        <h3>Puntos de Interés, Puedes Hacer Click Sobre el Teide para Visitarlo.</h3>
+        <br>
+        <!-- Lista Ordenada. -->
+        <ol>
+            <li><a href="teide.html">El Teide, El pico más alto de España<img src="img/teide.jpg" alt="Teide" width="256"></a></li>
+            <li>Anaga, Bosque Mágico<img src="img/anaga.jpg" alt="Anaga" width="256"></li>
+            <li>Teno uno de los Primeros Macizos.<img src="img/teno.jpg" alt="Teno" width="256"></li>
+            <li>Los Gigantes<img src="img/gigantes.jpg" alt="Los Gigantes" width="256"></li>
+        </ol>
+    </section>
+    <section id="view5">
+        <h2>Sección de la Prueba Práctica</h2>
+        <br>
+        <!-- Formulario para contacto. -->
+        <form>
+            <label><input type="text" name="username" required> Nombre</label>
+            <br><br>
+            <label><input type="text" name="surname" required> Apellido 1</label>
+            <br><br>
+            <label><input type="text" name="surneme2"> Apellido 2</label>
+            <br><br>
+            <label><input type="email" name="email"> E-mail</label>
+            <br><br>
+            <label><textarea name="message" cols="80" rows="10"></textarea> Mensaje</label>
+            <br><br>
+            <input id="button" type="submit" value="Contacta con Nosotros">
+        </form>
+        <br>
+        <!-- Este botón tiene trampa, al presionarlo cambia el color del body, pero con javascript, se puede cambiar a azul claro y volver al color original blanco indefinidamente. -->
+        <button style="width: 200px; height: 80px;" onclick="changeColor()">Toca este Botón para Cambiar el Color del Fondo de la Pantalla</button>
+        <br><br>
+        <table>
+            <tr>
+                <th>Playas</th><th>Montaña</th><th>Laurisilva</th><th>Ciudades</th>
+            </tr>
+            <tr>
+                <td>Las Teresitas<img src="img/teresitas.jpg" alt="Las Teresitas" width="240"></td>
+                <td>Teide<img src="img/teide.jpg" alt="El Teide" width="240"></td>
+                <td>Anaga<img src="img/anaga.jpg" alt="El Teide" width="240"></td>
+                <td>La Laguna<img src="img/laguna.jpg" alt="El Teide" width="240"></td>
+            </tr>
+            <tr>
+                <td>Las Vistas<img src="img/teresitas.jpg" alt="Las Teresitas" width="240"></td>
+                <td>Montaña Mostaza<img src="img/teide.jpg" alt="El Teide" width="240"></td>
+                <td>Teno<img src="img/anaga.jpg" alt="El Teide" width="240"></td>
+                <td>Santa Cruz<img src="img/laguna.jpg" alt="El Teide" width="240"></td>
+            </tr>
+            <tr>
+                <td>La Arena<img src="img/teresitas.jpg" alt="Las Teresitas" width="240"></td>
+                <td>Roque del Conde<img src="img/teide.jpg" alt="El Teide" width="240"></td>
+                <td>Ravelo<img src="img/anaga.jpg" alt="El Teide" width="240"></td>
+                <td>Puerto de la Cruz<img src="img/laguna.jpg" alt="El Teide" width="240"></td>
+            </tr>
+            <tr>
+                <td>Costa Adeje<img src="img/teresitas.jpg" alt="Las Teresitas" width="240"></td>
+                <td>Montaña Guajara<img src="img/teide.jpg" alt="El Teide" width="240"></td>
+                <td>La Vica<img src="img/anaga.jpg" alt="El Teide" width="240"></td>
+                <td>La Orotava<img src="img/laguna.jpg" alt="El Teide" width="240"></td>
+            </tr>
+        </table>
+        <br><br>
+        <h1>Esta Imagen se Hará Invisible y Roatará 45 Grados</h1>
+        <br>
+        <img id="ghost" src="img/teide.jpg" alt="El Teide" width="640">
+        <br><br>
+        <h1>Debajo hay un div con un Borde Negro, pasa el Puntero del Ratón por Encima</h1>
+        <br>
+        <div style="border: 5px solid black; height: 64px;" id="colored"></div>
+        <br><br>
+        <div style="border: 5px solid black; height: 64px;" id="zoom"></div>
+        <br><br>
+        <h1 id="shadow">Este Texto Tendrá Sombra si Pasas Sobre Él</h1>
+        <br>
+        <h1 id="bigger">Este Texto Se Agrandará si Pasas Sobre Él</h1>
+        <br>
+        <h1 id="color">Este Texto Cambiará de Color si Pasas Sobre Él</h1>
+        <br>
+        <div id="move"></div> 
+    </section>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <marquee class="footer center" direction="down" behavior="alternate" scrolldelay = "500">
+        <footer>
+            <h3>© César Osvaldo Matelat Borneo D.N.I. 422268151Q</h3>
+            <a href="mailto:cesarmatelat@gmail.com" class="enlace" title="importante">Escribeme Aquí</a>
+            <br>
+            <a href="https://google.es" target="_blank">Visita Google</a>
+        </footer>
+    </marquee>
+    <script>
+        // Script para cambiar el color de fondo del body, la variable already se usa para cambiar de uno a otro indefinidamente.
+        let already = false;
+
+        function changeColor()
+        {
+            let body = document.getElementById("body");
+
+            if (!already)
+            {
+                body.style.backgroundColor = "lightblue";
+                already = true;
+            }
+            else
+            {
+                body.style.backgroundColor = "white";
+                already = false;
+            }
+        }
+    </script>
+</body>
+</html>

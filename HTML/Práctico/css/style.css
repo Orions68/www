@@ -1,0 +1,210 @@
+ /* Selector Universal */
+ *
+ {
+    text-align: justify;
+ }
+
+
+/* Alínea las imagenes (elemento <img>) verticalmente al medio, se usa para que el texto quede centrado con respecto a la imagen */
+img
+{
+    vertical-align: middle;
+}
+ 
+ /*  Aplica el estilo al elemento de la clase "enlace" con el título importante */
+ .enlace[title="importante"]
+ {
+    font-size: 25px;
+    color: red;
+    font-weight: bold;
+}
+
+
+/* Clase usada para centrar el texto. */
+.center
+{
+    text-align: center;
+}
+
+
+/* La clase footer pone el footer fijo en la parte de abajo de la pantalla. */
+.footer
+{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: lightblue;
+    color: white;
+    text-align: center;
+}
+
+
+/* Clase para agradar las letras de colores que ponen TENERIFE */
+.biggest
+{
+    font-size: 5rem;
+}
+
+
+/* Clase para quitar la decoración de los enlaces y agrandar el texto */
+.big
+{
+    font-size: 2rem;
+    text-decoration: none;
+}
+
+/* Pone el span con ID color1 de color azul.  */
+#color1
+{
+    color: blue;
+}
+
+#color2
+{
+    color: red;
+}
+
+#color3
+{
+    color: yellow;
+}
+
+#color4
+{
+    color: green;
+}
+
+/* ID del botón que cambia el color del texto y lo agranda un 20%. */
+#button
+{
+    transform: scale(1);
+    transition: transform .5s ease-in-out;
+}
+
+/* Afecta a la ID anterior cuando paso el puntero del ratón por encima. */
+#button:hover
+{
+    transform: scale(1.2);
+    color: rebeccapurple;
+}
+
+/* Borde de la tabla de 1 pixel color rojo. */
+table
+{
+    border: 1px solid red;
+}
+
+/* Borde de las filas columnas y titulos de la tabla de 1 pixel color azul. */
+tr, th, td
+{
+    border: 1px solid blue;
+    font-size: 1.5rem;
+}
+
+/* La ID ghost es de la imagen que desaparecera y rotará 45 grados. */
+#ghost:hover
+{
+    animation: fadeIn 3s ease-in-out;
+    transform: rotate(45deg);
+}
+
+@keyframes fadeIn /* Animación de nombre fadeIn. */
+{
+    0% {opacity:1;}
+    100% {opacity:0;}
+}
+
+/* La ID colored es de un elemento div, se usa para poner el borde de varios colres que van cambiando. */
+#colored:hover
+{
+    border: 5px solid black;
+    position: relative;
+    animation: border 5s infinite; /* border es el nombre del objeto de @keyframes */
+}
+
+@keyframes border /* Nombre de la Animación */
+{
+    0% {border-color: red;}
+    20% {border-color: blue;}
+    40% {border-color: yellow;}
+    60% {border-color: green;}
+    80% {border-color: violet;}
+    100% {border-color: red;}
+}
+
+/* La ID zoom es de un div que se agrandará al poner el puntero del ratón encima. */
+#zoom
+{
+    transform: scale(1);
+    transition: transform .5s ease-in-out;
+}
+
+#zoom:hover /* Duplica el tamaño */
+{
+    transform: scale(2);
+    color: rebeccapurple;
+}
+
+/* Pondrá una sombra de 5 pixels al texto en el elemento h1 con ID shadow */
+#shadow
+{
+    transition: transform .5s ease-in-out;
+}
+
+#shadow:hover /* Se pone la sombra al poner el puntero del ratón encima. */
+{
+    text-shadow: 5px 5px #888888;
+}
+
+/* Hará más grande un h1 con ID bigger. */
+#bigger
+{
+    transition: transform .5s ease-in-out;
+}
+
+#bigger:hover /* Al poner el puntero del ratóin encima agranda el texto. */
+{
+    font-size: 3rem;
+}
+
+/* La ID color del h1 se usa para cambiar el color del texto. */
+#color
+{
+    color: #000;
+    transition: 0.5s ease-in-out;
+}
+
+#color:hover /* Cambia el color de la ID color al poner el puntero de ratón encima. */
+{
+    color: red;
+}
+
+/* El div cuadrado con ID move medirá 300 pixeles. */
+#move
+{
+    width: 300px;
+    height: 300px;
+    background-color: #000;
+    position: relative;
+    animation: moveit 4s infinite;
+    animation-delay: 2s;
+}
+
+/* #move:hover /* Al poner el puntero del ratón encima se achica a 150 pixeles y se empieza a mover.
+{
+    background-color: red;
+    position: relative;
+    animation-name: moveit;
+    animation-duration: 4s;
+    animation-delay: 2s;
+} */
+
+@keyframes moveit /* El div con ID move se mueve y va cambiando de color. */
+{
+    0%   {background-color:red; left:0px; top:0px; width: 250px; height: 250px;}
+    25%  {background-color:yellow; left:200px; top:0px; width: 200px; height: 200px;}
+    50%  {background-color:blue; left:200px; top:200px; width: 150px; height: 150px;}
+    75%  {background-color:green; left:0px; top:200px; width: 100px; height: 100px;}
+    100% {background-color:red; left:0px; top:0px; width: 200px; height: 200px;}
+}
