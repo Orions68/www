@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pma_xml version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+<database name="library">
+	<table name="libro">
+		<column name="ISBN">111111</column>
+		<column name="title">La Biblia</column>
+		<column name="author">Dios y Otros</column>
+		<column name="editorial">Planeta</column>
+		<column name="date">3000-1-1</column>
+	</table>
+</database>
+</pma_xml>
+
+<!-- Este script permite que phpMyAdmin importe los datos en XML. -->
+<!-- Usa el Espacio de Nombres de phpMyAdmin, Sin el Espacio de Nombres no Funciona. -->
