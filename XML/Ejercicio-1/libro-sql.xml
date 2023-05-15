@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+<pma_xml version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
 <database name="library">
 	<table name="libro">
 		<column name="ISBN">555555</column>
@@ -9,4 +9,4 @@
 		<column name="date">1947-11-12</column>
 	</table>
 </database>
-</pma_xml_export>
+</pma_xml>
