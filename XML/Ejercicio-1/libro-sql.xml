@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pma_xml version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+<pma_xml version="1.0" xmlns:pma="https://MiWeb.com/"> <!-- El espacio de nombres tiene que ser de pma, la URL puede ser cualquiera. -->
 <database name="library">
 	<table name="libro">
-		<column name="ISBN">555555</column>
-		<column name="title">La Higuera</column>
-		<column name="author">Juana de Hibarbouru</column>
+		<column name="ISBN">22222</column>
+		<column name="title">Platero y Yo</column>
+		<column name="author">juan Ramón jiménez</column>
 		<column name="editorial">Planeta</column>
-		<column name="date">1947-11-12</column>
+		<column name="date">1914-11-12</column>
 	</table>
 </database>
 </pma_xml>
