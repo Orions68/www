@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+<each>
+<ID>1</ID>
+<name>César</name>
+<surname>Matelat</surname>
+<surname2>Borneo</surname2>
+<phone>664774821</phone>
+<email>cesarmatelat@gmail.com</email>
+</each>
+<each>
+<ID>2</ID>
+<name>Otro</name>
+<surname>Alumno</surname>
+<surname2></surname2>
+<phone>611111111</phone>
+<email>1@1.com</email>
+</each>
+</data>
