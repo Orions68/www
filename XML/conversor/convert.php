@@ -27,6 +27,7 @@ if (isset($_POST["dsv"]))
         $array[$index] = [];
         while (($line = fgets($read)) !== false) // Mientras Lea Líneas del Archivo.
         {
+            $line = trim($line);
             $array[$index] = explode($char, $line);
             $index++;
         }

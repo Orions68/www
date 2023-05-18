@@ -6,10 +6,7 @@
 <Apellido1>Apellido-1</Apellido1>
 <Apellido2>Apellido-2</Apellido2>
 <Teléfono>611111111</Teléfono>
-<E-mail
->1@1.com
-</E-mail
->
+<E-mail>1@1.com</E-mail>
 </each>
 <each>
 <ID>2</ID>
@@ -17,10 +14,7 @@
 <Apellido1>Apellido-1</Apellido1>
 <Apellido2></Apellido2>
 <Teléfono>622222222</Teléfono>
-<E-mail
->2@2.com
-</E-mail
->
+<E-mail>2@2.com</E-mail>
 </each>
 <each>
 <ID>3</ID>
@@ -28,8 +22,6 @@
 <Apellido1>Apellido-1</Apellido1>
 <Apellido2>Apellido-2</Apellido2>
 <Teléfono>633333333</Teléfono>
-<E-mail
->3@3.com</E-mail
->
+<E-mail>3@3.com</E-mail>
 </each>
 </data>
