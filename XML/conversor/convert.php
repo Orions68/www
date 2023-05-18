@@ -34,10 +34,11 @@ if (isset($_POST["dsv"]))
         $counter = 0;
         $longer = 0;
         $index = 0;
-        while ($counter < count($array) - 1)
+        while ($counter + 1 < count($array))
         {
             while ($index < count($array[0]))
             {
+                $result[$longer] = "";
                 $result[$longer] .= "<" . $array[0][$index] . ">" . $array[$counter + 1][$index] . "</" . $array[0][$index] . ">";
                 $index++;
                 $longer++;
@@ -45,26 +46,23 @@ if (isset($_POST["dsv"]))
             $counter++;
             $index = 0;
         }
-        print_r ($result);
         $save = fopen("result.xml", "w") or die("Unable to open file!");
         fwrite($save, '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL);
         fwrite($save, '<data>' . PHP_EOL);
-        $start = 0;
-        while ($index < count($array) - 1)
+        while ($index < $longer)
         {
             fwrite($save, '<each>' . PHP_EOL);
-            for ($i = $start; $i < $longer / 2; $i++)
+            for ($i = 0; $i < count($array[0]); $i++)
             {
-                fwrite($save, $result[$i] . PHP_EOL);
+                fwrite($save, $result[$index] . PHP_EOL);
+                $index++;
             }
             fwrite($save, '</each>' . PHP_EOL);
-            $index++;
-            $start = count($array[0]);
-            $longer *= 2;
         }
         fwrite($save, '</data>');
         fclose($save);
         fclose($read);
     }
+    echo "<script>if (!alert('Archivo Salvado Correctamente')) window.open('index.php', '_self');</script>";
 }
 ?>
