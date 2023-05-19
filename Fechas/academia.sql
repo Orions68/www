@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-04-2023 a las 22:48:19
+-- Tiempo de generación: 19-05-2023 a las 17:37:57
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `fecha`
+-- Base de datos: `academia`
 --
-CREATE DATABASE IF NOT EXISTS `fecha` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
-USE `fecha`;
+CREATE DATABASE IF NOT EXISTS `academia` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `academia`;
 
 -- --------------------------------------------------------
 
@@ -42,12 +42,17 @@ CREATE TABLE `alumno` (
   `path` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
+-- --------------------------------------------------------
+
 --
--- Volcado de datos para la tabla `alumno`
+-- Estructura de tabla para la tabla `curso`
 --
 
-INSERT INTO `alumno` (`ID`, `name`, `surname`, `surname2`, `gender`, `phone`, `email`, `pass`, `bday`, `path`) VALUES
-(1, 'César Osvaldo', 'Matelat', 'Borneo', 1, '664774821', 'orions@gmx.net', '$2y$10$t2qvali4tr4YtHlABReRiOiWPfxqyF0GV8msVoSFH6W4f18bGA7C.', 1, 'alumno/1/pic/perfil.jpg');
+CREATE TABLE `curso` (
+  `ID` int(11) NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `alumno` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -65,14 +70,6 @@ CREATE TABLE `fecha` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
--- Volcado de datos para la tabla `fecha`
---
-
-INSERT INTO `fecha` (`ID`, `day_name`, `day`, `month_name`, `year`, `date`) VALUES
-(1, 'Viernes', 5, 'Abril', 1968, '1968-04-05'),
-(2, 'Jueves', 1, 'Enero', 1970, '1970-01-01');
-
---
 -- Índices para tablas volcadas
 --
 
@@ -84,6 +81,13 @@ ALTER TABLE `alumno`
   ADD UNIQUE KEY `phone` (`phone`),
   ADD UNIQUE KEY `email` (`email`),
   ADD KEY `FK bday Hace referencia a ID de la tabla fecha.` (`bday`);
+
+--
+-- Indices de la tabla `curso`
+--
+ALTER TABLE `curso`
+  ADD PRIMARY KEY (`ID`,`alumno`),
+  ADD KEY `Hace referencia a ID de la tabla alumno` (`alumno`);
 
 --
 -- Indices de la tabla `fecha`
@@ -100,13 +104,19 @@ ALTER TABLE `fecha`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `curso`
+--
+ALTER TABLE `curso`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `fecha`
 --
 ALTER TABLE `fecha`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
@@ -117,6 +127,12 @@ ALTER TABLE `fecha`
 --
 ALTER TABLE `alumno`
   ADD CONSTRAINT `alumno_ibfk_1` FOREIGN KEY (`bday`) REFERENCES `fecha` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `curso`
+--
+ALTER TABLE `curso`
+  ADD CONSTRAINT `curso_ibfk_1` FOREIGN KEY (`alumno`) REFERENCES `alumno` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

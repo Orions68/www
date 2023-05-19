@@ -49,7 +49,7 @@ if (isset($_POST["email"]))
                     <form action="" method="post">
                         <label><input type="text" name="email"> Danos el E-mail con el que te Registraste</label>
                         <br><br>
-                        <input type="submit" value="Recuperar mi Contraseña">
+                        <input type="submit" value="Recupero mi Contraseña">
                     </form>
                 </div>
             </div>

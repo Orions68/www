@@ -13,14 +13,14 @@ include "includes/nav-mob-index.html";
             <div id="view1">
                 <br><br>
                 <?php
-                if (isset($_POST["day"]))
+                if (isset($_POST["day"])) // Si Llegan Datos por POST
                 {
-                    $day = $_POST["day"];
-                    $month = $_POST["month"];
-                    $year = $_POST["year"];
-                    $day_name = $_POST["day_name"];
-                    $month_name = $_POST["month_name"];
-                    $date = date("Y-m-d", strtotime($year . "-" . $month . "-" . $day));
+                    $day = $_POST["day"]; // Asigno a la variable $day el contenido del POST["day"];
+                    $month = $_POST["month"]; // Asigno a la variable $month el contenido del POST["month"];
+                    $year = $_POST["year"]; // Asigno a la variable $year el contenido del POST["year"];
+                    $day_name = $_POST["day_name"]; // Asigno a la variable $day_name el contenido del POST["day_name"];
+                    $month_name = $_POST["month_name"]; // Asigno a la variable $month_name el contenido del POST["month_name"];
+                    $date = date("Y-m-d", strtotime($year . "-" . $month . "-" . $day)); // Asigno a la variable $date la fecha en el formato que acepta MySQL "Y-m-d".
                     echo "La Fecha es: " . $day_name . " " . $day . " de " . $month_name . " de ". $year;
                     $sql = "INSERT INTO fecha VALUES (:ID, :day_name, :day, :month_name, :year, :date);";
                     $stmt = $conn->prepare($sql);

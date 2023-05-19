@@ -102,7 +102,7 @@ function verify()
     }
 }
 
-function checkpass()
+function checkpass() // Función que verifica si las contraseñas introducidas son iguales.
 {
     let pass = document.getElementById("pass1").value;
     let pass2 = document.getElementById("pass2").value;

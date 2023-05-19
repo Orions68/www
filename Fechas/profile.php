@@ -7,7 +7,7 @@ include "includes/modal-profile.html";
 if (isset($_POST['email'])) // Si recibe datos por POST en la variable array $_POST["email"].
 {
     $ok = false;
-	$email = $_POST['email']; // Asigna a la variable $user el contenido del array $_POST["email"].
+	$email = $_POST['email']; // Asigna a la variable $email el contenido del array $_POST["email"].
 	$pass = $_POST['pass']; // Lo mismo con $_POST["pass"].
 
     $sql = "SELECT ID, email, pass FROM alumno WHERE email='$email';";
