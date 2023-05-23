@@ -6,7 +6,7 @@ include "includes/modal-profile.html";
 
 if (isset($_POST['email'])) // Si recibe datos por POST en la variable array $_POST["email"].
 {
-    $ok = false;
+    $ok = false; // Declaro y asigno false a la variable $ok, se usa para saber si los datos introducidos están registrados en la base de datos.
 	$email = $_POST['email']; // Asigna a la variable $user el contenido del array $_POST["email"].
 	$pass = $_POST['pass']; // Lo mismo con $_POST["pass"].
 
@@ -18,6 +18,7 @@ if (isset($_POST['email'])) // Si recibe datos por POST en la variable array $_P
         $row = $stmt->fetch(PDO::FETCH_OBJ);
         if (password_verify($pass, $row->pass))
         {
+            $ok = true;
             $_SESSION["id"] = $row->ID; // Asigno a la variable $id el valor de la sesión id.
             $sql = "SELECT * FROM alumno WHERE email='$email';"; // Preparo una consulta por la ID.
             $stmt = $conn->prepare($sql);
@@ -50,6 +51,8 @@ else
     echo "<script>toast(2, 'Ha Habido un Error', 'Has Llegado Aquí por Error.');</script>"; // Error, has llegado por el camino equivocado.
 }   
     // Muestro el formulario con los datos del cliente por si quiere modificar o eliminar su perfil.
+if ($ok)
+{
 ?>
 <section class="container-fluid pt-3">
     <div class="row">
@@ -104,7 +107,7 @@ else
                         <label><input type='text' value='<?php echo $date; ?>' readonly> Fecha de Nacimiento</label>
                         <input type='hidden' name='bday' value='<?php echo $bday; ?>'>
                         <br><br>
-                        <label><img src='<?php echo $path; ?>' alt='Tú Imagen de Perfil' width='100' height='100'><input type='file' name='profile'> Sube tu Imagen</label>
+                        <label><img src='<?php echo $path; ?>' alt='Tú Imagen de Perfil' width='100' height='100'><input type='file' name='profile'> Cambio mi Imagen</label>
                         <input type='hidden' name='path' value='<?php echo $path; ?>'>
                         <br><br>
                         <input type='submit' value='Modificar'>
@@ -136,5 +139,11 @@ else
     </div>
 </section>
 <?php
+}
+else
+{
+    echo "<script>toast(2, 'Ha Habido un Error', 'Las credenciales introducidas no corresponden a ningún alumno registrado.');</script>
+    <button onclick='window.open(\"index.php\", \"_self\")' class='btn btn-primary btn-lg'>Regresa a Inicio</button>"; // Error, has llegado por el camino equivocado.
+}
 include "includes/footer.html";
 ?>

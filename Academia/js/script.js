@@ -187,6 +187,19 @@ function screen() // Esta función comprueba si el ancho de la pantalla es de Or
         pc.style.visibility = "visible"; // Muestra el menú para Ordenador
         mobile.style.visibility = "hidden"; // Oculta el menú para Teléfono.
     }
+    reloadPage();
+}
+
+function reloadPage() // Función que recarga la página después de 2 segundos si se modifica el tamaño horizontal.
+{
+    var currentDocumentTimestamp = new Date(performance.timing.domLoading).getTime(); // El tiempo que tarda la página en cargar, OjO! está obsoleto.
+    var now = Date.now(); // Obtiene la fecha en milisegundos.
+    var twoSec = 2 * 1000; // Declaro y asigo 2 segundos a la variable twoSec.
+    var plusTwoSec = currentDocumentTimestamp + twoSec; // Declaro y agrego 2 segundos al tiempo que tardó en cargar la página en la variable plusTwoSec.
+    if (now > plusTwoSec) // Si la fecha al cargar la página es mayor que el tiempo que tardó la página en cargar más 2 segundos.
+    {
+        location.reload(); // Recarga la página.
+    }
 }
 
 function goThere() // Cuando cambia el selector del menú para Teléfono.

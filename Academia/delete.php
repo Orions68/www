@@ -15,6 +15,10 @@ if (isset($_POST["id"])) // Si se recibe la ID del alumno.
 }
 else // Si no llegaron datos por POST.
 {
-    echo "<script>if (!alert('Llegaste Aquí por Error, No se ha Eliminado Ningún Perfil.')) window.open('index.php', '_self');</script>"; // Nada se ha eliminado, vuelve a index.php.
+    echo "<script>if (!alert('Llegaste Aquí por Error, No se ha Eliminado Ningún Perfil.'))
+    {
+        window.open('index.php', '_self');
+    }
+    </script>"; // Nada se ha eliminado, vuelve a index.php.
 }
 ?>

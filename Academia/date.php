@@ -20,18 +20,19 @@ include "includes/nav-mob-index.html"; // Incluyo en menú para movil.
                     $year = $_POST["year"];
                     $day_name = $_POST["day_name"];
                     $month_name = $_POST["month_name"];
-                    $date = date("Y-m-d", strtotime($year . "-" . $month . "-" . $day)); // Con los datos recibidos genero la fecha para MySQL en la variable $date.
+                    $date_mysql = date("Y-m-d", strtotime($year . "-" . $month . "-" . $day)); // Con los datos recibidos genero la fecha para MySQL en la variable $date.
+                    $date_latin = date("d-m-Y", strtotime($year . "-" . $month . "-" . $day));
                     echo "La Fecha es: " . $day_name . " " . $day . " de " . $month_name . " de ". $year; // Muestro la fecha en pantalla.
                     $sql = "INSERT INTO fecha VALUES (:ID, :day_name, :day, :month_name, :year, :date);"; // Asigno a $sql la consulta a la base de datos.
                     $stmt = $conn->prepare($sql); // Preparo la conexión con la consulta.
                     try // Intento la conexión.
                     {
-                        $stmt->execute(array(':ID' => NULL, ':day_name' => $day_name, ':day' => $day, ':month_name' => $month_name, ':year' => $year, ':date' => $date)); // La ejecuto.
-                        echo '<script>toast(0, "La Fecha: ' . $date . '", "Se Ha Almacenado Correctamente, Ahora ve a Alumno en el Menú y Registra tus Datos.");</script>'; // Muestro el mensaje que todo ha ido bien.
+                        $stmt->execute(array(':ID' => NULL, ':day_name' => $day_name, ':day' => $day, ':month_name' => $month_name, ':year' => $year, ':date' => $date_mysql)); // La ejecuto.
+                        echo '<script>toast(0, "La Fecha: ' . $date_latin . '", "Se Ha Almacenado Correctamente, Usa el formulario para Registrar tus Datos.");</script>'; // Muestro el mensaje que todo ha ido bien.
                     }
                     catch(EXCEPTION $e) // Si se produce un error.
                     {
-                        echo '<script>toast(1, "Fecha ya Registrada", "La Fecha ya Estaba Registrada: ' . $e->getMessage() . ' Ve a Alumno en el Menú y Registra tus Datos.");</script>'; // Muestro el mensaje de error.
+                        echo '<script>toast(1, "Fecha ya Registrada", "La Fecha ya Estaba Registrada: ' . $e->getMessage() . '.");</script>'; // Muestro el mensaje de error.
                     }
                 }
                 ?>

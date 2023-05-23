@@ -19,6 +19,31 @@ if (isset($_POST["id"])) // Si llegan datos por post.
         $hash = password_hash($pass, PASSWORD_DEFAULT);
     }
     $bday = $_POST["bday"];
+    $img = htmlspecialchars($_FILES["profile"]["name"]);
+    $tmp = htmlspecialchars($_FILES["profile"]["tmp_name"]);
+    if ($img != "") // Si se sube una imagen.
+    {
+        chdir ("alumno");
+        if (!file_exists($id))
+        {
+            mkdir($id . "/pic", 0777, true);
+        }
+        $path = "alumno". $id . "/pic/" . basename($img); // Ruta a la imagen del alumno.
+        move_uploaded_file($tmp, $path); // Mueve la imagen de la carpeta temporal a la ruta $path, con el nombre asignado en la ruta.
+    }
+    else // Si no
+    {
+        if ($gender == 0) // Si el genero es femenino.
+        {
+            $path = "img/female.jpg"; // Imagen de mujer.
+        }
+        else // Si no
+        {
+            $path = "img/male.jpg"; // Imagen de varón.
+        }
+    }
+    $stmt = $conn->prepare("UPDATE alumno SET path='$path' WHERE id=$id;"); // Preparo una consulta para Actualizar la tabla.
+    $stmt->execute(); // La Ejecuto.
 
     $sql = "SELECT id, email, phone FROM alumno"; // Preparo la consulta de la ID, Teléfono y E-mail de toda la tabla clients.
     $stmt = $conn->prepare($sql);

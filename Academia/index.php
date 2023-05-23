@@ -35,7 +35,7 @@ include "includes/nav-mob-index.html"; // Incluyo el menú para moviles.
                     <div class="col-md-6">
                         <h4>Ingresa tus Datos de Alumno y Selecciona tu Fecha de Nacimiento.</h4>
                         <br><br>
-                        <form action="pupil.php" method="post" enctype="multipart/form-data" onsubmit="return checkpass()">
+                        <form action="logon.php" method="post" enctype="multipart/form-data" onsubmit="return checkpass()">
                             <label><input type="text" name="pupil" required> Nombre</label>
                             <br><br>
                             <label><input type="text" name="surname" required> Apellido 1</label>
@@ -78,13 +78,13 @@ include "includes/nav-mob-index.html"; // Incluyo el menú para moviles.
                                 <br><br>
                                 <label><input type="file" name="profile"> Foto de Perfil<small>(opcional)</small></label>
                                 <br><br>
-                                <input type="submit" value="Agrégame a la Base de Datos">
+                                <input type="submit" value="Agrégame a la Base de Datos" class="btn btn-success btn-lg">
                         </form> <!-- Formulario para enviar los datos de alumno con foto y fecha de nacimiento seleccionada de las ya agregadas a la base de datos.-->
                     </div>
                     <div class="col-md-6">
                         <h4>Escribe tus Credenciales Para Entrar en el Sistema</h4>
                         <br><br>
-                        <form action="profile.php" method="post">
+                        <form action="login.php" method="post">
                             <label><input type="text" name="email" required> E-mail</label>
                             <br><br>
                             <label><input id="pass3" type="password" name="pass" onkeypress="showEye(3)" required> Contraseña</label>

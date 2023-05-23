@@ -19,6 +19,18 @@ if (isset($_POST["id"])) // Si llegan datos por post.
         $hash = password_hash($pass, PASSWORD_DEFAULT); // Asigno a la variable $hash la contraseña recibida encriptada con la función de PHP password_hash.
     }
     $bday = $_POST["bday"];
+    $path = $_POST["path"];
+    $img = htmlspecialchars($_FILES["profile"]["name"]); // Asigno a la variable $img la imagen que llega por POST.
+    $tmp = htmlspecialchars($_FILES["profile"]["tmp_name"]); // Asigno a la variable tmp la ruta temporal del archivo enviado por POST.
+    if ($img != "") // Si se sube una imagen, $img será distinto de texto vacio.
+    {
+        if (!is_dir("alumno/" . $id . "/pic")) // Si no existe la carpeta alumno + ID del alumno + pic.
+        {
+            mkdir("alumno/" . $id . "/pic", 0777, true); // La creo con permiso de acceso total.
+        }
+        $path = "alumno/" . $id . "/pic/" . basename($img); // Asigno a $path la ruta a la imagen del alumno.
+        move_uploaded_file($tmp, $path); // Mueve la imagen de la carpeta temporal($tmp), a la ruta $path, con el nombre original de la imagen.
+    }
 
     $sql = "SELECT id, email, phone FROM alumno;"; // Asigno a la variable $sql la consulta de la ID, Teléfono e E-mail de toda la tabla alumno.
     $stmt = $conn->prepare($sql); // Preparo la consulta en la variable $stmt
@@ -45,22 +57,22 @@ if (isset($_POST["id"])) // Si llegan datos por post.
             {
                 if ($pass != "")
                 {
-                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', phone='$phone', email='$email', pass='$hash', bday='$bday' WHERE id=$id;"; // Preparo la consulta modificando todo.
+                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', phone='$phone', email='$email', pass='$hash', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo.
                 }
                 else
                 {
-                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', phone='$phone', email='$email', bday='$bday' WHERE id=$id;"; // Preparo la consulta modificando todo.
+                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', phone='$phone', email='$email', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo.
                 }
             }
             else
             {
                 if ($pass != "")
                 {
-                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', email='$email', pass='$hash', bday='$bday' WHERE id=$id;"; // Preparo la consulta modificando todo.
+                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', email='$email', pass='$hash', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo.
                 }
                 else
                 {
-                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', email='$email', bday='$bday' WHERE id=$id;"; // Preparo la consulta modificando todo.
+                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', email='$email', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo.
                 }
             }
         }
@@ -70,29 +82,29 @@ if (isset($_POST["id"])) // Si llegan datos por post.
             {
                 if ($pass != "")
                 {
-                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', phone='$phone', pass='$hash', bday='$bday' WHERE id=$id;"; // Preparo la consulta modificando todo.
+                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', phone='$phone', pass='$hash', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo.
                 }
                 else
                 {
-                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', phone='$phone', bday='$bday' WHERE id=$id;"; // Preparo la consulta modificando todo.
+                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', phone='$phone', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo, menos la contraseña que no ha cambiado.
                 }
             }
             else
             {
                 if ($pass != "")
                 {
-                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', pass='$hash', bday='$bday' WHERE id=$id;"; // Preparo la consulta modificando todo menos los datos repetidos.
+                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', pass='$hash', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo menos los datos repetidos.
                 }
                 else
                 {
-                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', bday='$bday' WHERE id=$id;"; // Preparo la consulta modificando todo menos los datos repetidos.
+                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo menos los datos repetidos.
                 }
             }
         }
 
         $stmt = $conn->prepare($sql);
         $stmt->execute();
-        if ($stmt->rowCount() > 0) // Ejecuto la consulta y compruebo si se modifico el campo.
+        if ($stmt->rowCount() > 0) // Ejecuto la consulta y compruebo si se modifico la tupla.
         {
             echo "<script>toast(0, 'Todo ha ido Bien', 'Se han Modificado tus Datos $name, Vuelve a Iniciar Sesión con tus Nuevos Datos.');</script>";
             // Muestro el aviso que todo ha ido bien.
@@ -100,7 +112,7 @@ if (isset($_POST["id"])) // Si llegan datos por post.
         else // Si hubo algún error.
         {
             echo "<script>toast(1, 'Algo Ha Fallado', 'No se Han Podido Modificar tus Datos $name.');</script>";
-            // Muestro el error de mysql, algo ha fallado
+            // Muestro error, algo ha fallado
         }
     }
     else
