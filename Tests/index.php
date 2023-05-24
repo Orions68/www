@@ -15,6 +15,7 @@ include "includes/nav-mob.html";
                     <br>
                     <form action="invoice.php" method="post">
                         <?php
+                        phpinfo();
                         if (isset($_POST["username"]))
                         {
                             if (!isset($_SESSION["form"]))
