@@ -20,9 +20,9 @@ include "includes/nav-mob-index.html"; // Incluyo en menú para movil.
                     $year = $_POST["year"];
                     $day_name = $_POST["day_name"];
                     $month_name = $_POST["month_name"];
-                    $date_mysql = date("Y-m-d", strtotime($year . "-" . $month . "-" . $day)); // Con los datos recibidos genero la fecha para MySQL en la variable $date.
-                    $date_latin = date("d-m-Y", strtotime($year . "-" . $month . "-" . $day));
-                    echo "La Fecha es: " . $day_name . " " . $day . " de " . $month_name . " de ". $year; // Muestro la fecha en pantalla.
+                    $date_mysql = $year . "-" . $month . "-" . $day;
+                    $date_latin = $day_name . " " . $day . " de " . $month_name . " de " . $year;
+                    echo "La Fecha es: " . $date_latin; // Muestro la fecha en pantalla.
                     $sql = "INSERT INTO fecha VALUES (:ID, :day_name, :day, :month_name, :year, :date);"; // Asigno a $sql la consulta a la base de datos.
                     $stmt = $conn->prepare($sql); // Preparo la conexión con la consulta.
                     try // Intento la conexión.

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-05-2023 a las 00:24:50
+-- Tiempo de generación: 24-05-2023 a las 10:35:29
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `academia`
+-- Base de datos: `academia2`
 --
-CREATE DATABASE IF NOT EXISTS `academia` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
-USE `academia`;
+CREATE DATABASE IF NOT EXISTS `academia2` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+USE `academia2`;
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,7 @@ CREATE TABLE `fecha` (
   `day` tinyint(1) NOT NULL,
   `month_name` varchar(10) NOT NULL,
   `year` smallint(1) NOT NULL,
-  `date` date NOT NULL
+  `date` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
