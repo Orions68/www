@@ -1,4 +1,4 @@
-label, input, td, th /* Pongo el tamaño de la fuente a 1.25rem para las etiquetas, los input, los títulos y las columnas de la tabla, la fuente será un 25% mayor de lo habitual. */
+label, input, td, th /* Pongo el tamaño de la fuente a 1.25rem para las etiquetas, los input, los títulos y las columnas de la tabla */
 {
     font-size: 1.25rem;
 }

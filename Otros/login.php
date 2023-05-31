@@ -9,8 +9,8 @@ if (isset($_POST['email'])) // Si recibe datos por POST en la variable array $_P
     $stmt = $conn->prepare("SET lc_time_names = 'es_ES'"); // Preparo las fechas de MySQL al idioma Español en la variable $stmt.
     $stmt->execute(); // Ejecuto la preparación anterior.
     $ok = false; // Declaro y asigno false a la variable $ok, se usa para saber si los datos introducidos están registrados en la base de datos.
-	$email = $_POST['email']; // Asigna a la variable $email el contenido del array $_POST["email"].
-	$pass = $_POST['pass']; // Lo mismo con $_POST["pass"] en la variable $pass.
+	$email = $_POST['email']; // Asigna a la variable $user el contenido del array $_POST["email"].
+	$pass = $_POST['pass']; // Lo mismo con $_POST["pass"].
 
     $sql = "SELECT * FROM alumno WHERE email='$email';"; // Asigno a $sql la consulta de datos del alumno de la tabla alumno.
     $stmt = $conn->prepare($sql); // Preparo la conexión con la consulta.
@@ -26,6 +26,10 @@ if (isset($_POST['email'])) // Si recibe datos por POST en la variable array $_P
             $name = $row->name; // Asigno el contenido de $row a variables.
             $surname = $row->surname;
             $surname2 = $row->surname2;
+            if ($surname2 == NULL)
+            {
+                $surname2 = "";
+            }
             $gender = $row->gender;
             $phone = $row->phone;
             $path = $row->path;

@@ -1,6 +1,6 @@
 <?php
 include "includes/conn.php"; // Incluyo el script de conexión con la base de datos.
-$title = "Almacena la Fecha"; // Título de la página.
+$title = "Almacenar Fecha"; // Título de la página.
 include "includes/header.php"; // Incluyo el header.
 include "includes/modal-index.html"; // Incluyo el diálogo para mostrar mensajes.
 include "includes/nav-index.html"; // Incluyo el menú para ordenador.

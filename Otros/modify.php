@@ -6,7 +6,7 @@ include "includes/modal-index.html"; // Incluyo el diálogo.
 
 if (isset($_POST["id"])) // Si llegan datos por post.
 {
-    $ok = true; // Uso la variable $ok para verificar que no se repita el teléfono ni el E-mail.
+    $ok = true; // Uso la variable $ok para verificar que no se repita el DNI ni el E-mail.
     $id = $_POST["id"]; // Asigno a la variable $id el valor de la sesión id.
     $name = htmlspecialchars($_POST["username"]); // Asigno a variables lo recibido por post.
     $surname = htmlspecialchars($_POST["surname"]);
@@ -32,12 +32,12 @@ if (isset($_POST["id"])) // Si llegan datos por post.
         move_uploaded_file($tmp, $path); // Mueve la imagen de la carpeta temporal($tmp), a la ruta $path, con el nombre original de la imagen.
     }
 
-    $sql = "SELECT ID, email, phone FROM alumno;"; // Asigno a la variable $sql la consulta de la ID, Teléfono e E-mail de toda la tabla alumno.
+    $sql = "SELECT id, email, phone FROM alumno;"; // Asigno a la variable $sql la consulta de la ID, Teléfono e E-mail de toda la tabla alumno.
     $stmt = $conn->prepare($sql); // Preparo la consulta en la variable $stmt
     $stmt->execute(); // La ejecuto.
     while($row = $stmt->fetch(PDO::FETCH_OBJ)) // Mientras reciba datos, asigno a la variable $row el resultado de la consulta.
     {
-        if ($id != $row->ID) // Verifico que la ID del alumno que está modificando sus datos no sea su propia ID en la base de datos.
+        if ($id != $row->id) // Verifico que la ID del alumno que está modificando sus datos no sea su propia ID en la base de datos.
         {
             if ($row->email == $email || $row->phone == $phone) // Si el email o el teléfono enviados por post están en la tabla, son datos que ya tienen otros alumnos.
             {

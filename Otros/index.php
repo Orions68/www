@@ -1,6 +1,6 @@
 <?php
 include "includes/conn.php"; // Incluyo la conexión con la base de datos, la usará el formulario para seleccionar la fecha de nacimiento del alumno.
-$stmt = $conn->prepare("SET lc_time_names = 'es_ES'"); // Preparo las fechas de MySQL al idioma Español.
+$stmt = $conn->prepare("SET lc_time_names = 'es_ES'"); // Preparo las fechas de MySQL al idioma Español
 $stmt->execute(); // Ejecuto la preparación anterior.
 $title = "Validar Fecha"; // Asigno a $title el tíulo de la página web.
 include "includes/header.php"; // Incluyo el header.
@@ -27,7 +27,7 @@ include "includes/nav-mob-index.html"; // Incluyo el menú para moviles.
                     <input id="date_verify" class="btn btn-primary btn-lg" type="submit" value="Verifica la Fecha">
                 </form> <!-- Formulario para calcular e introducir la fecha en la base de datos. -->
                 <br><br><br>
-                <h3 id="result"></h3>
+            <h3 id="result"></h3>
             </div>
             <div id="view2">
                 <br><br><br>
@@ -52,13 +52,13 @@ include "includes/nav-mob-index.html"; // Incluyo el menú para moviles.
                             <br>
                             <label><input type="text" name="phone" required> Teléfono</label>
                             <br><br>
-                            <label><input type="email" name="email" required> E-mail</label>
+                            <label><input type="text" name="email" required> E-mail</label>
                             <br><br>
                             <label><input id="pass1" type="password" name="pass" onkeypress="showEye(1)" required> Contraseña</label>
-                            <small onclick="spy(1)" class="far fa-eye" id="toggle1" style="margin-left: -140px; cursor: pointer; visibility: hidden;"></small>
+                            <i onclick="spy(1)" class="far fa-eye" id="toggle1" style="margin-left: -140px; cursor: pointer; visibility: hidden;"></i>
                             <br><br>
                             <label><input id="pass2" type="password" onkeypress="showEye(2)" required> Repite Contraseña</label>
-                            <small onclick="spy(2)" class="far fa-eye" id="toggle2" style="margin-left: -205px; cursor: pointer; visibility: hidden;"></small>
+                            <i onclick="spy(2)" class="far fa-eye" id="toggle2" style="margin-left: -205px; cursor: pointer; visibility: hidden;"></i>
                             <br><br>
                             <label><select name="bday" required>
                                 <option value="">Selecciona tu Fecha de Nacimiento</option>
@@ -85,10 +85,10 @@ include "includes/nav-mob-index.html"; // Incluyo el menú para moviles.
                         <h4>Escribe tus Credenciales Para Entrar en el Sistema</h4>
                         <br><br>
                         <form action="login.php" method="post">
-                            <label><input type="email" name="email" required> E-mail</label>
+                            <label><input type="text" name="email" required> E-mail</label>
                             <br><br>
                             <label><input id="pass3" type="password" name="pass" onkeypress="showEye(3)" required> Contraseña</label>
-                            <small onclick="spy(3)" class="far fa-eye" id="toggle3" style="margin-left: -140px; cursor: pointer; visibility: hidden;"></small>
+                            <i onclick="spy(3)" class="far fa-eye" id="toggle3" style="margin-left: -140px; cursor: pointer; visibility: hidden;"></i>
                             <br><br>
                             <input type="submit" value="Login">
                         </form> <!-- Formulario para Ingresar al sistema. -->
@@ -108,17 +108,24 @@ include "includes/nav-mob-index.html"; // Incluyo el menú para moviles.
                 $stmt->execute();
                 if ($stmt->rowCount() > 0)
                 {
-                    // /echo "<h1>Lista de Todos los Alumnos Registrados</h1>
-                    //     <br><br>
-                    //     <table><tr>
-                    //     <th>Nombre</th><th>Apellido 1</th><th>Apellido 2</th><th>Teléfono</th><th>E-mail</th><th>Día</th><th>Fecha de Nacimiento</th></tr>";
+                    // echo "<h1>Lista de Todos los Alumnos Registrados</h1>
+                    //    <br><br>
+                    //    <table><tr>
+                    //    <th>Nombre</th><th>Apellido 1</th><th>Apellido 2</th><th>Teléfono</th><th>E-mail</th><th>Día</th><th>Fecha de Nacimiento</th></tr>";
                     while ($row = $stmt->fetch(PDO::FETCH_OBJ))
                     {
                         $name = $row->name;
                         echo '<tr><td>' . $name . '</td>';
                         $surname = $row->surname;
                         echo '<td>' . $surname . '</td>';
-                        $surname2 = $row->surname2;
+                        if ($row->surname2 != NULL)
+                        {
+                            $surname2 = $row->surname2;
+                        }
+                        else
+                        {
+                            $surname2 = "";
+                        }
                         echo '<td>' . $surname2 . '</td>';
                         $phone = $row->phone;
                         echo '<td><a href="https://wa.me/' . $phone . '" target="_blank">' . $phone . '</a></td>';

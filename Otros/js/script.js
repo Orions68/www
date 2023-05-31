@@ -27,7 +27,6 @@ function verify() // Esta función verifca si la fecha está bien formada.
                 }
                 else // Si el mes es uno de los de la lista.
                 {
-                    already = false;
                     toast(1, "Error en el Número de Día",  "Has puesto 31 días pero el mes seleccionado no tiene 31 días, tienes que cambiar algún número."); // Muestro un mensaje de error.
                     return false; // Retorno false para que no se envíe el formulario.
                 }
@@ -35,7 +34,6 @@ function verify() // Esta función verifca si la fecha está bien formada.
             case "30": // Si el día es 30
                 if (month == 2) // Solo verifico si el mes es 2, ya que los demás meses tienen todos 30 días.
                 {
-                    already = false;
                     toast (1, "Error en el Número de Día", "Has puesto 30 días pero el mes de Febrero solo tiene 29 días en años bisiestos o 28 días, tienes que cambiar algún número.");
                     return false; // Si el mes es 2 muestro un mensaje de error y retorno false.
                 }
@@ -63,7 +61,6 @@ function verify() // Esta función verifca si la fecha está bien formada.
                         }
                         else // Si el año no es bisiesto.
                         {
-                            already = false;
                             result.innerHTML = "Este Año no es bisiesto, Febrero solo tiene 28 días."; // Muestro en el h3 con ID result que ese año no es bisiesto.
                             return false; // Retorno false para que no se envíe el formulario.
                         }
