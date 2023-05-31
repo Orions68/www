@@ -30,7 +30,7 @@ if (isset($_POST["email"])) // Si recibo datos por POST.
     {
         $hash = substr(md5(uniqid($email, true)), 8, 8); // Genero una clave de 8 caracteres al azar con el E-mail del alumno como semilla.
         $pass = password_hash($hash, PASSWORD_DEFAULT); // Encripto esa clave con la función password_hash de PHP y se la asigno a la variable $pass.
-        $sql = "UPDATE alumno SET pass='$pass' WHERE ID=$id"; // Hago un update de la contraseña de ese E-mail.
+        $sql = "UPDATE alumno SET pass='$pass' WHERE ID=$id;"; // Hago un update de la contraseña de ese E-mail.
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         echo "<script>toast(0, 'Todo ha Ido Bien', 'Se ha cambiado tu Contraseña a: $hash, Selecciónala y Cópiala, Después Vuelve a Iniciar Sesión con los Nuevos Datos. Te Recomendamos que Cambies la Contraseña, Gracias.');</script>"; // Muestro un mensaje con la nueva contraseña y pido que entre con los nuevos datos y cambie la contraseña.

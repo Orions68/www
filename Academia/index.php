@@ -108,10 +108,6 @@ include "includes/nav-mob-index.html"; // Incluyo el menú para moviles.
                 $stmt->execute();
                 if ($stmt->rowCount() > 0)
                 {
-                    // /echo "<h1>Lista de Todos los Alumnos Registrados</h1>
-                    //     <br><br>
-                    //     <table><tr>
-                    //     <th>Nombre</th><th>Apellido 1</th><th>Apellido 2</th><th>Teléfono</th><th>E-mail</th><th>Día</th><th>Fecha de Nacimiento</th></tr>";
                     while ($row = $stmt->fetch(PDO::FETCH_OBJ))
                     {
                         $name = $row->name;

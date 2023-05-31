@@ -11,6 +11,7 @@ if (isset($_POST["id"])) // Si llegan datos por post.
     $name = htmlspecialchars($_POST["username"]); // Asigno a variables lo recibido por post.
     $surname = htmlspecialchars($_POST["surname"]);
     $surname2 = htmlspecialchars($_POST["surname2"]);
+    $gender = htmlspecialchars($_POST["gender"]);
     $phone = htmlspecialchars($_POST["phone"]);
     $email = htmlspecialchars($_POST["email"]);
     $pass = htmlspecialchars($_POST["pass"]);
@@ -57,22 +58,22 @@ if (isset($_POST["id"])) // Si llegan datos por post.
             {
                 if ($pass != "")
                 {
-                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', phone='$phone', email='$email', pass='$hash', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo.
+                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', gender = '$gender', phone='$phone', email='$email', pass='$hash', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo.
                 }
                 else
                 {
-                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', phone='$phone', email='$email', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo.
+                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', gender = '$gender', phone='$phone', email='$email', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo.
                 }
             }
             else
             {
                 if ($pass != "")
                 {
-                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', email='$email', pass='$hash', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo.
+                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', gender = '$gender', email='$email', pass='$hash', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo.
                 }
                 else
                 {
-                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', email='$email', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo.
+                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', gender = '$gender', email='$email', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo.
                 }
             }
         }
@@ -82,22 +83,22 @@ if (isset($_POST["id"])) // Si llegan datos por post.
             {
                 if ($pass != "")
                 {
-                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', phone='$phone', pass='$hash', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo.
+                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', gender = '$gender', phone='$phone', pass='$hash', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo.
                 }
                 else
                 {
-                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', phone='$phone', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo, menos la contraseña que no ha cambiado.
+                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', gender = '$gender', phone='$phone', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo, menos la contraseña que no ha cambiado.
                 }
             }
             else
             {
                 if ($pass != "")
                 {
-                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', pass='$hash', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo menos los datos repetidos.
+                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', gender = '$gender', pass='$hash', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo menos los datos repetidos.
                 }
                 else
                 {
-                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo menos los datos repetidos.
+                    $sql = "UPDATE alumno SET name='$name', surname='$surname', surname2='$surname2', gender = '$gender', bday='$bday', path='$path' WHERE id=$id;"; // Preparo la consulta modificando todo menos los datos repetidos.
                 }
             }
         }
