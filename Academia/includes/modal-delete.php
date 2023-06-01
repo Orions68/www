@@ -17,7 +17,10 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="window.open('index.php#view2', '_self')">Me Arrepiento</button>
-          <button type="button" class="btn btn-danger" onclick="window.open('doit.php?id=<?php echo $id; ?>', '_self')">Sí, Bórrame de la Base de Datos.</button>
+          <form action="doit.php" method="post">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <input type="submit" value="Sí, Bórrame de la Base de Datos." class="btn btn-danger">
+          </form>
         </div>
       </div>
     </div>
