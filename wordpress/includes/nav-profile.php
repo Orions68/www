@@ -9,6 +9,6 @@
     <div class="col-md-4 d-flex"> <!-- Columnas con la bienvenida al alumno. -->
     <h5>Te damos la Bienvenida: <?php echo $name; ?></h5>
         <img src="<?php echo $path; ?>" alt='Imagen de Perfil' width='100' height='100'>
-        <span><button onclick="window.open('endsession.php', '_self')" class="btn btn-danger btn-sm">Cerrar Sesión</button></span>
+        <span><button onclick="window.open('endsession', '_self')" class="btn btn-danger btn-sm">Cerrar Sesión</button></span>
     </div>
 </nav>
