@@ -208,13 +208,13 @@ function goThere() // Cuando cambia el selector del menú para Teléfono.
     switch(change)
     {
         case "view3": // Si llega view3
-            window.open("index.php#view3", "_self"); // Salta a la vista3.
+            window.open("index#view3", "_self"); // Salta a la vista3.
             break;
         case "view2":
-            window.open("index.php#view2", "_self"); // Salta a la vista2.
+            window.open("index#view2", "_self"); // Salta a la vista2.
         break;
         default :
-            window.open("index.php#view1", "_self"); // Salta a la vista1.
+            window.open("index#view1", "_self"); // Salta a la vista1.
         break;
     }
 }
