@@ -6,7 +6,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="chooseLabel">Borrando Alumno</h5>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" onclick="window.open('indice#view2', '_self')">
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" onclick="window.open('inicio#view2', '_self')">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -16,7 +16,7 @@
             <h5 id="message"></h5>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="window.open('indice#view2', '_self')">Me Arrepiento</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="window.open('inicio#view2', '_self')">Me Arrepiento</button>
           <form action="doit.php" method="post">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <input type="submit" value="Sí, Bórrame de la Base de Datos." class="btn btn-danger">
