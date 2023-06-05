@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE BDEmpresa [
+    <!ELEMENT BDEmpresa (departamento+)> <!-- Elemento BDEmpresa tiene al menos un departamento o más (+). -->
+    <!ELEMENT departamento (nombre, ubicacion+, empleados)> <!-- Elemento departamento tiene nombre, ubicación y empleados. -->
+    <!ELEMENT nombre (#PCDATA)> <!-- Nombre de departamento -->
+    <!ELEMENT ubicacion (#PCDATA)> <!-- Ubicación del departamento. -->
+    <!ATTLIST departamento ID ID #REQUIRED> <!-- Atributo ID del departamento requerida. -->
+    <!ATTLIST departamento presupuesto CDATA #IMPLIED> <!-- Atributo presupuesto del departamento. -->
+    <!ELEMENT empleados ANY> <!-- Empleados es un Elemento ANY, puede contener datos u otros elementos. -->
+    <!ELEMENT empleado ANY> <!-- El elemento Empleado también es ANY ya que contendrá otros elementos -->
+    <!ATTLIST empleado ID ID #REQUIRED> <!-- Atributo ID del empleado requerida. -->
+    <!ATTLIST empleado cualidad (Comunicación|Liderazgo|Trabajo_en_equipo|Resolución_de_problemas) #IMPLIED>
+    <!ATTLIST empleado Sueldo CDATA #IMPLIED>
+    <!ATTLIST empleado Fecha_de_Alta CDATA #IMPLIED>
+    <!ATTLIST empleado Estado_Civil CDATA #IMPLIED>
+    <!ATTLIST empleado cargo (Programador|Analista|Analista-programador|AdministradorBasesDatos|JefeProyecto) #REQUIRED>
+    <!ATTLIST empleado subordinado CDATA #IMPLIED>
+    <!ELEMENT nombre_completo ((nombre, apellido1, apellido2)|(apellido1, apellido2, nombre))>
+    <!ELEMENT apellido1 (#PCDATA)>
+    <!ELEMENT apellido2 (#PCDATA)>
+    <!ELEMENT fecha_nacimiento (#PCDATA)>
+    <!ELEMENT direccion (#PCDATA)>
+    <!ELEMENT telefono (#PCDATA)>
+    <!ELEMENT subordinado ANY>
+    <!ATTLIST subordinado ID ID #REQUIRED>
+    <!ELEMENT nombre__completo ((nombre, apellido1, apellido2)|(nombre, apellido1))>
+]>
+
+<BDEmpresa>
+    <departamento ID="I1" presupuesto="12000">
+        <nombre>Informática</nombre>
+        <ubicacion>Calle Serrano sin Número, Madrid</ubicacion>
+        <empleados>
+            <empleado ID="EI1" cualidad="Trabajo_en_equipo" cargo="Programador" Estado_Civil="Soltero">
+                <nombre_completo>
+                    <nombre>César</nombre>
+                    <apellido1>Matelat</apellido1>
+                    <apellido2>Borneo</apellido2>
+                </nombre_completo>
+                <fecha_nacimiento>1968-5-4</fecha_nacimiento>
+                <direccion>In The World</direccion>
+                <telefono>664774821</telefono>
+            </empleado>
+            <empleado ID="EI2" cargo="JefeProyecto" subordinado="E4">
+                <nombre_completo>
+                    <nombre>Otro</nombre>
+                    <apellido1>Empleado</apellido1>
+                    <apellido2></apellido2>
+                </nombre_completo>
+                <fecha_nacimiento>1970-1-1</fecha_nacimiento>
+                <direccion>He is a Homeless</direccion>
+                <telefono>611111111</telefono>
+                <subordinado ID="EI4">
+                    <nombre_completo>
+                        <nombre>Pepe</nombre>
+                        <apellido1>El Diseñador</apellido1>
+                        <apellido2>WEB</apellido2>
+                    </nombre_completo>
+                </subordinado>
+            </empleado>
+            <empleado ID="EI3" cualidad="Comunicación" cargo="Analista">
+                <nombre_completo>
+                    <apellido1>Bagaza</apellido1>
+                    <apellido2></apellido2>
+                    <nombre>Iván</nombre>
+                </nombre_completo>
+                <fecha_nacimiento>1977-25-4</fecha_nacimiento>
+                <direccion>At His Home</direccion>
+                <telefono>612345678</telefono>
+            </empleado>
+        </empleados>
+    </departamento>
+    <departamento ID="V1">
+        <nombre>Ventas</nombre>
+        <ubicacion>Gran Via Das Cortes Catalanas</ubicacion>
+        <empleados>
+            <empleado ID="EV3" cualidad="Comunicación" cargo="Analista">
+                <nombre_completo>
+                    <apellido1>Bagaza</apellido1>
+                    <apellido2></apellido2>
+                    <nombre>Iván</nombre>
+                </nombre_completo>
+                <fecha_nacimiento>1977-25-4</fecha_nacimiento>
+                <direccion>At His Home</direccion>
+                <telefono>612345678</telefono>
+            </empleado>
+        </empleados>
+    </departamento>
+    <departamento ID="A1">
+        <nombre>Administración</nombre>
+        <ubicacion>Santa Cruz de Tenerife.</ubicacion>
+        <empleados/>
+    </departamento>
+</BDEmpresa>
+
+<!-- Evaluación 1 UF-2217 César Osvaldo Matelat Borneo D.N.I. 42468151Q -->

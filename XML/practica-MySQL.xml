@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CREATE DATABASE verduleria;
+
+USE verduleria
+
+CREATE TABLE fruta (
+ID int Primary Key auto_increment,
+fruit varchar(32) Not NULL,
+price decimal(11,2) Not NULL,
+qtty int default NULL
+);
+
+
+CREATE TABLE hortaliza (
+ID int Primary Key auto_increment,
+hort varchar(32) Not NULL,
+price decimal(11,2) Not NULL,
+qtty int default NULL
+);
+
+
+CREATE TABLE verdura (
+ID int Primary Key auto_increment,
+verd varchar(32) Not NULL,
+price decimal(11,2) Not NULL,
+qtty int default NULL
+);
+
+CREATE TABLE sold (
+ID int Primary Key auto_increment,
+idfruit int Not NULL,
+qtty1 int Not NULL,
+idhort int Not NULL,
+qtty2 int Not NULL,
+idverd int Not NULL,
+qtty3 int Not NULL,
+CONSTRAINT FK_fruit FOREIGN KEY (idfruit) REFERENCES fruta (ID) ON DELETE No Action On UPDATE Cascade,
+CONSTRAINT FK_hort FOREIGN KEY (idhort) REFERENCES hortaliza (ID) ON DELETE No Action On UPDATE Cascade,
+CONSTRAINT FK_verd FOREIGN KEY (idverd) REFERENCES verdura (ID) ON DELETE No Action On UPDATE Cascade
+);
+
+LOAD XML INFILE "C:/tools/xml/practica.xml" INTO TABLE fruta ROWS IDENTIFIED BY '<fruta>';
+
+LOAD XML INFILE "C:/tools/xml/practica.xml" INTO TABLE hortaliza ROWS IDENTIFIED BY '<hortaliza>';
+
+LOAD XML INFILE "C:/tools/xml/practica.xml" INTO TABLE verdura ROWS IDENTIFIED BY '<verdura>';
+
+LOAD XML INFILE "C:/tools/xml/practica.xml" INTO TABLE sold ROWS IDENTIFIED BY '<sold>';
+
+-->
+
+<verduleria>
+	<fruta>
+		<ID>1</ID>
+		<fruit>Fresa</fruit>
+		<price>3.75</price>
+		<qtty>100</qtty>
+	</fruta>
+	<fruta>
+		<ID>2</ID>
+		<fruit>Piña Tropical</fruit>
+		<price>4.25</price>
+		<qtty>100</qtty>
+	</fruta>
+	<fruta>
+		<ID>3</ID>
+		<fruit>Coco</fruit>
+		<price>1.95</price>
+		<qtty>100</qtty>
+	</fruta>
+	<fruta>
+		<ID>4</ID>
+		<fruit>Cereza</fruit>
+		<price>6.95</price>
+		<qtty>100</qtty>
+	</fruta>
+	<hortaliza>
+		<ID>1</ID>
+		<hort>Calabacín</hort>
+		<price>1.25</price>
+		<qtty>100</qtty>
+	</hortaliza>
+	<hortaliza>
+		<ID>2</ID>
+		<hort>Pimineto Rojo</hort>
+		<price>3.30</price>
+		<qtty>100</qtty>
+	</hortaliza>
+	<hortaliza>
+		<ID>3</ID>
+		<hort>Tomate</hort>
+		<price>2.15</price>
+		<qtty>100</qtty>
+	</hortaliza>
+	<verdura>
+		<ID>1</ID>
+		<verd>Perejil</verd>
+		<price>.40</price>
+		<qtty>100</qtty>
+	</verdura>
+	<verdura>
+		<ID>2</ID>
+		<verd>Lechuga</verd>
+		<price>1.40</price>
+		<qtty>100</qtty>
+	</verdura>
+	<verdura>
+		<ID>3</ID>
+		<verd>Espinaca</verd>
+		<price>2.60</price>
+		<qtty>100</qtty>
+	</verdura>
+	<sold>
+		<ID>1</ID>
+		<idfruit>1</idfruit>
+		<qtty1>2</qtty1>
+		<idhort>1</idhort>
+		<qtty2>2</qtty2>
+		<idverd>1</idverd>
+		<qtty3>2</qtty3>
+	</sold>
+	<sold>
+		<ID>2</ID>
+		<idfruit>1</idfruit>
+		<qtty1>3</qtty1>
+		<idhort>2</idhort>
+		<qtty2>2</qtty2>
+		<idverd>3</idverd>
+		<qtty3>1</qtty3>
+	</sold>
+	<sold>
+		<ID>3</ID>
+		<idfruit>3</idfruit>
+		<qtty1>1</qtty1>
+		<idhort>2</idhort>
+		<qtty2>2</qtty2>
+		<idverd>1</idverd>
+		<qtty3>3</qtty3>
+	</sold>
+</verduleria>

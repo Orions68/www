@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Catalogo de Productos -->
+<!DOCTYPE catalogo [
+<!ELEMENT catalogo (producto+)> <!-- Productos, el signo más(+) es para que haya uno o muchos productos. -->
+<!ELEMENT producto (id, nombre, descripcion?, precio*, grupo, color)> <!-- El elemento producto tiene un elemento id, un elemento nombre, una descripción que puede no contener datos(?), uno o más precios(*), un grupo con el atributo categoría y tres valores, barato, intermedio y caro y el elemento color, vacio. -->
+<!ATTLIST producto codBarra CDATA #REQUIRED> <!-- El elemento producto tiene un atributo codBarra requerido, tiene que estar en el elemento aunque puede estar vacio. -->
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT descripcion (#PCDATA)>
+<!ELEMENT precio (#PCDATA)>
+<!ATTLIST precio euro CDATA #FIXED "€"> <!-- El elemento precio tiene un atributo euro con el signo del euro(€) esta #FIXED, tiene que se el signo € y no otro o puede no estar el atributo. -->
+<!ELEMENT grupo (#PCDATA)>
+<!ATTLIST grupo categoria (Barato|Intermedio|Caro) #IMPLIED> <!-- Atributo de grupo, #IMPLIED significa que puede no estar; pero si está, tiene que tener un atributo de la lista, si estuviera #REQUIRED además de contener un valor debe estar sí o sí. -->
+<!ELEMENT color EMPTY>
+]>
+
+<catalogo>
+    <producto codBarra="112233">
+        <id>1</id>
+        <nombre>Teclado</nombre>
+        <descripcion>Teclado extendido Ergonómico</descripcion>
+        <precio>25</precio>
+        <precio euro="€">30</precio>
+        <grupo categoria="Barato">Producto Barato</grupo>
+        <color/>
+    </producto>
+    <producto codBarra="112333">
+        <id>2</id>
+        <nombre>Ratón</nombre>
+        <descripcion>Ratón Laser</descripcion>
+        <precio euro="€">15</precio>
+        <grupo categoria="Barato">Producto Barato</grupo>
+        <color/>
+    </producto>
+    <producto codBarra="112433">
+        <id>3</id>
+        <nombre>Altavoces</nombre>
+        <descripcion>Altavoces Stereo 5.1</descripcion>
+        <precio euro="€">35</precio>
+        <precio euro="€">40</precio>
+        <grupo categoria="Barato">Producto Barato</grupo>
+        <color/>
+    </producto>
+    <producto codBarra="112533">
+        <id>4</id>
+        <nombre>Disco SSD</nombre>
+        <descripcion>Disco de estado solido de 1TByte</descripcion>
+        <precio>65</precio>
+        <grupo categoria="Intermedio">Producto Intermedio</grupo>
+        <color/>
+    </producto>
+    <producto codBarra="112633">
+        <id>5</id>
+        <nombre>CPU</nombre>
+        <descripcion>Intel Core i9 13900</descripcion>
+        <precio euro="€">600</precio>
+        <grupo categoria="Caro">Producto Caro</grupo>
+        <color/>
+    </producto>
+</catalogo>

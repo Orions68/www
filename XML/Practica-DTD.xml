@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mercancia [
+    <!ELEMENT mercancia (verduleria+, grossery+, sold*)>
+    <!ELEMENT verduleria (fruta, hortaliza, verdura)> <!-- Elemento verduleria tiene fruta, hortaliza, verdura y sold. -->
+    <!ELEMENT fruta (ID, fruit, price, qtty)> <!-- frtua tiene ID, fruit, price y qtty. -->
+    <!ATTLIST fruta ID ID #REQUIRED>
+	<!ELEMENT hortaliza (ID, hort, price, qtty)>
+    <!ATTLIST hortaliza ID ID #REQUIRED>
+	<!ELEMENT verdura (ID, verd, price, qtty)>
+    <!ATTLIST verdura ID ID #REQUIRED>
+	<!ELEMENT sold (ID, idfruit, qtty1, idhort, qtty2, idverd, qtty3, idchoco, qtty4, idcara, qtty5, idgalle, qtty6)>
+    <!ATTLIST sold ID ID #REQUIRED>
+    <!ELEMENT grossery (chocolate, caramelo, galletita)> <!-- Elemento grossery tiene chocolate, caramelo, y galletita. -->
+    <!ELEMENT chocolate (ID, choco, price, qtty)>
+    <!ATTLIST chocolate ID ID #REQUIRED>
+    <!ELEMENT caramelo (ID, cara, price, qtty)>
+    <!ATTLIST caramelo ID ID #REQUIRED>
+    <!ELEMENT galletita (ID, galle, price, qtty)>
+    <!ATTLIST galletita ID ID #REQUIRED>
+    <!ELEMENT ID (#PCDATA)>
+    <!ELEMENT fruit (#PCDATA)>
+    <!ELEMENT hort (#PCDATA)>
+    <!ELEMENT verd (#PCDATA)>
+    <!ELEMENT price (#PCDATA)>
+    <!ELEMENT qtty (#PCDATA)>
+    <!ELEMENT idfruit (#PCDATA)>
+    <!ELEMENT idhort (#PCDATA)>
+    <!ELEMENT idverd (#PCDATA)>
+    <!ELEMENT idchoco (#PCDATA)>
+    <!ELEMENT idcara (#PCDATA)>
+    <!ELEMENT idgalle (#PCDATA)>
+    <!ELEMENT qtty1 (#PCDATA)>
+    <!ELEMENT qtty2 (#PCDATA)>
+    <!ELEMENT qtty3 (#PCDATA)>
+    <!ELEMENT qtty4 (#PCDATA)>
+    <!ELEMENT qtty5 (#PCDATA)>
+    <!ELEMENT qtty6 (#PCDATA)>
+    <!ELEMENT choco (#PCDATA)>
+    <!ELEMENT cara (#PCDATA)>
+    <!ELEMENT galle (#PCDATA)>	
+]>
+
+<mercancia>
+    <verduleria>
+        <fruta ID="F1">
+            <ID>1</ID>
+            <fruit>Fresa</fruit>
+            <price>3.75</price>
+            <qtty>100</qtty>
+        </fruta>
+        <hortaliza ID="H1">
+            <ID>1</ID>
+            <hort>Calabacín</hort>
+            <price>1.25</price>
+            <qtty>100</qtty>
+        </hortaliza>
+        <verdura ID="V1">
+            <ID>1</ID>
+            <verd>Perejil</verd>
+            <price>.40</price>
+            <qtty>100</qtty>
+        </verdura>
+    </verduleria>
+    <verduleria>
+        <fruta ID="F2">
+            <ID>2</ID>
+            <fruit>Piña Tropical</fruit>
+            <price>4.25</price>
+            <qtty>100</qtty>
+        </fruta>
+        <hortaliza ID="H2">
+            <ID>2</ID>
+            <hort>Pimineto Rojo</hort>
+            <price>3.30</price>
+            <qtty>100</qtty>
+        </hortaliza>
+        <verdura ID="V2">
+            <ID>2</ID>
+            <verd>Lechuga</verd>
+            <price>1.40</price>
+            <qtty>100</qtty>
+        </verdura>
+    </verduleria>
+    <verduleria>
+        <fruta ID="F3">
+            <ID>3</ID>
+            <fruit>Coco</fruit>
+            <price>1.95</price>
+            <qtty>100</qtty>
+        </fruta>
+        <hortaliza ID="H3">
+            <ID>3</ID>
+            <hort>Tomate</hort>
+            <price>2.15</price>
+            <qtty>100</qtty>
+        </hortaliza>
+        <verdura ID="V3">
+            <ID>3</ID>
+            <verd>Espinaca</verd>
+            <price>2.60</price>
+            <qtty>100</qtty>
+        </verdura>
+    </verduleria>
+    <grossery>
+        <chocolate ID="CH1">
+            <ID>1</ID>
+            <choco>Aero</choco>
+            <price>1.25</price>
+            <qtty>100</qtty>
+        </chocolate>
+        <caramelo ID="CA1">
+            <ID>1</ID>
+            <cara>Aero</cara>
+            <price>1.25</price>
+            <qtty>100</qtty>
+        </caramelo>
+        <galletita ID="GA1">
+            <ID>1</ID>
+            <galle>Aero</galle>
+            <price>1.25</price>
+            <qtty>100</qtty>
+        </galletita>
+    </grossery>
+    <grossery>
+        <chocolate ID="CH3">
+            <ID>1</ID>
+            <choco>Aero</choco>
+            <price>1.25</price>
+            <qtty>100</qtty>
+        </chocolate>
+        <caramelo ID="CA3">
+            <ID>1</ID>
+            <cara>Aero</cara>
+            <price>1.25</price>
+            <qtty>100</qtty>
+        </caramelo>
+        <galletita ID="GA3">
+            <ID>1</ID>
+            <galle>Aero</galle>
+            <price>1.25</price>
+            <qtty>100</qtty>
+        </galletita>
+    </grossery>
+	<grossery>
+        <chocolate ID="CH2">
+            <ID>1</ID>
+            <choco>Aero</choco>
+            <price>1.25</price>
+            <qtty>100</qtty>
+        </chocolate>
+        <caramelo ID="CA2">
+            <ID>1</ID>
+            <cara>Aero</cara>
+            <price>1.25</price>
+            <qtty>100</qtty>
+        </caramelo>
+        <galletita ID="GA2">
+            <ID>1</ID>
+            <galle>Aero</galle>
+            <price>1.25</price>
+            <qtty>100</qtty>
+        </galletita>
+    </grossery>
+    <sold ID="S1">
+        <ID>1</ID>
+        <idfruit>1</idfruit>
+        <qtty1>2</qtty1>
+        <idhort>1</idhort>
+        <qtty2>2</qtty2>
+        <idverd>1</idverd>
+        <qtty3>2</qtty3>
+        <idchoco>1</idchoco>
+        <qtty4>2</qtty4>
+        <idcara>1</idcara>
+        <qtty5>2</qtty5>
+        <idgalle>1</idgalle>
+        <qtty6>2</qtty6>
+    </sold>
+</mercancia>
