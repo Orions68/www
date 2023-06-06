@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE BDUniversidad [
+    <!ELEMENT BDUniversidad (facultad+)>
+    <!ELEMENT facultad (nombre, ciudad, profesor+)>
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT ciudad (#PCDATA)>
+    <!ATTLIST facultad ID ID #REQUIRED>
+    <!ATTLIST facultad Capacidad CDATA #IMPLIED>
+    <!ATTLIST profesor ID ID #REQUIRED>
+    <!ELEMENT profesor (nombrecompleto, DNI_NIE, sexo, email*, telefono+, departamento)>
+    <!ATTLIST profesor especialidad (CienciasPuras|CienciasMixtas|LetrasPuras|LetrasMixtas) #REQUIRED>
+    <!ATTLIST profesor salario CDATA #IMPLIED>
+    <!ATTLIST profesor experiencia CDATA #IMPLIED>
+    <!ATTLIST profesor estudios CDATA #IMPLIED>
+    <!ELEMENT nombrecompleto ((nombre, apellido1, apellido2*)|(apellido1, apellido2, nombre))>
+    <!ELEMENT apellido1 (#PCDATA)>
+    <!ELEMENT apellido2 (#PCDATA)>
+    <!ELEMENT DNI_NIE (#PCDATA)>
+    <!ELEMENT sexo (#PCDATA)>
+    <!ELEMENT email (#PCDATA)>
+    <!ELEMENT telefono (#PCDATA)>
+    <!ELEMENT departamento (Informática|Inglés|Alemán|Contabilidad|Estadistica)>
+    <!ELEMENT Informática (#PCDATA)>
+    <!ELEMENT Inglés (#PCDATA)>
+    <!ELEMENT Alemán (#PCDATA)>
+    <!ELEMENT Contabilidad (#PCDATA)>
+    <!ELEMENT Estadistica (#PCDATA)>
+
+]>
+
+<BDUniversidad>
+    <facultad ID="I1" Capacidad="2500">
+        <nombre>La Uni</nombre>
+        <ciudad>Santa Cruz de Tenerife</ciudad>
+        <profesor ID="PI1" especialidad="CienciasPuras" salario="para llorar" experiencia="mas de 20 años" estudios="universitarios">
+            <nombrecompleto>
+                <nombre>Jonathan</nombre>
+                <apellido1>Estévez</apellido1>
+                <apellido2>Hernández</apellido2>
+            </nombrecompleto>
+            <DNI_NIE>70000000A</DNI_NIE>
+            <sexo>Masculino</sexo>
+            <email>certificadoinformatica@gmail.com</email>
+            <telefono>612345678</telefono>
+            <departamento>
+                <Informática>Sistemas de Gestión de la Información</Informática>
+            </departamento>
+        </profesor>
+    </facultad>
+    <facultad ID="E1" Capacidad="23000">
+        <nombre>ULL</nombre>
+        <ciudad>San Cristóbal de La Laguna</ciudad>
+        <profesor ID="PE1" especialidad="CienciasPuras">
+            <nombrecompleto>
+                <nombre>Profe</nombre>
+                <apellido1>Uno</apellido1>
+                <apellido2></apellido2>
+            </nombrecompleto>
+            <DNI_NIE>75555555M</DNI_NIE>
+            <sexo>Femenino</sexo>
+            <telefono>611111111</telefono>
+            <departamento>
+                <Contabilidad>Sistemas Contables para Empresas</Contabilidad>
+            </departamento>
+        </profesor>
+        <profesor ID="PE2" especialidad="CienciasMixtas">
+            <nombrecompleto>
+                <nombre>Profe</nombre>
+                <apellido1>Dos</apellido1>
+                <apellido2>Duo</apellido2>
+            </nombrecompleto>
+            <DNI_NIE>79999999M</DNI_NIE>
+            <sexo>Masculino</sexo>
+            <email>profedos@gmail.com</email>
+            <telefono>622222222</telefono>
+            <departamento>
+                <Estadistica>Sistemas de Estadisticas y Negocios</Estadistica>
+            </departamento>
+        </profesor>
+    </facultad>
+</BDUniversidad>
+
+<!-- César Osvaldo Matelat Borneo D.N.I. 42268151Q -->

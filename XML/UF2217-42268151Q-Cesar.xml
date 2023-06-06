@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    CREATE DATABASE BdDeportes;
+    USE BdDeportes
+
+    CREATE TABLE equipo (
+        idequipo int Primary Key auto_increment,
+        nombre varchar(64) Not NULL,
+        ciudad varchar(64) Not NULL,
+        entrenador varchar(64) Not NULL,
+        jugadores tinyint
+        );
+
+    CREATE TABLE deportista (
+        idjugador int Primary Key auto_increment,
+        nombre varchar(32) Not NULL,
+        apellido1 varchar(32) Not NULL,
+        apellido2 varchar(32) Default NULL,
+        edad tinyint Not NULL,
+        nacionalidad varchar(64) Not NULL,
+        deporte varchar(24) Not NULL,
+        pos varchar(24) Not NULL,
+        idequipo int Not NULL,
+        CONSTRAINT FK_idequipo FOREIGN KEY (idequipo) REFERENCES equipo (idequipo) ON DELETE No Action ON Update Cascade
+        );
+
+    CREATE TABLE partido (
+        idpartido int Primary Key auto_increment,
+        fecha date Not NULL,
+        Observaciones varchar(128) default NULL,
+        resultado varchar(5) Not NULL,
+        ciudad varchar(64) Not NULL,
+        asistencia int Not NULL,
+        idequipoCasa int Not NULL,
+        idequipoVisitante int Not NULL,
+        CONSTRAINT FK_idequipoCasa FOREIGN KEY (idequipoCasa) REFERENCES equipo (idequipo) ON DELETE No Action ON Update Cascade,
+        CONSTRAINT FK_idequipoVisitante FOREIGN KEY (idequipoVisitante) REFERENCES equipo (idequipo) ON DELETE No Action ON Update Cascade
+        );
+
+LOAD XML INFILE "C:/xml/examen.xml" INTO TABLE equipo ROWS IDENTIFIED BY '<equipo>';
+
+LOAD XML INFILE "C:/xml/examen.xml" INTO TABLE deportista ROWS IDENTIFIED BY '<deportista>';
+
+LOAD XML INFILE "C:/xml/examen.xml" INTO TABLE partido ROWS IDENTIFIED BY '<partido>';
+
+ -->
+
+<BdDeportes>
+	<deportista>
+		<idjugador>1</idjugador>
+		<nombre>John</nombre>
+		<apellido1>Smith</apellido1>
+		<apellido2>Wilson</apellido2>		
+		<edad>28</edad>
+		<nacionalidad>Estados Unidos</nacionalidad>
+		<deporte>Fútbol</deporte>
+		<pos>Delantero</pos>
+		<idequipo>8</idequipo>
+	</deportista>
+	<deportista>
+		<idjugador>2</idjugador>
+		<nombre>Anna</nombre>
+		<apellido1>Johnson</apellido1>
+		<apellido2></apellido2>	
+		<edad>32</edad>
+		<nacionalidad>Reino Unido</nacionalidad>
+		<deporte>Fútbol</deporte>
+		<pos>Defensa</pos>
+		<idequipo>6</idequipo>
+	</deportista>
+	<deportista>
+		<idjugador>3</idjugador>
+		<nombre>Carlos</nombre>
+		<apellido1>Fernández</apellido1>
+		<apellido2>Pérez</apellido2>	
+		<edad>27</edad>
+		<nacionalidad>España</nacionalidad>
+		<deporte>Fútbol</deporte>
+		<pos>Centrocampista</pos>
+		<idequipo>5</idequipo>
+	</deportista>
+	<deportista>
+		<idjugador>4</idjugador>
+		<nombre>Francisco</nombre>
+		<apellido1>Martínez</apellido1>
+		<apellido2></apellido2>	
+		<edad>24</edad>
+		<nacionalidad>Colombia</nacionalidad>
+		<deporte>Fútbol</deporte>
+		<pos>Portera</pos>
+		<idequipo>7</idequipo>
+	</deportista>
+	<deportista>
+		<idjugador>5</idjugador>
+		<nombre>Mario</nombre>
+		<apellido1>Rossi</apellido1>
+		<apellido2></apellido2>	
+		<edad>30</edad>
+		<nacionalidad>Italia</nacionalidad>
+		<deporte>Fútbol</deporte>
+		<pos>Defensa</pos>
+		<idequipo>6</idequipo>
+	</deportista>
+	<equipo>
+		<idequipo>5</idequipo>
+		<nombre>Equipo A</nombre>
+		<ciudad>Madrid</ciudad>
+		<entrenador>Juan Gómez</entrenador>
+		<jugadores>25</jugadores>
+	</equipo>
+	<equipo>
+		<idequipo>6</idequipo>
+		<nombre>Equipo B</nombre>
+		<ciudad>Barcelona</ciudad>
+		<entrenador>Pablo Hernandez</entrenador>
+		<jugadores>22</jugadores>
+	</equipo>
+	<equipo>
+		<idequipo>7</idequipo>
+		<nombre>Equipo C</nombre>
+		<ciudad>Milan</ciudad>
+		<entrenador>Giovanni Russo</entrenador>
+		<jugadores>20</jugadores>
+	</equipo>
+	<equipo>
+		<idequipo>8</idequipo>
+		<nombre>Equipo D</nombre>
+		<ciudad>Londres</ciudad>
+		<entrenador>Emma Thompson</entrenador>
+		<jugadores>23</jugadores>
+	</equipo>
+	<partido>
+		<fecha>2023-05-01</fecha>
+		<Observaciones>Día lluvioso</Observaciones>
+		<resultado>2-1</resultado>
+		<ciudad>Madrid</ciudad>
+		<asistencia>30000</asistencia>
+		<idequipoCasa>7</idequipoCasa>
+		<idequipoVisitante>6</idequipoVisitante>
+	</partido>
+	<partido>
+		<fecha>2023-05-05</fecha>
+		<Observaciones></Observaciones>
+		<resultado>3-3</resultado>
+		<ciudad>Milan</ciudad>
+		<asistencia>40000</asistencia>
+		<idequipoCasa>5</idequipoCasa>
+		<idequipoVisitante>6</idequipoVisitante>
+	</partido>
+	<partido>
+		<fecha>2023-05-10</fecha>
+		<Observaciones>Se empezó 10 minutos tarde</Observaciones>
+		<resultado>1-0</resultado>
+		<ciudad>Londres</ciudad>
+		<asistencia>25000</asistencia>
+		<idequipoCasa>7</idequipoCasa>
+		<idequipoVisitante>8</idequipoVisitante>
+	</partido>
+	<partido>
+		<fecha>2023-05-15</fecha>
+		<Observaciones>Invasión de campo</Observaciones>
+		<resultado>2-2</resultado>
+		<ciudad>Barcelona</ciudad>
+		<asistencia>35000</asistencia>
+		<idequipoCasa>8</idequipoCasa>
+		<idequipoVisitante>5</idequipoVisitante>
+	</partido>
+</BdDeportes>
