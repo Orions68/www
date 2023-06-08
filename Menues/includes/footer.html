@@ -1,0 +1,76 @@
+<footer id="footer">
+	<div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+		WEB Design © 2023 César Osvaldo Matelat Borneo.
+	</div>
+</footer>
+<script>screen()</script>
+<script>resolution();</script>
+	<!-- Script para detectar si la pantalla modifica su tamaño horizontal -->
+	<script>
+		window.addEventListener('resize', resolution);
+		resolution();
+        let footer = document.getElementById("footer");
+
+    if (document.cookie.length <= 7)
+    {
+        footer.className = "text-center text-lg-start bg-light text-muted footer fixed-bottom";
+    }
+    else
+    {
+        let cookie = document.cookie;
+        var array = cookie.split(";");
+        var cookname = array[0].split("=");
+
+        if (cookname[1] == "bg-dark")
+        {
+            setHs("#fff");
+            setLabel("#fff");
+            
+            footer.className = "text-center text-lg-start bg-dark text-muted footer fixed-bottom";
+            document.body.style.background = "#000";
+        }
+        else
+        {
+            if (cookname[1] == "bg-light")
+            {
+                setHs("#000");
+                setLabel("#000");
+
+                footer.className = "text-center text-lg-start bg-light text-muted footer fixed-bottom";
+                document.body.style.background = "#fff";
+            }
+            else
+            {
+                if (cookname[1] == "bg-danger")
+                {
+                    setHs("#000");
+                    setLabel("#000");
+
+                    footer.className = "text-center text-lg-start bg-danger text-muted footer fixed-bottom";
+                    document.body.style.background = "#fff";
+                }
+                else
+                {
+                    if (cookname[1] == "bg-success")
+                    {
+                        setHs("#000");
+                        setLabel("#000");
+
+                        footer.className = "text-center text-lg-start bg-success text-muted footer fixed-bottom";
+                        document.body.style.background = "#fff";
+                    }
+                    else
+                    {
+                        setHs("#000");
+                        setLabel("#000");
+
+                        footer.className = "text-center text-lg-start bg-primary text-muted footer fixed-bottom";
+                        document.body.style.background = "#fff";
+                    }
+                }
+            }
+        }
+    }
+	</script>
+</body>
+</html>

@@ -8,11 +8,10 @@
                 <option value="view2">Alumno</option>
                 <option value="view3">Lista de Alumnos</option>
             </select>
-        </div>
     </div>
     <div class="col-md-4 d-flex"> <!-- Columnas con la bienvenida al alumno. -->
         <h6>Te damos la Bienvenida: <span><?php echo $name; ?></h6>
         <img src="<?php echo $path; ?>" alt='Imagen de Perfil' width='64' height='64'>
         <span><button onclick="window.open('endsession', '_self')" class="btn btn-danger btn-sm">Cerrar Sesión</button></span>
-        </div>
-    </nav>
+    </div>
+</nav>

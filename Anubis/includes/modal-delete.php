@@ -17,7 +17,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="window.open('inicio#view2', '_self')">Me Arrepiento</button>
-          <form action="doit.php" method="post">
+          <form action="doit" method="post">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <input type="submit" value="Sí, Bórrame de la Base de Datos." class="btn btn-danger">
           </form>
