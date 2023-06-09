@@ -1,0 +1,120 @@
+div {
+    border: 1px solid black;
+}
+
+#cabecera {
+    text-align: center;	
+    background-color:silver;
+    font-weight: 100%;
+    
+}
+
+.h1{
+    font-size : 26;
+    font-family : Arial;
+    font-style : normal;
+    font-weight : bold;
+    color: blue;
+}
+
+.h2{
+    font-size : 20;
+    font-family : Arial;
+    font-style : normal;
+    font-weight : bold;
+    color:green;
+}
+
+.h3{
+    font-size : 16;
+    font-family : Arial;
+    font-style : normal;
+    font-weight : normal;
+    color:blue;
+}
+
+.texto {
+    font-size : 12;
+    font-family : Arial;
+    font-style : normal;
+    font-weight : normal;
+    color: black;
+}
+
+#puesto34 {
+
+    width: 100%;
+    height:auto;
+    margin:auto;
+    text-align: center;		
+    display:inline-block;
+}			
+
+#semifinales {
+    width: 100%;
+    height:auto;
+    margin:auto;
+    text-align: center;		
+    display:inline-block;
+}
+
+#tabla {
+    width: 100%;
+    height:auto;
+    margin:auto;
+    text-align: center;		
+    display:inline-block;
+}
+
+
+
+#final {
+    width: 100%;
+    height:auto;
+    margin:auto;
+    text-align: center;		
+    display:inline-block;
+}
+
+.img1{
+    width: 50;
+    height:50;	
+}
+
+            
+.footer {			
+    text-align: center;	
+}
+
+input{
+    width:110;
+    height:50;
+    text-align: center;	
+    font-size : 26;
+    font-family : Arial;
+    font-style : normal;
+    font-weight : bold;
+}
+
+.caja {
+    width:400;
+    height:60;
+    text-align: center;
+
+}
+
+.caja1 {
+    width: 620;
+    height:300;
+    display:inline-block;					
+    background-color:white;
+    text-align: center;	
+}
+
+.caja2 {
+    width: 100%;
+    height:100;
+    display:inline-block;					
+    background-color:white;
+    text-align: center;	
+}

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Eva_2_Programación con lenguajes de guión</title>
+		
+		<style>
+			
+			/* div{
+			border:1px solid black;
+			} */
+			
+			#cabecera {
+				text-align: center;	
+				background-color:silver;
+				weight:100%;
+			}
+			
+			.footer {			
+				text-align: center;	
+			}
+			
+			#cajaDia{
+				visibility:hidden;
+			}
+			
+			#cajaMes{
+				visibility:hidden;
+			}
+			
+			#cajaAnio{
+				visibility:hidden;
+			}
+			
+			.grande{
+				font-size : 32;
+				font-family : Arial;
+				font-style : normal;
+				font-weight : bold;
+				color: blue;
+			}
+			
+			.h1{
+				font-size : 26;
+				font-family : Arial;
+				font-style : normal;
+				font-weight : bold;
+				color: blue;
+			}
+			
+			.h2{
+				font-size : 20;
+				font-family : Arial;
+				font-style : normal;
+				font-weight : bold;
+				color:green;
+			}
+			
+			.h3{
+				font-size : 16;
+				font-family : Arial;
+				font-style : normal;
+				font-weight : normal;
+				color:blue;
+			}
+			
+			.texto {
+				font-size : 12;
+				font-family : Arial;
+				font-style : normal;
+				font-weight : normal;
+				color: black;
+			}
+			
+			#general {
+				width:620px;
+				height:500px;
+				text-align:center;
+			 	border:4px solid black;
+				padding:20px;
+			}
+			
+			
+			#c1{
+				width:49%;
+				height:auto;
+				text-align:left;
+				display:inline-block;
+			}
+			
+			#c2{
+				width:49%;
+				height:auto;
+				text-align:right;			
+				display:inline-block;
+			}
+			
+			td{
+			text-align:center;
+			}
+		
+			
+		</style>
+		
+		<script>
+		
+			function verificar(){//creamos una funcion para verificar los datos de registro
+				var objNif, objNombre, objCP, objTel, objDirreccion, objPoblacion;//variables para las cajas o input
+				var nif, nombre, apellidos, CP, telefono, dirreccion, poblacion;//variables para los valores de las cajas o input
+				var numNif, arroba, punto;
+				
+				objPoblacion = document.getElementById('cajaPob');//le indicamos que caja o input tiene cada variable 
+				objDirreccion = document.getElementById('cajaDir');
+				objNif = document.getElementById('cajaNif');
+				objNombre = document.getElementById('cajaNomb');				
+				objCP = document.getElementById('cajaCP');
+				objTel = document.getElementById('cajaTel');
+				objEmail = document.getElementById('cajaEmail');
+				
+				dirreccion = objDirreccion.value;//indicamos que valor es para cada variable
+				poblacion = objPoblacion.value;
+				nif = objNif.value;				
+				nombre = objNombre.value;				
+				CP = objCP.value;
+				telefono = objTel.value;
+				email = objEmail.value;
+				
+				numNif = Number(nif.substring(0,8));//le indicamos que el nif es una cadena de 9
+				arroba = email.indexOf('@');//le indicamos que el email tiene que tener @
+				punto = email.indexOf('.');//le indicamos que el email tiene que tener .
+				
+				if (nif.length == 9 && numNif >= 0 && numNif <= 99999999  ) objNif.style.backgroundColor = 'lime';//hacemos la condicion and para verificar el dni , si se cumple se pone de color verde y sino de color rojo
+				else objNif.style.backgroundColor = 'red';
+				
+				if (nombre.length < 3) objNombre.style.backgroundColor = 'red';//hacemos la condicion and para verificar el nombre , si se cumple se pone de color verde y sino de color rojo
+				else objNombre.style.backgroundColor = 'lime';				
+				
+				if (poblacion.length < 3) objPoblacion.style.backgroundColor = 'red';//hacemos la condicion and para verificar el Poblacion , si se cumple se pone de color verde y sino de color rojo
+				else objPoblacion.style.backgroundColor = 'lime';
+
+				if (dirreccion.length < 3) objDirreccion.style.backgroundColor = 'red';//hacemos la condicion and para verificar el Dirreccion , si se cumple se pone de color verde y sino de color rojo
+				else objDirreccion.style.backgroundColor = 'lime';
+
+				if (CP.length == 5 && CP > 35000 && CP < 38999) objCP.style.backgroundColor = 'lime';//hacemos la condicion and para verificar el CP , si se cumple se pone de color verde y sino de color rojo
+				else objCP.style.backgroundColor='red';	
+
+				if (telefono.length == 9 && telefono >= 500000000 && telefono <= 999999999) objTel.style.backgroundColor = 'lime';//hacemos la condicion and para verificar el telefono , si se cumple se pone de color verde y sino de color rojo
+				else objTel.style.backgroundColor='red';
+
+				if (email.length >= 8 && arroba > 0 && punto > 0 && arroba < punto) objEmail.style.backgroundColor = 'lime';//hacemos la condicion and para verificar el Email , si se cumple se pone de color verde y sino de color rojo
+				else objEmail.style.backgroundColor = 'red';				
+			}
+		
+		
+			function verfecha() // Creamos una funcion para que nos salga el dia de hoy
+            {
+				var fecha;
+				var dia, mes, anio;
+				var cajaDia, cajaMes, cajaAnio, cajaFecha;
+				var miFecha="";
+				
+				fecha = new Date();
+				
+				cajaDia = document.getElementById('cajaDia');
+				cajaMes = document.getElementById('cajaMes');
+				cajaAnio = document.getElementById('cajaAnio');
+				cajaFecha = document.getElementById('cajaFecha');
+				
+				dia = fecha.getDate();// pedimos el dia a la red
+				mes = fecha.getMonth()+1;// pedimos el mes a la red
+				anio = fecha.getFullYear();// pedimos el año a la red
+			
+				//alert(fecha);
+				//alert(dia);
+				//alert(mes);
+				//alert(anio);
+				
+				cajaDia.value = dia;//recogemos los valores
+				cajaMes.value = mes;
+				cajaAnio.value = anio;
+				
+				miFecha = dia + "/" + mes + "/" + anio;//concatenamos los valores creando la fecha entera de el dia de hoy
+				cajaFecha.value = miFecha;//que llamamos mi fecha
+				
+				
+			}
+		
+			function verfecha2(){
+				var fecha;
+				var dia, mes, anio;
+				
+				var cajaFecha2;
+				
+				cajaFecha2=document.getElementById('cajaFecha2');
+			
+				//alert(cajaFecha2.value);
+				
+				fecha = new Date(cajaFecha2.value);
+				
+				cajaDia.value = dia;
+				cajaMes.value = mes;
+				cajaAnio.value = anio;
+				
+				dia = fecha.getDate();
+				mes = fecha.getMonth()+1;
+				anio = fecha.getFullYear();
+				
+			}
+		
+			
+			
+			function verTotales(){//creamos una funcion para calcular los totales de la factura
+				var lista, precio, concepto, cantidad, importe, total, subtotal, igic;
+				
+				
+					for (var i = 1; i <= 10; i++){//hacemos un bucle para recorer la factura y recoger los resultados
+						
+						numero = document.getElementById('cajaNum');
+						igic = document.getElementById('cajaIgic');
+						subtotal = document.getElementById('cajaSubTotal');
+						total = document.getElementById('cajaTotal');
+						lista = document.getElementById('miLista' + i);
+						precio = document.getElementById('cajaPrecio' + i);
+						concepto = document.getElementById('cajaConcepto' + i);
+						cantidad = document.getElementById('cajaCantidad' + i);
+						importe = document.getElementById('cajaImporte' + i);
+						
+						//alert(lista.value);
+						
+						if (lista.value == '111') {concepto.value="Articulo 1"; precio.value = 10;}//indicamos el codigo del producto y su precio
+						if (lista.value == '222') {concepto.value="Articulo 2"; precio.value = 20;}
+						if (lista.value == '333') {concepto.value="Articulo 3"; precio.value = 30;}
+						if (lista.value == '444') {concepto.value="Articulo 4"; precio.value = 40;}
+						if (lista.value == '555') {concepto.value="Articulo 5"; precio.value = 50;}
+						
+						
+						
+						importe.value = (cantidad.value * precio.value) + " €";//hacemos los calculos de la cantidad x el precio
+						//sumamos todos los resultados paraque nos de el total
+						subtotal.value = (parseInt(document.getElementById('cajaImporte1').value) + parseInt(document.getElementById('cajaImporte2').value) + parseInt(document.getElementById('cajaImporte3').value) + parseInt(document.getElementById('cajaImporte4').value) + parseInt(document.getElementById('cajaImporte5').value) + parseInt(document.getElementById('cajaImporte6').value) + parseInt(document.getElementById('cajaImporte7').value) + parseInt(document.getElementById('cajaImporte8').value) + parseInt(document.getElementById('cajaImporte9').value) + parseInt(document.getElementById('cajaImporte10').value)) + " €";
+						//calculamos el igic
+                        // var pre = subtotal.value * .07;
+                        // pre = pre.toFixed(2);
+                        // console.log("EL valor de pre es: " + pre);
+                        // igic.value = pre;
+						igic.value = (parseInt(subtotal.value) * (0.07)) + " €";
+						//sumamos el igic con el total
+						total.value =(parseInt(subtotal.value) + parseInt(igic.value)) + " €";
+						
+						//subtotal.value = (parseInt(total.value) + parseInt(importe.value))+"€";
+					}
+			}
+		
+			
+		
+		</script>	
+		
+</head>
+<body>
+    <header>
+        <div id="cabecera">
+            <h1 class="h1">
+                Trabajo de JavaScript Ponientes JavieRomeroCalero y CayetanoFernandezBencomo
+            </h1>
+        </div>
+    </header>
+    <br/><br/><br/><br/>
+    <section>
+        <div id="general" >
+            
+            <div id="c1"><!-- con onchange(cuando cambia el input o caja) activamos el javascript -->
+                <h1 class="grande">Factura</h1>	
+                NIF*<input type="text" id="cajaNif" onchange="verificar()" size="20"/><br/>
+                Nombre*<input type="text" id="cajaNomb" onchange="verificar()" size="20"/><br/>
+                Dirrección<input type="text" id="cajaDir" onchange="verificar()" size="20"/><br/>
+                Población<input type="text" id="cajaPob" onchange="verificar()" size="20"/><br/>
+            </div>
+            <div id="c2">
+                Número<input type="text" id="cajaNum" onchange="verificar()" size="6"/><br/>
+                Fecha<input type="text" id="cajaFecha" disabled readonly size="8"/><br/>
+                <br/><br/>
+                Email*<input type="text" id="cajaEmail" onchange="verificar()" size="20"/><br/>
+                Teléfono*<input type="text" id="cajaTel" onchange="verificar()" size="16"/><br/>
+                CP<input type="text" id="cajaCP" onchange="verificar()" size="10"/><br/>
+            </div>				
+            <table width="600" border="1" cellspacing="0" cellpadding="0">
+                <tr >
+                <td width="62" bgcolor="silver">Codigo</td>
+                <td width="56" bgcolor="silver">Cantidad</td>
+                <td width="311" bgcolor="silver">Descripción</td>
+                <td width="78" bgcolor="silver">Precio</td>
+                <td width="78" bgcolor="silver">Importe</td>
+                </tr>
+                <tr>
+                <td>
+                    <select id="miLista1" onchange="verTotales();verfecha();verificar();" >
+                        <option></option>
+                        <option>111</option>
+                        <option>222</option>
+                        <option>333</option>
+                        <option>444</option>
+                        <option>555</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" id="cajaCantidad1" onchange="verTotales()" size="4"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaConcepto1" disabled readonly size="40"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaPrecio1" disabled readonly size="6"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaImporte1" disabled readonly size="6"/>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                    <select id="miLista2" onchange="verTotales();verfecha();">
+                        <option></option>
+                        <option>111</option>
+                        <option>222</option>
+                        <option>333</option>
+                        <option>444</option>
+                        <option>555</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" id="cajaCantidad2" onchange="verTotales()" size="4"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaConcepto2" disabled readonly size="40"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaPrecio2" disabled readonly size="6"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaImporte2" disabled readonly size="6"/>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                    <select id="miLista3" onchange="verTotales();verfecha();">
+                        <option></option>
+                        <option>111</option>
+                        <option>222</option>
+                        <option>333</option>
+                        <option>444</option>
+                        <option>555</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" id="cajaCantidad3" onchange="verTotales()" size="4"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaConcepto3" disabled readonly size="40"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaPrecio3" disabled readonly size="6"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaImporte3" disabled readonly size="6"/>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                    <select id="miLista4" onchange="verTotales();verfecha();">
+                        <option></option>
+                        <option>111</option>
+                        <option>222</option>
+                        <option>333</option>
+                        <option>444</option>
+                        <option>555</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" id="cajaCantidad4" onchange="verTotales()" size="4"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaConcepto4" readonly disabled  size="40"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaPrecio4" disabled readonly size="6"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaImporte4" disabled readonly size="6"/>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                    <select id="miLista5" onchange="verTotales();verfecha();">
+                        <option></option>
+                        <option>111</option>
+                        <option>222</option>
+                        <option>333</option>
+                        <option>444</option>
+                        <option>555</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" id="cajaCantidad5" onchange="verTotales()" size="4"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaConcepto5" disabled readonly size="40"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaPrecio5" disabled readonly size="6"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaImporte5" disabled readonly size="6"/>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                    <select id="miLista6" onchange="verTotales();verfecha();">
+                        <option></option>
+                        <option>111</option>
+                        <option>222</option>
+                        <option>333</option>
+                        <option>444</option>
+                        <option>555</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" id="cajaCantidad6" onchange="verTotales()" size="4"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaConcepto6" disabled readonly size="40"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaPrecio6" disabled readonly size="6"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaImporte6" disabled readonly size="6"/>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                    <select id="miLista7" onchange="verTotales();verfecha();">
+                        <option></option>
+                        <option>111</option>
+                        <option>222</option>
+                        <option>333</option>
+                        <option>444</option>
+                        <option>555</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" id="cajaCantidad7" onchange="verTotales()" size="4"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaConcepto7" disabled readonly size="40"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaPrecio7" disabled readonly size="6"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaImporte7" disabled readonly size="6"/>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                    <select id="miLista8" onchange="verTotales();verfecha();">
+                        <option></option>
+                        <option>111</option>
+                        <option>222</option>
+                        <option>333</option>
+                        <option>444</option>
+                        <option>555</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" id="cajaCantidad8" onchange="verTotales()" size="4"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaConcepto8" disabled readonly size="40"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaPrecio8" disabled readonly size="6"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaImporte8" disabled readonly size="6"/>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                    <select id="miLista9" onchange="verTotales();verfecha();">
+                        <option></option>
+                        <option>111</option>
+                        <option>222</option>
+                        <option>333</option>
+                        <option>444</option>
+                        <option>555</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" id="cajaCantidad9" onchange="verTotales()" size="4"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaConcepto9" disabled readonly size="40"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaPrecio9" disabled readonly size="6"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaImporte9" disabled readonly size="6"/>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                    <select id="miLista10" onchange="verTotales();verfecha();">
+                        <option></option>
+                        <option>111</option>
+                        <option>222</option>
+                        <option>333</option>
+                        <option>444</option>
+                        <option>555</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" id="cajaCantidad10" onchange="verTotales()" size="4"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaConcepto10" disabled readonly size="40"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaPrecio10" disabled readonly size="6"/>
+                </td>
+                <td>
+                    <input type="text" id="cajaImporte10" disabled readonly size="6"/>
+                </td>
+                </tr>
+                <tr>
+                
+                <td colspan="3"></td>
+                <td bgcolor="silver">SubTotal</td>
+                <td>
+                    <input type="text" id="cajaSubTotal" disabled readonly size="6"/>
+                </td>
+                </tr>
+                <tr>
+                
+                <td colspan="3"></td>
+                <td bgcolor="silver">Igic</td>
+                <td>
+                    <input type="text" id="cajaIgic" disabled readonly size="6"/>
+                </td>
+                </tr>
+                <tr>
+                
+                <td colspan="3"></td>
+                <td bgcolor="silver">Total</td>
+                <td>
+                    <input type="text" id="cajaTotal" disabled readonly size="6"/>
+                </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    
+    <input type="text" id="cajaDia"  size="8"/><br/><br/>
+    <input type="text" id="cajaMes"  size="8"/><br/><br/>
+    <input type="text" id="cajaAnio"  size="8"/><br/><br/>
+    <hr/>
+    <footer class="footer">
+        <b>Curso:</b>CONFECCIÓN Y PUBLICACIÓN DE PÁGINAS WEB<br/>
+        <b>Módulo:</b>MF0950_2: Construcción de páginas web<br/>
+        <b>Unidad formativa:</b>UF1305: Programación con lenguajes de guión en páginas web - 90 Horas<br/>
+        <b>Autor:</b>Javier Romero Calero
+        <b>Fecha:</b>Julio 2021<br/>
+        <b>Correo de contacto:</b>javier.cpweb@gmail.com<br/>			
+        <a href="mailto:javier.cpweb@gmail.com">correo</a>
+    </footer>
+</body>
+</html>
