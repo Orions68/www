@@ -81,10 +81,18 @@ function Calcula(sign)
         case "%":
             var resultado = (parseFloat(num1.value).toFixed(2) * parseFloat(perc.value).toFixed(2)) / 100;
             break;
+        case "":
+            num1.value = "";
+            num2.value = "";
+            perc.value = "";
+            break;
         default:
             var resultado = parseFloat(num1.value).toFixed(2) / parseFloat(num2.value).toFixed(2);
     }
-    result.innerHTML = resultado;
+    if (resultado != null)
+    {
+        result.innerHTML = resultado;
+    }
 }
 
 

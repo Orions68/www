@@ -40,6 +40,8 @@ include "includes/nav.html";
                 <br><br>
                 <input type="number" id="num2" placeholder="numero">
                 <br><br>
+                <button onclick="Calcula('')">Limpia Entradas</button>
+                <br><br><br>
                 <button onclick="Calcula('+')">Suma</button>
                 <button onclick="Calcula('*')">Multiplica</button>
                 <br>
