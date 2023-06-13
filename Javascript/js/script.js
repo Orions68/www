@@ -1,56 +1,61 @@
-function agregarTarea()
-{
-    const lista = document.getElementById('lista-tareas');
-    const input = document.getElementById('nueva-tarea');
-    const tarea = input.value.trim();
+// Funciones para elprimer ejercicio de Javascript
 
-    if (tarea !== '')
+function agregarTarea() // El onclick del botón.
+{
+    const lista = document.getElementById('lista-tareas'); // Asigno a lista la ID de la lista <ul>.
+    const input = document.getElementById('nueva-tarea'); // Asigno a input la ID del input nueva-tarea.
+    const tarea = input.value.trim(); // Hago un trim al valor del input nueva-tarea y se lo asigno a la constante tarea.
+
+    if (tarea !== '') // Si tarea no está vacía.
     {
-      const li = document.createElement('li');
-      li.textContent = tarea;
-      li.onclick = marcarCompletada;
-      lista.appendChild(li);
-      input.value = '';
+      const li = document.createElement('li'); // Creo un elemento <li> de  la lista.
+      li.textContent = tarea; // Le asigno la tarea como contenido de texto.
+      li.onclick = marcarCompletada; // Le agrego un evento onclik que llama a la función marcarCompletada.
+      lista.appendChild(li); // Agrego a la lista <ul> el elemento <li> con appendChild().
+      input.value = ''; // Limpio el contenido del input.
     }
 }
 
-function marcarCompletada(event)
+function marcarCompletada(event) // A la función marcarCompletada le paso el evento
 {
-    const tarea = event.target;
-    tarea.classList.toggle('completada');
+    const tarea = event.target; // Asigno a la constante tarea el objeto seleccionado en el evento onclick.
+    tarea.classList.toggle('completada'); // Cambio la clase del objeto seleccionado de la lista a la clase completada, que tacha el texto.
 }
 
-function validarFormulario(event)
-{
-    event.preventDefault();
-    const nombre = document.getElementById('nombre').value.trim();
-    const email = document.getElementById('email').value.trim();
 
-    const expresionNombre = /^[A-Za-záéíóúüñÑ\s]+$/;
+// Funciones para el segundo ejercicio de Javascript
+
+function validarFormulario(event) // Validar Formulario es la función que llama el formulario al ser enviado pasándole el evento.
+{
+    event.preventDefault(); // La función prevent default evita que se ejecute la acción por defecto del evento
+    const nombre = document.getElementById('nombre').value.trim(); // Asigno a la constante nombre el contenido del input con ID nombre haciendo trim para quitar los espacios del principio y/o el final.
+    const email = document.getElementById('email').value.trim(); // Lo mismo con la constante email.
+
+    const expresionNombre = /^[A-Za-záéíóúüñÑ\s]+$/; // La expresión regular para comprobar el nombre.
     // const expresionEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const expresionEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+    const expresionEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/; // La expresión regular para comprobar el email.
 
-    if (!expresionNombre.test(nombre))
+    if (!expresionNombre.test(nombre)) // Si el nombre no cumple la expresion regular expresionNombre.
     {
-        mostrarError('Debe ingresar un nombre válido');
-        return;
+        mostrarError('Debe ingresar un nombre válido'); // Muestro el error en la función mostrarError.
+        return; // Vuelve y sale de la función.
     }
 
-    if (!expresionEmail.test(email))
+    if (!expresionEmail.test(email)) // Si el email no cumple la expresion regular expresionEmail.
     {
-        mostrarError('Debe ingresar un correo electrónico válido');
-        return;
+        mostrarError('Debe ingresar un correo electrónico válido'); // Muestro el error en la función mostrarError.
+        return; // Vuelve y sale de la función.
     }
 
     // Resto del código para enviar el formulario al servidor
-    mostrarError('');
-    alert('Registro exitoso');
+    mostrarError(''); // Si toda ha ido bien, limpia el input con ID mensaje-error.
+    alert('Registro exitoso'); // Muetra una alerta que el registro se ha efectuado satisfactoriamente.
 }
 
-function mostrarError(mensaje)
+function mostrarError(mensaje) // Función que muestra el mensaje de error en el input con ID mensaje-error, recibe el mensaje.
 {
-    const mensajeError = document.getElementById('mensaje-error');
-    mensajeError.textContent = mensaje;
+    const mensajeError = document.getElementById('mensaje-error'); // Asigno a la constante mensajeError el input con ID mensaje-error.
+    mensajeError.textContent = mensaje; // Muetro el mensaje recibido en el input con ID mensaje-error.
 }
 
 function checkpass() // Esta función verifica que las contraseñas sean iguales.
