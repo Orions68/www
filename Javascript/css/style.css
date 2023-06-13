@@ -1,0 +1,16 @@
+body
+{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: purple;
+    background-color: #7BDA3D
+}
+
+h1
+{
+    font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif
+}
+          
+.completada
+{
+    text-decoration: line-through;
+}
