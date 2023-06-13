@@ -1,4 +1,4 @@
-// Funciones para elprimer ejercicio de Javascript
+// Funciones para el primer ejercicio de Javascript - Lista de Tareas.
 
 function agregarTarea() // El onclick del botón.
 {
@@ -23,7 +23,7 @@ function marcarCompletada(event) // A la función marcarCompletada le paso el ev
 }
 
 
-// Funciones para el segundo ejercicio de Javascript
+// Funciones para el segundo ejercicio de Javascript - Validar Formulario, Nombre e E-mail.
 
 function validarFormulario(event) // Validar Formulario es la función que llama el formulario al ser enviado pasándole el evento.
 {
@@ -59,7 +59,7 @@ function mostrarError(mensaje) // Función que muestra el mensaje de error en el
 }
 
 
-// Funciones de la calculadora.
+// Funciones de la calculadora Tercer Ejercicio.
 
 function Calcula(sign)
 {
@@ -95,6 +95,46 @@ function Calcula(sign)
     }
 }
 
+// Función del Reloj Cuarto Ejercicio.
+
+function showWatch()
+{
+    const watch = document.getElementById("reloj");
+    const fecha = new Date();
+    const horas = fecha.getHours().toString().padStart(2, 0);
+    const mins = fecha.getMinutes().toString().padStart(2, 0);
+    const secs = fecha.getSeconds().toString().padStart(2, 0);
+    watch.textContent = `${horas}:${mins}:${secs}`;
+}
+
+
+// Función para las sugerencias - Quinto Ejercicio.
+
+function showFruit()
+{
+    const opciones = ["Manzana", "Banana", "Naranja", "Pera", "Uva", "Mango", "Mandarina", "Melón", "Aguacate"];
+
+    const busqueda = document.getElementById("busqueda").value.toLowerCase();
+    const sugerencia = document.getElementById("sugerencia");
+
+    sugerencia.innerHTML = "";
+
+    opciones.forEach(opcion => {
+        if (opcion.toLowerCase().startsWith(busqueda))
+        {
+            const li = document.createElement("li");
+            li.textContent = opcion;
+            li.onclick = fillInput; // Le agrego un evento onclik que llama a la función fillInput.
+            sugerencia.appendChild(li);
+        }
+    })
+}
+
+function fillInput(fruit)
+{
+    const busqueda = document.getElementById("busqueda");
+    busqueda.value = fruit.target.textContent;
+}
 
 function checkpass() // Esta función verifica que las contraseñas sean iguales.
 {
@@ -142,6 +182,9 @@ function screenSize() // Función para dar el tamaño máximo de la pantalla a l
     let view1 = document.getElementById("view1"); // view1 es la ID del div view1.
     let view2 = document.getElementById("view2");
     let view3 = document.getElementById("view3");
+    let view4 = document.getElementById("view4");
+    let view5 = document.getElementById("view5");
+    let view6 = document.getElementById("view6");
     let height = innerHeight; // innerHeight es el tamaño vertical de la pantalla.
 
     if (view1.offsetHeight < height) // Si el tamaño vertical de la vista es menor que el tamaño vertical de la pantalla.
@@ -160,6 +203,30 @@ function screenSize() // Función para dar el tamaño máximo de la pantalla a l
                 if (view3.offsetHeight < height)
                 {
                     view3.style.height = height + "px";
+                }
+            }
+
+            if (view4 != null)
+            {
+                if (view4.offsetHeight < height)
+                {
+                    view4.style.height = height + "px";
+                }
+            }
+
+            if (view5 != null)
+            {
+                if (view5.offsetHeight < height)
+                {
+                    view5.style.height = height + "px";
+                }
+            }
+
+            if (view6 != null)
+            {
+                if (view6.offsetHeight < height)
+                {
+                    view6.style.height = height + "px";
                 }
             }
         }
