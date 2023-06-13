@@ -31,6 +31,24 @@ include "includes/nav.html";
                     <div id="mensaje-error"></div>
                 </div>
             </div>
+            <div id="view3">
+                <br><br><br><br>
+                <h3>Calculadora</h3>
+                <br><br>
+                <input type="number" id="num1" placeholder="numero">&nbsp;&nbsp;
+                <input type="number" id="percentage" placeholder="Porcentaje">
+                <br><br>
+                <input type="number" id="num2" placeholder="numero">
+                <br><br>
+                <button onclick="Calcula('+')">Suma</button>
+                <button onclick="Calcula('*')">Multiplica</button>
+                <br>
+                <button onclick="Calcula('-')">Resta</button>
+                <button onclick="Calcula('/')">Divide</button>
+                <br><br>
+                <button onclick="Calcula('%')">Porcentaje</button>
+                <h3 id="result"></h3>
+            </div>
             <div class="col-sm-1"></div>
         </div>
     </section>

@@ -58,6 +58,36 @@ function mostrarError(mensaje) // Función que muestra el mensaje de error en el
     mensajeError.textContent = mensaje; // Muetro el mensaje recibido en el input con ID mensaje-error.
 }
 
+
+// Funciones de la calculadora.
+
+function Calcula(sign)
+{
+    const num1 = document.getElementById("num1");
+    const num2 = document.getElementById("num2");
+    const perc = document.getElementById("percentage");
+    const result = document.getElementById("result");
+    switch (sign)
+    {
+        case "+":
+            var resultado = parseFloat(num1.value) + parseFloat(num2.value);
+            break;
+        case "-":
+            var resultado = parseFloat(num1.value).toFixed(2) - parseFloat(num2.value).toFixed(2);
+            break;
+        case "*":
+            var resultado = parseFloat(num1.value).toFixed(2) * parseFloat(num2.value).toFixed(2);
+            break;
+        case "%":
+            var resultado = (parseFloat(num1.value).toFixed(2) * parseFloat(perc.value).toFixed(2)) / 100;
+            break;
+        default:
+            var resultado = parseFloat(num1.value).toFixed(2) / parseFloat(num2.value).toFixed(2);
+    }
+    result.innerHTML = resultado;
+}
+
+
 function checkpass() // Esta función verifica que las contraseñas sean iguales.
 {
     let pass = document.getElementById("pass1").value; // Asigno a la variable pass el valor en el input con ID pass1.
