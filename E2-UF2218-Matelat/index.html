@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+    <!-- Agrego mi css y mi javascript. -->
+    <title>E2 UF2218 César Matelat</title>
+</head>
+<body>
+    <nav>
+        <h3 id="reloj"></h3>
+        <script>
+            setInterval(showWatch, 1000);
+            showWatch();
+        </script>
+    </nav>
+    <div id="view1">
+        <br>
+        <h1>E2 UF2218 César Matelat</h1>
+        <br><br>
+        <h3>Calculo del Perimetro y Área de un Rectangulo.</h3>
+        <br><br>
+        <label><input id="height" type="number" class="validate"> Ingresa la Altura en Metros</label>
+        <br><br>
+        <label><input id="width" type="number" class="validate2"> Ingresa el Ancho en Metros</label>
+        <br><br>
+        <label><select id="operation">
+            <option value="">Selecciona una Opción</option>
+            <option value="0">Calcula el Perímetro</option>
+            <option value="1">Calcula el Área</option>
+        </select> Selecciona la Operación</label>
+        <br><br>
+        <button onclick="operate()">Calcula</button>
+        <br><br>
+        <h2 id="result"></h2>
+        <script> // Uso estos querySelector para evitar que se escriba la e de exponente en las cajas de la altura y el ancho.
+            document.querySelector(".validate").addEventListener("keypress", function (evt) {
+                if (evt.which != 8 && evt.which != 0 && evt.which < 48 || evt.which > 57)
+                {
+                    evt.preventDefault();
+                }
+            });
+            document.querySelector(".validate2").addEventListener("keypress", function (evt) {
+                if (evt.which != 8 && evt.which != 0 && evt.which < 48 || evt.which > 57)
+                {
+                    evt.preventDefault();
+                }
+            });
+        </script>
+        <br><br>
+        <input type="text" id="nuevo-poli" placeholder="Nuevo Polígono" oninput="sugerencia()">
+        <button onclick="agregaPoli()">Agrega</button>
+        <br><br>
+        <div class="inline">
+            <ul class="inline" id="lista-polis"></ul>&nbsp;&nbsp;&nbsp;
+            <ul class="inline" id="lista-sugeridos"></ul>
+        </div>
+        <br><br>
+        <button onclick="salute()">Chiste Final</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+input, label, button, option
+{
+    font-size: 1.25rem; /* Doy tamaño de la fuente a los input, label, option y button un 25% mayor. */
+}
+
+body /* Un margen a la izquierda de 100 pixeles y color de fondo aguamarina. */
+{
+    margin-left: 100px;
+    background-color: aquamarine;
+}
+
+.agregado /* Decoración del texto, rayado. */
+{
+    text-decoration: line-through;
+}
+
+.inline /* Clase para poner en linea las listas para seleccionar los polígonos. */
+{
+    display: inline-block;
+}
+
+#reloj /* ID del h3 que contiene el reloj, alíneo el texto al centro de la pantalla. */
+{
+    text-align: center;
+}
