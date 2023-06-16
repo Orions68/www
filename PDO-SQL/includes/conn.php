@@ -1,5 +1,5 @@
 <?php
     $user = "cesarmatelat";
-    $pass = "";
-    $conn = new PDO("sqlsrv:DESKTOP-OOPVBOO\SQLEXPRESS;Database=Agenda", $user , $pass);
+    $pass = "Anubis68";
+    $conn = new PDO("sqlsrv:Server=localhost;Database=Agenda", $user , $pass);
 ?>
