@@ -1,0 +1,21 @@
+label, input, td, th /* Pongo el tamaño de la fuente a 1.25rem para las etiquetas, los input, los títulos y las columnas de la tabla */
+{
+    font-size: 1.25rem;
+}
+
+table /* Personalizo la tabla con borde rojo con width 100% para que ocupe toda la pantalla. */
+{
+    border-collapse: unset; /* Esta linea rompe el control del estilo de Bootstrap. */
+    border: 1px solid red;
+    width: 100%;
+}
+
+tr, th, td /* A los títulos, filas y columnas de la tabla les doy borde de color azul. */
+{
+    border: 1px solid blue;
+}
+
+fieldset, legend /* Quita los atributos de bootstrap para fieldset y lengend. */
+{
+    all: revert;
+}
