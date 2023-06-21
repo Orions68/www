@@ -23,6 +23,7 @@ if (isset($_POST["row"])) // Si está seteado $_POST["row"];
             $y++; // Incremento el valor de $y.
         }
     }
+    sort($array2); // Ordena el array de menor a mayor, para obtener la mediana.
     print_r($array2); // Muestro el array unidimensional.
     $pre = 0; // Asigno a la variable $pre el valor 0.
     for ($i = 0; $i < count($array2); $i++) // Hago un bucle al tamaño de $array2.
@@ -32,8 +33,6 @@ if (isset($_POST["row"])) // Si está seteado $_POST["row"];
     echo "<br><h4>La Suma de Todos los Números es: " . $pre . "</h4>"; // Muestro la suma en pantalla.
     echo "<h4>La Media es: " . $pre . " Dividido la Cantidad de Valores en el Array: " . count($array2) . " = " . $pre / count($array2) . "</h4>"; // Calculo y muestro la media en pantalla.
 
-    sort($array2); // Ordena el array de menor a mayor, para obtener la mediana.
-    print_r($array2); // Muestro el array ordenado de menor a mayor.
     $mediana = count($array2); // Asigno a la variable $mediana la cantidad de posiciones en $array2.
     if (fmod($mediana, 2) == 0) // Si tiene valores pares.
     {
