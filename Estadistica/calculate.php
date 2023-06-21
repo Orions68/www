@@ -32,10 +32,12 @@ if (isset($_POST["row"])) // Si está seteado $_POST["row"];
     echo "<br><h2>La Suma de Todos los Números es: " . $pre . "</h2>"; // Muestro la suma en pantalla.
     echo "<h2>La Media es: " . $pre . " Dividido la Cantidad de Valores en el Array: " . count($array2) . " = " . $pre / count($array2) . "</h2>"; // Calculo y muestro la media en pantalla.
 
+    sort($array2); // Ordena el array de menor a mayor, para obtener la mediana.
+    print_r($array2);
     $mediana = count($array2); // Asigno a la variable $mediana la cantidad de posiciones en $array2.
     if (fmod($mediana, 2) == 0) // Si tiene valores pares.
     {
-        $part = $mediana / 2; // Asigno a la variable $part la mitas de $mediana.
+        $part = $mediana / 2; // Asigno a la variable $part la mitad de $mediana.
         echo "<h2>La Mediana del Array Par de: " . count($array2) . " Valores, es la Suma de la (Posición " . $part - 1 . " del Array + la Posición " . $part . ") Divida en 2 = (" . $array2[$part - 1] . " + " . $array2[$part]. ") / 2 = " . ($array2[$part - 1] + $array2[$part]) / 2 . "</h2>";
     }
     else // Si no, tiene valores impares.
