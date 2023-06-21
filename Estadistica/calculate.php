@@ -33,7 +33,7 @@ if (isset($_POST["row"])) // Si está seteado $_POST["row"];
     echo "<h2>La Media es: " . $pre . " Dividido la Cantidad de Valores en el Array: " . count($array2) . " = " . $pre / count($array2) . "</h2>"; // Calculo y muestro la media en pantalla.
 
     sort($array2); // Ordena el array de menor a mayor, para obtener la mediana.
-    print_r($array2);
+    print_r($array2); // Muestro el array ordenado de menor a mayor.
     $mediana = count($array2); // Asigno a la variable $mediana la cantidad de posiciones en $array2.
     if (fmod($mediana, 2) == 0) // Si tiene valores pares.
     {
